@@ -4,6 +4,9 @@
 
 package com.mycompany.proyectouno;
 
+import com.mycompany.Menus.MenuInicial.MenuInicial;
+
+
 /**
  *
  * @author Kenny
@@ -11,6 +14,9 @@ package com.mycompany.proyectouno;
 public class ProyectoUno {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        MenuInicial menuInicial = new MenuInicial();
+        menuInicial.mostrarInformacion();
+
     }
 }
