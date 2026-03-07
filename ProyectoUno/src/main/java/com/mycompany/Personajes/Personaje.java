@@ -14,6 +14,12 @@ public abstract class Personaje {
     
     private String nombrePersonaje;
     Nave[] flotaObtenida; 
+
+    public Personaje(String nombrePersonaje) {
+        this.nombrePersonaje = nombrePersonaje;
+    }
+    
+    
     
     public abstract void ejecutarOpcion(); 
     

@@ -10,6 +10,10 @@ package com.mycompany.Personajes;
  */
 public class PersonajeDeLaMaquina extends Personaje  {
 
+    public PersonajeDeLaMaquina(String nombrePersonaje) {
+        super(nombrePersonaje);
+    }
+
     @Override
     public void ejecutarOpcion() {
     }

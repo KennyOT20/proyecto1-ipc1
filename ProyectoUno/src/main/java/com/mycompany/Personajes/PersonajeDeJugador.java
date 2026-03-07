@@ -13,6 +13,10 @@ public class PersonajeDeJugador extends Personaje {
     private int creditosGalacticos;
     private int puntosDeTecnologia;
 
+    public PersonajeDeJugador() {
+        super("Ender Wiggin");
+    }
+
     @Override
     public void ejecutarOpcion() {
     }
