@@ -13,16 +13,38 @@ public class PersonajeDeJugador extends Personaje {
     private int creditosGalacticos;
     private int puntosDeTecnologia;
 
-    public PersonajeDeJugador() {
-        super("Ender Wiggin");
+    public PersonajeDeJugador(int cantidadDeFlota) {
+        super("Ender Wiggin", cantidadDeFlota);
     }
-
+    
     @Override
     public void ejecutarOpcion() {
     }
     
+
+
     public void recibirRecompensas(){
         
     }
+
+    public int getCreditosGalacticos() {
+        return creditosGalacticos;
+    }
+
+    public void setCreditosGalacticos(int creditosGalacticos) {
+        this.creditosGalacticos = creditosGalacticos;
+    }
+
+    public int getPuntosDeTecnologia() {
+        return puntosDeTecnologia;
+    }
+
+    public void setPuntosDeTecnologia(int puntosDeTecnologia) {
+        this.puntosDeTecnologia = puntosDeTecnologia;
+    }
+
+    
+    
+    
     
 }

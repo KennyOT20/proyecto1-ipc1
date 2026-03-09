@@ -10,12 +10,15 @@ package com.mycompany.Personajes;
  */
 public class PersonajeDeLaMaquina extends Personaje  {
 
-    public PersonajeDeLaMaquina(String nombrePersonaje) {
-        super(nombrePersonaje);
+    public PersonajeDeLaMaquina(String nombrePersonaje, int cantidadDeFlota) {
+        super(nombrePersonaje, cantidadDeFlota);
     }
+    
 
     @Override
     public void ejecutarOpcion() {
     }
+    
+
     
 }

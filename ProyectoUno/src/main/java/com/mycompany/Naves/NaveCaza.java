@@ -12,27 +12,18 @@ import com.mycompany.Pilotos.Piloto;
  */
 public class NaveCaza extends Nave {
 
-    private final double evasionExtra;
 
-    /**
-     * Constructor que se encarga de enviar los siguientes parametros:
-     * NombreDeNave, capacidadDeComponentes, vida, vidaMax, velocidad, combustiblePremium, puntosDeEnergia y precio de la nave
-     */
-    public NaveCaza() {
-        super("Caza", 4, "Ligero", 200, 200 ,500, 300, 0, 400, 2000);
-        this.evasionExtra = 0.20; 
+    public NaveCaza(String nombreDeNave, int cantidadDeComponentes, String tipoDeNave, int puntosDeVida, int vidaMax, int velocidad, int puntosDeEscudo, int combustiblePremium, int puntosDeEnergia, int precioDeNave) {
+        super(nombreDeNave, cantidadDeComponentes, tipoDeNave, puntosDeVida, vidaMax, velocidad, puntosDeEscudo, combustiblePremium, puntosDeEnergia, precioDeNave);
     }
     
- 
-
     @Override
     public void aplicarAtaque(Nave naveAtacante, Nave naveObjetivo) {
     }
 
     @Override
     public void aplicarHabilidad() {
-        double nuevaEvasion = getEvasionBase() + evasionExtra;
-        setEvasionBase(nuevaEvasion);
+        
     }
 
     @Override

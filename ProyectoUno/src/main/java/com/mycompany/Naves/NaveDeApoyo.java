@@ -12,6 +12,10 @@ import com.mycompany.Pilotos.Piloto;
  */
 public class NaveDeApoyo extends Nave {
 
+    public NaveDeApoyo(String nombreDeNave, int cantidadDeComponentes, String tipoDeNave, int puntosDeVida, int vidaMax, int velocidad, int puntosDeEscudo, int combustiblePremium, int puntosDeEnergia, int precioDeNave) {
+        super(nombreDeNave, cantidadDeComponentes, tipoDeNave, puntosDeVida, vidaMax, velocidad, puntosDeEscudo, combustiblePremium, puntosDeEnergia, precioDeNave);
+    }
+
     @Override
     public void aplicarAtaque(Nave naveAtacante, Nave naveObjetivo) {
     }
@@ -22,7 +26,6 @@ public class NaveDeApoyo extends Nave {
 
     @Override
     public void aplicarEfectoDePiloto(Nave navePiloteada, Piloto pilotoEnTurno) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

@@ -4,7 +4,6 @@
  */
 package com.mycompany.Naves;
 
-import com.mycompany.Componentes.ComponentesDeNaves.ComponenteDeNave;
 import com.mycompany.Pilotos.Piloto;
 
 /**
@@ -13,8 +12,8 @@ import com.mycompany.Pilotos.Piloto;
  */
 public class NaveFragata extends Nave {
 
-    public NaveFragata(String nombreDeNave, int cantidadDeComponentes, ComponenteDeNave[] componentesDeNave, String tipoDeNave, int puntosDeVida, int vidaMax, int velocidad, int puntosDeEscudo, int combustiblePremium, int puntosDeEnergia) {
-        super(nombreDeNave, cantidadDeComponentes, componentesDeNave, tipoDeNave, puntosDeVida, vidaMax, velocidad, puntosDeEscudo, combustiblePremium, puntosDeEnergia);
+    public NaveFragata(String nombreDeNave, int cantidadDeComponentes, String tipoDeNave, int puntosDeVida, int vidaMax, int velocidad, int puntosDeEscudo, int combustiblePremium, int puntosDeEnergia, int precioDeNave) {
+        super(nombreDeNave, cantidadDeComponentes, tipoDeNave, puntosDeVida, vidaMax, velocidad, puntosDeEscudo, combustiblePremium, puntosDeEnergia, precioDeNave);
     }
 
     @Override
