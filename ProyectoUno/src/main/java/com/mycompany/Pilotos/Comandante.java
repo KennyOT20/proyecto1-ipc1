@@ -13,7 +13,7 @@ import com.mycompany.Naves.Nave;
 public class Comandante extends Piloto {
 
     @Override
-    public void ganarExperiencia() {
+    public void bonificacion() {
     }
 
     @Override

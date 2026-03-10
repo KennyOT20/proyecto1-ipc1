@@ -12,7 +12,7 @@ import com.mycompany.Naves.Nave;
  */
 public class SistemaDeManiobra extends Propulsor {
 
-    public SistemaDeManiobra(int consumoDeEnergia, int pesoComponente, String nombreComponente, int velocidadExtra, double evasion) {
+    public SistemaDeManiobra(int consumoDeEnergia, String pesoComponente, String nombreComponente, int velocidadExtra, double evasion) {
         super(consumoDeEnergia, pesoComponente, nombreComponente, velocidadExtra, evasion);
     }
 

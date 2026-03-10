@@ -13,10 +13,12 @@ import com.mycompany.Componentes.ComponentesDeNaves.ComponenteDeNave;
 public abstract class SistemaDeApoyo extends ComponenteDeNave {
     
     private int enfriamiento;
-    
-    public SistemaDeApoyo(int consumoDeEnergia, int pesoComponente, String nombreComponente, int enfriamiento) {
+
+    public SistemaDeApoyo(int consumoDeEnergia, String pesoComponente, String nombreComponente, int enfriamiento) {
         super(consumoDeEnergia, pesoComponente, nombreComponente);
         this.enfriamiento = enfriamiento;
     }
+    
+
     
 }

@@ -13,18 +13,30 @@ import com.mycompany.Naves.Nave;
  */
 public abstract class ComponenteDeNave {
     
-    private int consumoDeEnergia; 
-    private int pesoComponente;
-    private String nombreComponente;
+    private final int consumoDeEnergia; 
+    private final String pesoComponente;
+    private final String nombreComponente;
 
-    public ComponenteDeNave(int consumoDeEnergia, int pesoComponente, String nombreComponente) {
+    public ComponenteDeNave(int consumoDeEnergia, String pesoComponente, String nombreComponente) {
         this.consumoDeEnergia = consumoDeEnergia;
         this.pesoComponente = pesoComponente;
         this.nombreComponente = nombreComponente;
     }
 
     public abstract void aplicarEfectoComponente(Nave naveElegida);
+
+    public int getConsumoDeEnergia() {
+        return consumoDeEnergia;
+    }
+
+    public String getPesoComponente() {
+        return pesoComponente;
+    }
+
+    public String getNombreComponente() {
+        return nombreComponente;
+    }
+
     
-    
-    
+
 }

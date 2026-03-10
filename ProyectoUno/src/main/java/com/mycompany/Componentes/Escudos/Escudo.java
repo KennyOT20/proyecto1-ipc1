@@ -4,10 +4,26 @@
  */
 package com.mycompany.Componentes.Escudos;
 
+import com.mycompany.Componentes.ComponentesDeNaves.ComponenteDeNave;
+
 /**
  *
  * @author Kenny
  */
-public class Escudo {
+public abstract class Escudo extends ComponenteDeNave {
+
+    private int escudoExtra; 
+    
+    public Escudo(int consumoDeEnergia, String pesoComponente, String nombreComponente, int escudoExtra) {
+        super(consumoDeEnergia, pesoComponente, nombreComponente);
+        this.escudoExtra = escudoExtra;
+    }
+
+    public int getEscudoExtra() {
+        return escudoExtra;
+    }
+
+    
+
     
 }

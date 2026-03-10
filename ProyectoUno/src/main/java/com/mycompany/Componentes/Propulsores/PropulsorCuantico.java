@@ -11,8 +11,8 @@ import com.mycompany.Naves.Nave;
  * @author Kenny
  */
 public class PropulsorCuantico extends Propulsor {
-    
-    public PropulsorCuantico(int consumoDeEnergia, int pesoComponente, String nombreComponente, int velocidadExtra, double evasion) {
+
+    public PropulsorCuantico(int consumoDeEnergia, String pesoComponente, String nombreComponente, int velocidadExtra, double evasion) {
         super(consumoDeEnergia, pesoComponente, nombreComponente, velocidadExtra, evasion);
     }
 

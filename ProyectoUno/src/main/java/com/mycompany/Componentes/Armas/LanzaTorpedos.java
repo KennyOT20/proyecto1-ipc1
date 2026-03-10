@@ -12,7 +12,7 @@ import com.mycompany.Naves.Nave;
  */
 public class LanzaTorpedos extends Arma {
 
-    public LanzaTorpedos(int consumoDeEnergia, int pesoComponente, String nombreComponente, int dañoDeArma) {
+    public LanzaTorpedos(int consumoDeEnergia, String pesoComponente, String nombreComponente, int dañoDeArma) {
         super(consumoDeEnergia, pesoComponente, nombreComponente, dañoDeArma);
     }
 

@@ -30,7 +30,6 @@ public abstract class Personaje {
                 return;
             }
         }
-       
     }
     
     public void mostrarNaves(){
@@ -60,12 +59,5 @@ public abstract class Personaje {
         this.flota = flota;
     }
 
-    
-    
-    
-    
-    
-    
-    
     
 }

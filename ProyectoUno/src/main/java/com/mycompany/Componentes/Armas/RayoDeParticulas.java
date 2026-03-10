@@ -12,7 +12,7 @@ import com.mycompany.Naves.Nave;
  */
 public class RayoDeParticulas extends Arma {
 
-    public RayoDeParticulas(int consumoDeEnergia, int pesoComponente, String nombreComponente, int dañoDeArma) {
+    public RayoDeParticulas(int consumoDeEnergia, String pesoComponente, String nombreComponente, int dañoDeArma) {
         super(consumoDeEnergia, pesoComponente, nombreComponente, dañoDeArma);
     }
 

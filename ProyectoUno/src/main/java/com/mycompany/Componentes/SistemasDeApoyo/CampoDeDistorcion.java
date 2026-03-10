@@ -12,7 +12,7 @@ import com.mycompany.Naves.Nave;
  */
 public class CampoDeDistorcion extends SistemaDeApoyo {
 
-    public CampoDeDistorcion(int consumoDeEnergia, int pesoComponente, String nombreComponente, int enfriamiento) {
+    public CampoDeDistorcion(int consumoDeEnergia, String pesoComponente, String nombreComponente, int enfriamiento) {
         super(consumoDeEnergia, pesoComponente, nombreComponente, enfriamiento);
     }
 

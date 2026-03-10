@@ -12,7 +12,7 @@ import com.mycompany.Naves.Nave;
  */
 public class CampoDeMinas extends Arma {
 
-    public CampoDeMinas(int consumoDeEnergia, int pesoComponente, String nombreComponente, int dañoDeArma) {
+    public CampoDeMinas(int consumoDeEnergia, String pesoComponente, String nombreComponente, int dañoDeArma) {
         super(consumoDeEnergia, pesoComponente, nombreComponente, dañoDeArma);
     }
 

@@ -12,7 +12,7 @@ import com.mycompany.Naves.Nave;
  */
 public class NucleoDeSobreCarga extends SistemaDeApoyo {
 
-    public NucleoDeSobreCarga(int consumoDeEnergia, int pesoComponente, String nombreComponente, int enfriamiento) {
+    public NucleoDeSobreCarga(int consumoDeEnergia, String pesoComponente, String nombreComponente, int enfriamiento) {
         super(consumoDeEnergia, pesoComponente, nombreComponente, enfriamiento);
     }
 

@@ -12,7 +12,7 @@ import com.mycompany.Naves.Nave;
  */
 public class CamuflajeTactico extends SistemaDeApoyo {
 
-    public CamuflajeTactico(int consumoDeEnergia, int pesoComponente, String nombreComponente, int enfriamiento) {
+    public CamuflajeTactico(int consumoDeEnergia, String pesoComponente, String nombreComponente, int enfriamiento) {
         super(consumoDeEnergia, pesoComponente, nombreComponente, enfriamiento);
     }
 

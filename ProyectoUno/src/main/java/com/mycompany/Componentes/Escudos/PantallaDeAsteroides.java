@@ -4,10 +4,20 @@
  */
 package com.mycompany.Componentes.Escudos;
 
+import com.mycompany.Naves.Nave;
+
 /**
  *
  * @author Kenny
  */
-public class PantallaDeAsteroides {
+public class PantallaDeAsteroides extends Escudo{
+
+    public PantallaDeAsteroides(int consumoDeEnergia, String pesoComponente, String nombreComponente, int escudoExtra) {
+        super(consumoDeEnergia, pesoComponente, nombreComponente, escudoExtra);
+    }
+
+    @Override
+    public void aplicarEfectoComponente(Nave naveElegida) {
+    }
     
 }

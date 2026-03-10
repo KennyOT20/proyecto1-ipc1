@@ -12,7 +12,7 @@ import com.mycompany.Naves.Nave;
  */
 public class GeneradorEscudoDeEmergencia extends SistemaDeApoyo {
 
-    public GeneradorEscudoDeEmergencia(int consumoDeEnergia, int pesoComponente, String nombreComponente, int enfriamiento) {
+    public GeneradorEscudoDeEmergencia(int consumoDeEnergia, String pesoComponente, String nombreComponente, int enfriamiento) {
         super(consumoDeEnergia, pesoComponente, nombreComponente, enfriamiento);
     }
 

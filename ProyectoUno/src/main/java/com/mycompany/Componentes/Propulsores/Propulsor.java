@@ -5,7 +5,6 @@
 package com.mycompany.Componentes.Propulsores;
 
 import com.mycompany.Componentes.ComponentesDeNaves.ComponenteDeNave;
-import com.mycompany.Naves.Nave;
 
 /**
  *
@@ -15,12 +14,12 @@ public abstract class Propulsor extends ComponenteDeNave {
 
     private int velocidadExtra;
     private double evasion; 
-    
-    public Propulsor(int consumoDeEnergia, int pesoComponente, String nombreComponente, int velocidadExtra,  double evasion) {
+
+    public Propulsor(int consumoDeEnergia, String pesoComponente, String nombreComponente, int velocidadExtra, double evasion) {
         super(consumoDeEnergia, pesoComponente, nombreComponente);
         this.velocidadExtra = velocidadExtra;
         this.evasion = evasion;
+        
     }
 
-    
 }

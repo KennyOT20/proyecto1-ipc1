@@ -12,7 +12,7 @@ import com.mycompany.Naves.Nave;
  */
 public class MisilTeledirigido extends Arma {
 
-    public MisilTeledirigido(int consumoDeEnergia, int pesoComponente, String nombreComponente, int dañoDeArma) {
+    public MisilTeledirigido(int consumoDeEnergia, String pesoComponente, String nombreComponente, int dañoDeArma) {
         super(consumoDeEnergia, pesoComponente, nombreComponente, dañoDeArma);
     }
 

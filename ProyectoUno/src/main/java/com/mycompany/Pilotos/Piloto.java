@@ -23,7 +23,7 @@ public abstract class Piloto {
         nivel ++;   
     }
     
-    public abstract void ganarExperiencia();
+    public abstract void bonificacion();
     public abstract void aplicarHabilidadPiloto(Nave navePiloteada);
     
 }

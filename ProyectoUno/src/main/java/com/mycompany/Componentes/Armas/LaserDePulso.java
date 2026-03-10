@@ -12,7 +12,7 @@ import com.mycompany.Naves.Nave;
  */
 public class LaserDePulso extends Arma {
 
-    public LaserDePulso(int consumoDeEnergia, int pesoComponente, String nombreComponente, int dañoDeArma) {
+    public LaserDePulso(int consumoDeEnergia, String pesoComponente, String nombreComponente, int dañoDeArma) {
         super(consumoDeEnergia, pesoComponente, nombreComponente, dañoDeArma);
     }
 

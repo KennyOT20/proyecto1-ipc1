@@ -11,8 +11,8 @@ import com.mycompany.Naves.Nave;
  * @author Kenny
  */
 public class TurboCompresor extends Propulsor {
-    
-    public TurboCompresor(int consumoDeEnergia, int pesoComponente, String nombreComponente, int velocidadExtra, double evasion) {
+
+    public TurboCompresor(int consumoDeEnergia, String pesoComponente, String nombreComponente, int velocidadExtra, double evasion) {
         super(consumoDeEnergia, pesoComponente, nombreComponente, velocidadExtra, evasion);
     }
 

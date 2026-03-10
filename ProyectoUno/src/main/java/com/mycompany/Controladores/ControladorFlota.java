@@ -4,7 +4,7 @@
  */
 package com.mycompany.Controladores;
 
-import com.mycompany.Generadores.GeneradorDeNaves;
+import com.mycompany.Generadores.GeneradorDeNaves.GeneradorDeNaves;
 import com.mycompany.Naves.Nave;
 import com.mycompany.Personajes.PersonajeDeJugador;
 
@@ -14,7 +14,7 @@ import com.mycompany.Personajes.PersonajeDeJugador;
  */
 public class ControladorFlota {
     
-    private GeneradorDeNaves generarNaves;
+    private final GeneradorDeNaves generarNaves;
     
     public ControladorFlota(){
         this.generarNaves = new GeneradorDeNaves();

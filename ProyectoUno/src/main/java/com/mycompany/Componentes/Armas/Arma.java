@@ -13,18 +13,13 @@ import java.util.Random;
  */
 public abstract class Arma extends ComponenteDeNave {
     
-    private final Random  random = new Random();
     private int dañoDeArma;
 
-    public Arma(int consumoDeEnergia, int pesoComponente, String nombreComponente, int dañoDeArma) {
+    public Arma(int consumoDeEnergia, String pesoComponente, String nombreComponente, int dañoDeArma) {
         super(consumoDeEnergia, pesoComponente, nombreComponente);
         this.dañoDeArma = dañoDeArma;
     }
-    
-    protected int  calcularAtaque(int valorInicial, int valorFinal){
-        int valorCalculado = random.nextInt(valorInicial, valorFinal);
-        return valorCalculado;
-    }
+
     
     public int getDañoDeArma() {
         return dañoDeArma;
