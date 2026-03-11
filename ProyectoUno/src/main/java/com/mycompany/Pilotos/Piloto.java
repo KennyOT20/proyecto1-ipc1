@@ -13,14 +13,27 @@ import com.mycompany.Naves.Nave;
 public abstract class Piloto {
     
     private String nombrePiloto;
-    private int puntosExperiencia;
     private int nivel;
+    private int puntosDeExperiencia;
     private int puntosDeEstrategia;
+    private int puntosDePilotaje;
+    private int puntosDeIngenieria;
     private int puntosDeLiderazgo;
-    private int puntosDeResistencia; 
-    
+    private int puntosDeResistencia;
+
+    public Piloto(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, int puntosDePilotaje, int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia) {
+        this.nombrePiloto = nombrePiloto;
+        this.nivel = nivel;
+        this.puntosDeExperiencia = puntosDeExperiencia;
+        this.puntosDeEstrategia = puntosDeEstrategia;
+        this.puntosDePilotaje = puntosDePilotaje;
+        this.puntosDeIngenieria = puntosDeIngenieria;
+        this.puntosDeLiderazgo = puntosDeLiderazgo;
+        this.puntosDeResistencia = puntosDeResistencia;
+    }
+
     public void subirNivel(){
-        nivel ++;   
+      
     }
     
     public abstract void bonificacion();

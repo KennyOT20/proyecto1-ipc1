@@ -12,6 +12,10 @@ import com.mycompany.Naves.Nave;
  */
 public class Ace extends Piloto {
 
+    public Ace(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, int puntosDePilotaje, int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia) {
+        super(nombrePiloto, nivel, puntosDeExperiencia, puntosDeEstrategia, puntosDePilotaje, puntosDeIngenieria, puntosDeLiderazgo, puntosDeResistencia);
+    }
+
     @Override
     public void bonificacion() {
     }

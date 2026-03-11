@@ -26,7 +26,6 @@ public class NaveFragata extends Nave {
 
     @Override
     public void aplicarEfectoDePiloto(Nave navePiloteada, Piloto pilotoEnTurno) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }
