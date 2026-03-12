@@ -12,12 +12,19 @@ import com.mycompany.Naves.Nave;
  */
 public class Comandante extends Piloto {
 
-    public Comandante(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, int puntosDePilotaje, int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia) {
-        super(nombrePiloto, nivel, puntosDeExperiencia, puntosDeEstrategia, puntosDePilotaje, puntosDeIngenieria, puntosDeLiderazgo, puntosDeResistencia);
+    public Comandante(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, 
+            int puntosDePilotaje, int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia) {
+        super(nombrePiloto, nivel, puntosDeExperiencia, puntosDeEstrategia, puntosDePilotaje, 
+                puntosDeIngenieria, puntosDeLiderazgo, puntosDeResistencia);
     }
 
     @Override
     public void bonificacion() {
+         setPuntosDeIngenieria(getPuntosDeIngenieria() + 2);
+         setPuntosDeEstrategia(getPuntosDeEstrategia() + 1);
+         setPuntosDeLiderazgo(getPuntosDeLiderazgo() + 1);
+         setPuntosDePilotaje(getPuntosDePilotaje() + 1);
+         setPuntosDeResistencia(getPuntosDeResistencia() + 1);
     }
 
     @Override

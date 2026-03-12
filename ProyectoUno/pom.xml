@@ -10,4 +10,30 @@
         <maven.compiler.release>25</maven.compiler.release>
         <exec.mainClass>com.mycompany.proyectouno.ProyectoUno</exec.mainClass>
     </properties>
+    <build>
+<plugins>
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-jar-plugin</artifactId>
+<!--
+ Here come other details
+                ...
+                
+-->
+<configuration>
+<archive>
+<manifest>
+<addClasspath>true</addClasspath>
+<mainClass>com.mycompany.proyectouno.ProyectoUno</mainClass>
+</manifest>
+</archive>
+</configuration>
+<!--
+ Here come other details
+                ...
+                
+-->
+</plugin>
+</plugins>
+</build>
 </project>

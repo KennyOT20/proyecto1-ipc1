@@ -37,6 +37,69 @@ public abstract class Piloto {
     }
     
     public abstract void bonificacion();
-    public abstract void aplicarHabilidadPiloto(Nave navePiloteada);
-    
+    public abstract void aplicarHabilidadPiloto(Nave nave);
+
+    public String getNombrePiloto() {
+        return nombrePiloto;
+    }
+
+    public void setNombrePiloto(String nombrePiloto) {
+        this.nombrePiloto = nombrePiloto;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public int getPuntosDeExperiencia() {
+        return puntosDeExperiencia;
+    }
+
+    public void setPuntosDeExperiencia(int puntosDeExperiencia) {
+        this.puntosDeExperiencia = puntosDeExperiencia;
+    }
+
+    public int getPuntosDeEstrategia() {
+        return puntosDeEstrategia;
+    }
+
+    public void setPuntosDeEstrategia(int puntosDeEstrategia) {
+        this.puntosDeEstrategia = puntosDeEstrategia;
+    }
+
+    public int getPuntosDePilotaje() {
+        return puntosDePilotaje;
+    }
+
+    public void setPuntosDePilotaje(int puntosDePilotaje) {
+        this.puntosDePilotaje = puntosDePilotaje;
+    }
+
+    public int getPuntosDeIngenieria() {
+        return puntosDeIngenieria;
+    }
+
+    public void setPuntosDeIngenieria(int puntosDeIngenieria) {
+        this.puntosDeIngenieria = puntosDeIngenieria;
+    }
+
+    public int getPuntosDeLiderazgo() {
+        return puntosDeLiderazgo;
+    }
+
+    public void setPuntosDeLiderazgo(int puntosDeLiderazgo) {
+        this.puntosDeLiderazgo = puntosDeLiderazgo;
+    }
+
+    public int getPuntosDeResistencia() {
+        return puntosDeResistencia;
+    }
+
+    public void setPuntosDeResistencia(int puntosDeResistencia) {
+        this.puntosDeResistencia = puntosDeResistencia;
+    }
 }

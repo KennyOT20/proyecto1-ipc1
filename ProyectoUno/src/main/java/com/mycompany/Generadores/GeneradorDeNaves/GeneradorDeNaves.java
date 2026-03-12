@@ -17,7 +17,7 @@ import com.mycompany.Naves.NaveFragata;
 public class GeneradorDeNaves {
     
     /**
-     * Serie de metodos  encargados de crear las naves reciben como parametros : 
+     * Serie de Metodos  encargados de crear lazs naves reciben como parametros : 
      * nombreDeNave, cantidadDeComponentes, tipoDeNave, puntosDeVida, vidaMax, 
      * velocidad,  puntosDeEscudo, combustiblePremium, puntosDeEnergia, precioDeNave
      * @return 

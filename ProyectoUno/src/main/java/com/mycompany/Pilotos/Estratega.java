@@ -12,16 +12,40 @@ import com.mycompany.Naves.Nave;
  */
 public class Estratega extends Piloto {
 
-    public Estratega(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, int puntosDePilotaje, int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia) {
-        super(nombrePiloto, nivel, puntosDeExperiencia, puntosDeEstrategia, puntosDePilotaje, puntosDeIngenieria, puntosDeLiderazgo, puntosDeResistencia);
+    private final int turnoPerdido; 
+    private final int turnoEnfriamiento;
+    
+    public Estratega(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, 
+            int puntosDePilotaje, int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia) {
+        super(nombrePiloto, nivel, puntosDeExperiencia, puntosDeEstrategia, puntosDePilotaje, 
+                puntosDeIngenieria, puntosDeLiderazgo, puntosDeResistencia);
+        this.turnoPerdido = 1;
+        this.turnoEnfriamiento = 1;
     }
 
     @Override
     public void bonificacion() {
+        int puntosEstrategia =  3;
+        int puntosLiderazgo = 1;
+        
+        setPuntosDeEstrategia(puntosEstrategia);
+        setPuntosDeLiderazgo(puntosLiderazgo);        
     }
 
     @Override
-    public void aplicarHabilidadPiloto(Nave navePiloteada) {
+    public void aplicarHabilidadPiloto(Nave naveEnemiga) {
     }
+    
+    
+
+    public int getTurnoPerdido() {
+        return turnoPerdido;
+    }
+
+    public int getTurnoEnfriamiento() {
+        return turnoEnfriamiento;
+    }
+    
+    
     
 }

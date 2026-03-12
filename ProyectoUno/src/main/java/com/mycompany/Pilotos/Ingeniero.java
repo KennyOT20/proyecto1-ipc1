@@ -12,16 +12,26 @@ import com.mycompany.Naves.Nave;
  */
 public class Ingeniero extends Piloto{
 
-    public Ingeniero(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, int puntosDePilotaje, int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia) {
-        super(nombrePiloto, nivel, puntosDeExperiencia, puntosDeEstrategia, puntosDePilotaje, puntosDeIngenieria, puntosDeLiderazgo, puntosDeResistencia);
+    private final int  turnosEnfriamiento;
+    
+    public Ingeniero(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, int puntosDePilotaje,
+            int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia) {
+        super(nombrePiloto, nivel, puntosDeExperiencia, puntosDeEstrategia, puntosDePilotaje, puntosDeIngenieria, 
+                puntosDeLiderazgo, puntosDeResistencia);
+        this.turnosEnfriamiento = 2;
     }
 
     @Override
     public void bonificacion() {
+        int puntosIngeniero = 3;
+        setPuntosDeIngenieria(getPuntosDeIngenieria() + puntosIngeniero);
     }
 
     @Override
-    public void aplicarHabilidadPiloto(Nave navePiloteada) {
+    public void aplicarHabilidadPiloto(Nave naveElegida) {
+        int hpRecuperado = naveElegida.getVidaMax();
+        
+        naveElegida.setPuntosDeVida(naveElegida.getPuntosDeVida() + hpRecuperado);
     }
     
 }

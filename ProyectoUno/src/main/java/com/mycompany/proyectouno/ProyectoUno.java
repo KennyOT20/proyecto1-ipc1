@@ -4,6 +4,7 @@
 
 package com.mycompany.proyectouno;
 
+import com.mycompany.Mapas.Mapas.MapaBase;
 import com.mycompany.Menus.MenuInicial.MenuInicial;
 
 
@@ -15,8 +16,9 @@ public class ProyectoUno {
 
     public static void main(String[] args) {
         
-        MenuInicial menuInicial = new MenuInicial();
-        menuInicial.mostrarInformacion();
+        MapaBase mapaBase = new MapaBase(25, 30);
+        mapaBase.generarMapa();
+        mapaBase.imprimirMapa();
 
     }
 }

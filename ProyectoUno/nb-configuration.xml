@@ -8,8 +8,10 @@ Without this configuration present, some functionality in the IDE may be limited
 -->
     <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
         <word>crear</word>
+        <word>las</word>
         <word>los</word>
         <word>Metodos</word>
         <word>nivel</word>
+        <word>velocidad</word>
     </spellchecker-wordlist>
 </project-shared-configuration>

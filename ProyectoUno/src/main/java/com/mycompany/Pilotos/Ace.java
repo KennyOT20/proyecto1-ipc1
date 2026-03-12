@@ -12,16 +12,28 @@ import com.mycompany.Naves.Nave;
  */
 public class Ace extends Piloto {
 
-    public Ace(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, int puntosDePilotaje, int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia) {
-        super(nombrePiloto, nivel, puntosDeExperiencia, puntosDeEstrategia, puntosDePilotaje, puntosDeIngenieria, puntosDeLiderazgo, puntosDeResistencia);
+    public Ace(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, int puntosDePilotaje,
+            int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia) {
+        super(nombrePiloto, nivel, puntosDeExperiencia, puntosDeEstrategia, puntosDePilotaje, puntosDeIngenieria,
+                puntosDeLiderazgo, puntosDeResistencia);
     }
 
     @Override
     public void bonificacion() {
+        int puntosPilotaje =+ 3;
+        setPuntosDePilotaje(puntosPilotaje); 
     }
+    
+    private void bonificacionNave(Nave navePiloteada){
+        int puntosSP = 2;
+        navePiloteada.setVelocidad(navePiloteada.getVelocidad() +  puntosSP);
+    }
+    
 
     @Override
     public void aplicarHabilidadPiloto(Nave navePiloteada) {
+      double probabilidadExtra = 0.60;
+      navePiloteada.setEvasionBase(probabilidadExtra);
     }
     
 }

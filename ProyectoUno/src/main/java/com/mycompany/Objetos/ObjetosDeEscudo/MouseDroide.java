@@ -4,10 +4,20 @@
  */
 package com.mycompany.Objetos.ObjetosDeEscudo;
 
+import com.mycompany.Naves.Nave;
+
 /**
  *
  * @author Kenny
  */
 public class MouseDroide extends ObjetoDeEscudo {
+
+    public MouseDroide(String nombreDeObjeto, int precioDeObjeto) {
+        super(nombreDeObjeto, precioDeObjeto);
+    }
+
+    @Override
+    public void efectoEspecialObjeto(Nave naveElegida) {
+    }
     
 }
