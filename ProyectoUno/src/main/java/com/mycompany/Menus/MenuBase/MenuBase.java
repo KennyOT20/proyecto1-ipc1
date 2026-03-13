@@ -13,6 +13,7 @@ import java.util.Scanner;
 public abstract class MenuBase{
     
     private final Scanner scanner = new Scanner(System.in);
+    private final int CANTIDAD_DE_ANCHO = 60;
     
     public abstract void mostrarInformacion();
     public abstract void ejecutarOpcion(int opcion);
@@ -38,9 +39,30 @@ public abstract class MenuBase{
        
     }
     
-    public void limpiarPantalla(){
+    protected void limpiarPantalla(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
+    
+     protected void imprimirBordeDeMenu(){
+        for (int i = 0; i < CANTIDAD_DE_ANCHO; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+    
+    protected void imprimirLineaDeTexto(String textoIngresado){
+        System.out.print("||");
+        System.out.print(textoIngresado);
+        
+        int anchoConTexto = CANTIDAD_DE_ANCHO - 4 - textoIngresado.length();
+        
+        for (int i = 0; i < anchoConTexto; i++) {
+            System.out.print(" ");
+        }
+        
+        System.out.println("||");
+    }
+    
     
 }

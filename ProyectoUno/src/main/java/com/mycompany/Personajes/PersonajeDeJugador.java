@@ -12,6 +12,7 @@ public class PersonajeDeJugador extends Personaje {
 
     private int creditosGalacticos;
     private int puntosDeTecnologia;
+    private String SIMBOLO_FLOTA = "▲";
 
     public PersonajeDeJugador(int cantidadDeFlota) {
         super("Ender Wiggin", cantidadDeFlota);
@@ -41,6 +42,10 @@ public class PersonajeDeJugador extends Personaje {
 
     public void setPuntosDeTecnologia(int puntosDeTecnologia) {
         this.puntosDeTecnologia = puntosDeTecnologia;
+    }
+
+    public String getSIMBOLO_FLOTA() {
+        return SIMBOLO_FLOTA;
     }
 
     
