@@ -4,7 +4,9 @@
  */
 package com.mycompany.Controladores.ControladorFlota;
 
+import com.mycompany.Componentes.ComponentesDeNaves.ComponenteDeNave;
 import com.mycompany.Controladores.ControladorDeRandom.ControladorRandom;
+import com.mycompany.Generadores.GeneradorDeComponentesNave.GeneradorDeArmas;
 import com.mycompany.Generadores.GeneradorDeNaves.GeneradorDeNaves;
 import com.mycompany.Naves.Nave;
 import com.mycompany.Personajes.PersonajeDeJugador;
@@ -17,12 +19,13 @@ import com.mycompany.Personajes.PersonajeDeLaMaquina;
 public class ControladorFlota {
     
     private final GeneradorDeNaves generarNaves;
-    private final ControladorRandom random;
     private final Nave[] arregloDeNaves;
+    
+    private final ControladorRandom random;
     
     public ControladorFlota(){
         this.generarNaves = new GeneradorDeNaves();
-        this.arregloDeNaves = new Nave[3];
+        this.arregloDeNaves = new Nave[4];
         this.random = new ControladorRandom();
     }
     
@@ -48,15 +51,5 @@ public class ControladorFlota {
         }
     }
     
-    public void generarArregloDeNaves(){
-        Nave fragata = generarNaves.crearFragata();
-        Nave acorazado = generarNaves.crearAcorazado();
-        Nave naveApoyo = generarNaves.crearNaveApoyo();
-        Nave caza = generarNaves.crearCaza();
-        arregloDeNaves[0] = fragata;
-        arregloDeNaves[1] = acorazado;
-        arregloDeNaves[2] = naveApoyo;
-        arregloDeNaves[3] = caza;
-    }
     
 }
