@@ -29,6 +29,8 @@ public class ControladorFlota {
         this.random = new ControladorRandom();
     }
     
+    
+    
     /**
      * Metodo encargado de darle la nave inicial fragata al jugador
      * @param personajeJugador recibe como parametro al personaje del jugador
@@ -36,6 +38,10 @@ public class ControladorFlota {
     public void asignarFlotaInicialJugador(PersonajeDeJugador personajeJugador){
         Nave fragata = generarNaves.crearFragata();
         personajeJugador.agregarNave(fragata);
+    }
+    
+    public void agregarCompentesRandom(Nave naveElegida){
+        
     }
     
     /**
