@@ -5,8 +5,8 @@
 package com.mycompany.Generadores.GeneradorDeObjetos.GeneradorObjetosCuracion;
 
 import com.mycompany.Objetos.ObjetosDeCuracion.DronDeCuracion;
-import com.mycompany.Objetos.ObjetosDeCuracion.Https35;
-import com.mycompany.Objetos.ObjetosDeCuracion.Isotope5;
+import com.mycompany.Objetos.ObjetosDeCuracion.DroideDeHp;
+import com.mycompany.Objetos.ObjetosDeCuracion.SistemaDeCuracion;
 import com.mycompany.Objetos.ObjetosDeCuracion.ObjetoDeCuracion;
 
 /**
@@ -25,11 +25,11 @@ public class GeneradorObjetosCuracion {
     }
     
     public ObjetoDeCuracion crearHttps5(){
-        return new Https35("Https35", 200);
+        return new DroideDeHp("Https35", 200);
     }
     
     public ObjetoDeCuracion crearIsotope5(){
-        return new Isotope5("Isotope5", 800);
+        return new SistemaDeCuracion("Isotope5", 800);
     }
     
 }

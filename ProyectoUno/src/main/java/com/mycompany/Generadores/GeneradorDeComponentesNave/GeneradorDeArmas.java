@@ -62,8 +62,7 @@ public class GeneradorDeArmas {
     }
     
     private int calcularDaño(int valorMin, int valorMax){
-        int dañoCalculado;
-        return dañoCalculado = random.nextInt(valorMin, valorMax);
+        return random.nextInt(valorMin, valorMax);
     }
     
 }

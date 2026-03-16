@@ -21,4 +21,16 @@ public abstract class ObjetoPrincipal {
     }
 
     public abstract void efectoEspecialObjeto(Nave naveElegida);
+
+    public String getNombreDeObjeto() {
+        return nombreDeObjeto;
+    }
+
+    public int getPrecioDeObjeto() {
+        return precioDeObjeto;
+    }
+    
+    
 }
+
+

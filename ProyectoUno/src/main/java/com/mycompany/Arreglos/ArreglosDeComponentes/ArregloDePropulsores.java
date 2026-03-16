@@ -4,51 +4,30 @@
  */
 package com.mycompany.Arreglos.ArreglosDeComponentes;
 
-import com.mycompany.Componentes.ComponentesDeNaves.ComponenteDeNave;
 import com.mycompany.Generadores.GeneradorDeComponentesNave.GeneradorDePropulsores;
+
 
 /**
  *
  * @author Kenny
  */
-public class ArregloDePropulsores {
-    private final ComponenteDeNave[] propulsores;
-    private final GeneradorDePropulsores crearPropulsores;
+public class ArregloDePropulsores extends ArregloDeComponentes {
+
+    private final GeneradorDePropulsores crearPropulsor;
     
-    public ArregloDePropulsores(){
-        this.propulsores = new ComponenteDeNave[4];
-        this.crearPropulsores = new GeneradorDePropulsores();
-    }
-    
-    public void generarArregloDePropulsores(){
-        for (int i = 0; i < propulsores.length; i++) {
-            switch(i){
-                case 0:
-                    propulsores[i] = crearPropulsores.crearMicroPropulsor();
-                    break;
-                case 1:
-                    propulsores[i]  = crearPropulsores.crearPropulsorCuantico();
-                    break;
-                case 2:
-                    propulsores[i] = crearPropulsores.crearSistemaDeManiobra();
-                    break;
-                case 3:
-                    propulsores[i] = crearPropulsores.crearTurboCompresor();
-                    break;
-            }
-        }
-    }
-    
-    public void mostrarArregloDePropulsores(){
-        for (int i = 0; i < propulsores.length; i++) {
-            System.out.println((i + 1) + propulsores[i].getNombreComponente());
-        }
+    public ArregloDePropulsores() {
+        super(4);
+        this.crearPropulsor = new GeneradorDePropulsores();
     }
 
-    public ComponenteDeNave[] getPropulsores() {
-        return propulsores;
+    @Override
+    public void crearArreglo() {
+        getArregloDeComponentes()[1] = crearPropulsor.crearMicroPropulsor();
+        getArregloDeComponentes()[2] = crearPropulsor.crearPropulsorCuantico();
+        getArregloDeComponentes()[3] = crearPropulsor.crearSistemaDeManiobra();
+        getArregloDeComponentes()[4] = crearPropulsor.crearTurboCompresor();
     }
-    
+
     
     
 }

@@ -4,7 +4,7 @@
  */
 package com.mycompany.Generadores.GeneradorDeMApa;
 
-import com.mycompany.Controladores.ControladorDeRandom.ControladorRandom;
+import com.mycompany.Controladores.ControladorRandom.ControladorRandom;
 import com.mycompany.Mapas.Mapas.MapaBase;
 import com.mycompany.Mapas.Mapas.MapaDeEstrella;
 import com.mycompany.Mapas.Mapas.MapaGalactico;

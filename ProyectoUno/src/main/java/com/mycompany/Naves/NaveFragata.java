@@ -27,5 +27,9 @@ public class NaveFragata extends Nave {
     @Override
     public void aplicarEfectoDePiloto(Nave navePiloteada, Piloto pilotoEnTurno) {
     }
+
+    @Override
+    public void clonarNave() {
+    }
     
 }

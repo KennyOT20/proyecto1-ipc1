@@ -33,11 +33,11 @@ public class GeneradorDeNaves {
     }
     
     public Nave crearFragata(){
-        return new NaveFragata("Fragata", 5, "Media", 1200, 1200,  600, 200, 0, 1200, 1500);
+        return new NaveFragata("Fragata", 5, "Normal", 1200, 1200,  600, 200, 0, 1200, 1500);
     }
     
     public Nave crearNaveApoyo(){
-        return new NaveDeApoyo("Nave de apoyo", 6, "Media", 800, 800, 500, 400, 0, 200, 600);
+        return new NaveDeApoyo("Nave de apoyo", 6, "Normal", 800, 800, 500, 400, 0, 200, 600);
     }
     
 }

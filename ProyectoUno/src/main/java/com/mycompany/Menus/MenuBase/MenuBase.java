@@ -63,6 +63,4 @@ public abstract class MenuBase{
         
         System.out.println("||");
     }
-    
-    
 }

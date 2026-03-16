@@ -10,9 +10,9 @@ import com.mycompany.Naves.Nave;
  *
  * @author Kenny
  */
-public class MouseDroide extends ObjetoDeEscudo {
+public class EscudoDeHierro extends ObjetoDeEscudo {
 
-    public MouseDroide(String nombreDeObjeto, int precioDeObjeto) {
+    public EscudoDeHierro(String nombreDeObjeto, int precioDeObjeto) {
         super(nombreDeObjeto, precioDeObjeto);
     }
 

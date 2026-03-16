@@ -45,6 +45,7 @@ public abstract class Nave {
     public abstract void aplicarAtaque(Nave naveAtacante , Nave naveObjetivo);
     public abstract void aplicarEfectoDePiloto(Nave navePiloteada, Piloto pilotoEnTurno);
     public abstract void aplicarHabilidad();
+    public abstract void clonarNave();
     
     
     public void verficarCapacidadDeComponentes (int cantidadComponentes){

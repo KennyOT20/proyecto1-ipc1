@@ -10,9 +10,9 @@ import com.mycompany.Naves.Nave;
  *
  * @author Kenny
  */
-public class HydroSpanner extends ObjetoDeEscudo{
+public class EscudoRegenerativo extends ObjetoDeEscudo {
 
-    public HydroSpanner(String nombreDeObjeto, int precioDeObjeto) {
+    public EscudoRegenerativo(String nombreDeObjeto, int precioDeObjeto) {
         super(nombreDeObjeto, precioDeObjeto);
     }
 

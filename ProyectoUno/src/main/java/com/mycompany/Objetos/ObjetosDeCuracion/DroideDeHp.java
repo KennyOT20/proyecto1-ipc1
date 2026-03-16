@@ -10,9 +10,9 @@ import com.mycompany.Naves.Nave;
  *
  * @author Kenny
  */
-public class Isotope5 extends ObjetoDeCuracion {
+public class DroideDeHp extends ObjetoDeCuracion {
 
-    public Isotope5(String nombreDeObjeto, int precioDeObjeto) {
+    public DroideDeHp(String nombreDeObjeto, int precioDeObjeto) {
         super(nombreDeObjeto, precioDeObjeto);
     }
 

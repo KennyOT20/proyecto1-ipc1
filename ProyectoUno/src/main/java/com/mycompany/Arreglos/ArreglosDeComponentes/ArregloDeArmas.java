@@ -4,57 +4,30 @@
  */
 package com.mycompany.Arreglos.ArreglosDeComponentes;
 
-import com.mycompany.Componentes.ComponentesDeNaves.ComponenteDeNave;
 import com.mycompany.Generadores.GeneradorDeComponentesNave.GeneradorDeArmas;
+
 
 /**
  *
  * @author Kenny
  */
-public class ArregloDeArmas {
+public class ArregloDeArmas extends ArregloDeComponentes {
+
+    private final GeneradorDeArmas crearArma;
     
-    private final ComponenteDeNave[] armas;
-    private final GeneradorDeArmas generarArmas;
-    
-    public ArregloDeArmas(){
-        this.armas = new ComponenteDeNave[5];
-        this.generarArmas = new GeneradorDeArmas();
-    }
-    
-    public void generarArreglo(){
-        for (int i = 0; i < armas.length; i++) {
-            switch(i){
-                case 0 :
-                    armas[i] = generarArmas.crearCampoDeMinas();
-                    break;
-                case 1:
-                    armas[i] = generarArmas.crearCañonDeLones();  
-                    break;
-                case 2:
-                    armas[i] = generarArmas.crearLanzaTorpedos();
-                    break;
-                case 3:
-                    armas[i] = generarArmas.crearLaserDePulsos();
-                    break;
-                case 4:
-                    armas[i] = generarArmas.crearMisilTeledirigido();
-                    break;
-                case 5:
-                    armas[i] = generarArmas.crearRayoDeParticulas();
-                    break;
-            }
-        }
-    }
-    
-    public void mostrarArregloDeArmas(){
-        for (int i = 0; i < armas.length; i++) {
-            System.out.println((i + 1) + armas[i].getNombreComponente());
-        }    
+    public ArregloDeArmas() {
+        super(6);
+        this.crearArma = new GeneradorDeArmas();
     }
 
-    public ComponenteDeNave[] getArmas() {
-        return armas;
+    @Override
+    public void crearArreglo() {
+        getArregloDeComponentes()[0] = crearArma.crearCampoDeMinas();
+        getArregloDeComponentes()[1] = crearArma.crearCañonDeLones();
+        getArregloDeComponentes()[2] = crearArma.crearLanzaTorpedos();
+        getArregloDeComponentes()[3] = crearArma.crearLaserDePulsos();
+        getArregloDeComponentes()[4] = crearArma.crearMisilTeledirigido();
+        getArregloDeComponentes()[5] = crearArma.crearRayoDeParticulas();
     }
-    
-    
+
 }

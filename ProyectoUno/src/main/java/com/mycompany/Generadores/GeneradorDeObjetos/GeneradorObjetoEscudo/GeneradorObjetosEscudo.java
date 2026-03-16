@@ -4,9 +4,9 @@
  */
 package com.mycompany.Generadores.GeneradorDeObjetos.GeneradorObjetoEscudo;
 
-import com.mycompany.Objetos.ObjetosDeEscudo.CupulaDeHierro;
-import com.mycompany.Objetos.ObjetosDeEscudo.HydroSpanner;
-import com.mycompany.Objetos.ObjetosDeEscudo.MouseDroide;
+import com.mycompany.Objetos.ObjetosDeEscudo.EscudoDeHierro;
+import com.mycompany.Objetos.ObjetosDeEscudo.SuperEscudo;
+import com.mycompany.Objetos.ObjetosDeEscudo.EscudoRegenerativo;
 import com.mycompany.Objetos.ObjetosDeEscudo.ObjetoDeEscudo;
 
 /**
@@ -21,15 +21,15 @@ public class GeneradorObjetosEscudo {
      * String nombreDeObjeto, int precioDeObjeto
      * @return 
      */
-    public ObjetoDeEscudo crearCupulaDeHierro(){
-        return new CupulaDeHierro("Cupula de hierro", 600);
+    public ObjetoDeEscudo crearEscudoDeHierro(){
+        return new EscudoDeHierro("Cupula de hierro", 600);
     }
     
-    public ObjetoDeEscudo crearMouseDroide(){
-        return new MouseDroide("Mouse Droide", 4000);
+    public ObjetoDeEscudo crearEscudoRegenerativo(){
+        return new EscudoRegenerativo("Escudo Regenerativo", 4000);
     }
     
-    public ObjetoDeEscudo crearHydroSpanner(){
-        return new HydroSpanner("HydroSpanner", 700);
+    public ObjetoDeEscudo crearSuperEscudo(){
+        return new SuperEscudo("SuperEscudo", 700);
     }
 }
