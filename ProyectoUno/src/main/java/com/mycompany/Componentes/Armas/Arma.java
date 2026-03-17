@@ -5,7 +5,6 @@
 package com.mycompany.Componentes.Armas;
 
 import com.mycompany.Componentes.ComponentesDeNaves.ComponenteDeNave;
-import java.util.Random;
 
 /**
  *

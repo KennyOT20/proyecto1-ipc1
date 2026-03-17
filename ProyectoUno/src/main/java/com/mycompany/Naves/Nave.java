@@ -48,8 +48,13 @@ public abstract class Nave {
     public abstract void clonarNave();
     
     
-    public void verficarCapacidadDeComponentes (int cantidadComponentes){
-        
+    public void agregarComponente (ComponenteDeNave componente){
+        for (int i = 0; i < componentesDeNave.length; i++) {
+            if(componentesDeNave == null){
+                componentesDeNave[i] = componente;
+                return;
+            }
+        }
     }
     
     public void verificarSHP(){

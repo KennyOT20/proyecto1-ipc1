@@ -25,7 +25,7 @@ public class Flota {
     
     
  
-    public void agregarFlotaMejorada(PersonajeDeLaMaquina personajeMaquina){
+    public void flotaRandom(PersonajeDeLaMaquina personajeMaquina){
         Nave naveObtenida = ensambladorNave.naveEnsmablada();
         int contadorArreglo = -1;
         
@@ -33,10 +33,6 @@ public class Flota {
         personajeMaquina.agregarNave(naveObtenida);
         contadorArreglo ++;
         }
-    }
-    
-    public void agregarFlotaRandom(){
-        
     }
     
     
