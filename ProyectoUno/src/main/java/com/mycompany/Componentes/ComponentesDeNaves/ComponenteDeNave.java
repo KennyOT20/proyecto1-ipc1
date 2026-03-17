@@ -13,11 +13,13 @@ import com.mycompany.Naves.Nave;
  */
 public abstract class ComponenteDeNave {
     
-    private final int consumoDeEnergia; 
-    private final String pesoComponente;
-    private final String nombreComponente;
+    private String tipoDeComponente;
+    private int consumoDeEnergia; 
+    private  String pesoComponente;
+    private  String nombreComponente;
 
-    public ComponenteDeNave(int consumoDeEnergia, String pesoComponente, String nombreComponente) {
+    public ComponenteDeNave(int consumoDeEnergia, String pesoComponente, String nombreComponente, String tipoDeComponente) {
+        this.tipoDeComponente = tipoDeComponente;
         this.consumoDeEnergia = consumoDeEnergia;
         this.pesoComponente = pesoComponente;
         this.nombreComponente = nombreComponente;
@@ -37,6 +39,12 @@ public abstract class ComponenteDeNave {
         return nombreComponente;
     }
 
+    public String getTipoDeComponente() {
+        return tipoDeComponente;
+    }
+
+    
+    
     
 
 }

@@ -22,10 +22,10 @@ public class ArregloDePropulsores extends ArregloDeComponentes {
 
     @Override
     public void crearArreglo() {
-        getArregloDeComponentes()[1] = crearPropulsor.crearMicroPropulsor();
-        getArregloDeComponentes()[2] = crearPropulsor.crearPropulsorCuantico();
-        getArregloDeComponentes()[3] = crearPropulsor.crearSistemaDeManiobra();
-        getArregloDeComponentes()[4] = crearPropulsor.crearTurboCompresor();
+        getArregloDeComponentes()[0] = crearPropulsor.crearMicroPropulsor();
+        getArregloDeComponentes()[1] = crearPropulsor.crearPropulsorCuantico();
+        getArregloDeComponentes()[2] = crearPropulsor.crearSistemaDeManiobra();
+        getArregloDeComponentes()[3] = crearPropulsor.crearTurboCompresor();
     }
 
     

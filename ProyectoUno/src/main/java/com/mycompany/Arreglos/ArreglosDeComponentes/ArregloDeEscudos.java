@@ -21,11 +21,11 @@ public class ArregloDeEscudos extends ArregloDeComponentes {
 
     @Override
     public void crearArreglo() {
-        getArregloDeComponentes()[1] = crearEscudo.crearCampoDeflexion();
-        getArregloDeComponentes()[2] = crearEscudo.crearEscudoReforzado();
-        getArregloDeComponentes()[3] = crearEscudo.crearGeneradorDeOndas();
-        getArregloDeComponentes()[4] = crearEscudo.crearNucleoDeEnergia();
-        getArregloDeComponentes()[5] = crearEscudo.crearPantallaDeAsteroides();
+        getArregloDeComponentes()[0] = crearEscudo.crearCampoDeflexion();
+        getArregloDeComponentes()[1] = crearEscudo.crearEscudoReforzado();
+        getArregloDeComponentes()[2] = crearEscudo.crearGeneradorDeOndas();
+        getArregloDeComponentes()[3] = crearEscudo.crearNucleoDeEnergia();
+        getArregloDeComponentes()[4] = crearEscudo.crearPantallaDeAsteroides();
     }
 
     

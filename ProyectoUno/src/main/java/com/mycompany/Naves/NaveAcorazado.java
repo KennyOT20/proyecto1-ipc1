@@ -28,8 +28,5 @@ public class NaveAcorazado extends Nave{
     public void aplicarEfectoDePiloto(Nave navePiloteada, Piloto pilotoEnTurno) {
     }
 
-    @Override
-    public void clonarNave() {
-    }
-    
+
 }

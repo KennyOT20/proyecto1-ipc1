@@ -14,6 +14,7 @@ import com.mycompany.Pilotos.Piloto;
 public abstract class Nave {
     
     private String nombreDeNave;
+    private Piloto[] piloto;
     private int cantidadDeComponentes;
     private ComponenteDeNave componentesDeNave [];
     private String tipoDeNave;
@@ -28,6 +29,7 @@ public abstract class Nave {
 
     public Nave(String nombreDeNave, int cantidadDeComponentes, String tipoDeNave,
             int puntosDeVida,int vidaMax, int velocidad, int puntosDeEscudo, int combustiblePremium, int puntosDeEnergia, int precioDeNave) {
+        this.piloto = new Piloto[1];
         this.nombreDeNave = nombreDeNave;
         this.cantidadDeComponentes = cantidadDeComponentes;
         this.componentesDeNave = new ComponenteDeNave[cantidadDeComponentes];
@@ -45,17 +47,26 @@ public abstract class Nave {
     public abstract void aplicarAtaque(Nave naveAtacante , Nave naveObjetivo);
     public abstract void aplicarEfectoDePiloto(Nave navePiloteada, Piloto pilotoEnTurno);
     public abstract void aplicarHabilidad();
-    public abstract void clonarNave();
     
     
     public void agregarComponente (ComponenteDeNave componente){
         for (int i = 0; i < componentesDeNave.length; i++) {
-            if(componentesDeNave == null){
+            if(componentesDeNave[i] == null){
                 componentesDeNave[i] = componente;
                 return;
             }
         }
     }
+    
+    public void agregarPiloto(Piloto pilotoAsignado){
+        for (int i = 0; i < piloto.length; i++) {
+            if(piloto[i] == null){
+                piloto[i] = pilotoAsignado;
+                return;
+            }
+        }
+    }
+    
     
     public void verificarSHP(){
         

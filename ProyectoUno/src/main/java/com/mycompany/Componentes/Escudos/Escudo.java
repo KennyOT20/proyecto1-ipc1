@@ -15,7 +15,7 @@ public abstract class Escudo extends ComponenteDeNave {
     private int escudoExtra; 
     
     public Escudo(int consumoDeEnergia, String pesoComponente, String nombreComponente, int escudoExtra) {
-        super(consumoDeEnergia, pesoComponente, nombreComponente);
+        super(consumoDeEnergia, pesoComponente, nombreComponente, "Escudo");
         this.escudoExtra = escudoExtra;
     }
 
