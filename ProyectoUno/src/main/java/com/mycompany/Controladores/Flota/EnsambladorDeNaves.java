@@ -4,6 +4,7 @@
  */
 package com.mycompany.Controladores.Flota;
 
+import com.mycompany.Arreglos.ArregloDePilotos.ArregloDePilotos;
 import com.mycompany.Arreglos.ArreglosDeComponentes.ArregloDeArmas;
 import com.mycompany.Arreglos.ArreglosDeComponentes.ArregloDeComponentes;
 import com.mycompany.Arreglos.ArreglosDeComponentes.ArregloDeEscudos;
@@ -13,6 +14,7 @@ import com.mycompany.Componentes.ComponentesDeNaves.ComponenteDeNave;
 import com.mycompany.Controladores.ControladorRandom.ControladorRandom;
 import com.mycompany.Generadores.GeneradorDeNaves.GeneradorDeNaves;
 import com.mycompany.Naves.Nave;
+import com.mycompany.Pilotos.Piloto;
 
 
 
@@ -24,6 +26,7 @@ public class EnsambladorDeNaves {
 
     private final ComponenteDeNave[] arregloComponentes;
     private final GeneradorDeNaves generarNave;
+    private final ArregloDePilotos pilotos;
     private final ArregloDeArmas armas;
     private final ArregloDePropulsores propulsores;
     private final ArregloDeSistemas sistemas; 
@@ -32,6 +35,7 @@ public class EnsambladorDeNaves {
     
     public EnsambladorDeNaves(){
         this.arregloComponentes = new ComponenteDeNave[4];
+        this.pilotos = new ArregloDePilotos();
         this.generarNave = new GeneradorDeNaves();
         this.armas = new ArregloDeArmas();
         this.propulsores = new ArregloDePropulsores();
@@ -39,6 +43,7 @@ public class EnsambladorDeNaves {
         this.escudos = new ArregloDeEscudos();
         this.random = new ControladorRandom();
         
+        pilotos.generarArregloPiloto();
         armas.crearArreglo();
         propulsores.crearArreglo();
         sistemas.crearArreglo();
@@ -158,6 +163,12 @@ public class EnsambladorDeNaves {
         naveObtenida.agregarComponente(componente);
     }
     
+    public Piloto obtenerPilotoRandom(){
+        int indicePiloto = random.calcularNumeroAleatorios(0, 3);
+        return pilotos.getArregloDePilotos()[indicePiloto];
+    }
+    
+    
     /**
      * Metodo encargado de retornar una nave ya completa y ensamblada con todos sus componentes aleatorios
      * y segun el tipo de nave y de componentes
@@ -165,8 +176,11 @@ public class EnsambladorDeNaves {
      */
     public Nave naveEnsamblada(){
         Nave naveObtenida = obtenerNaveRandom();
+        Piloto pilotoObtenido = obtenerPilotoRandom();
+        naveObtenida.agregarPiloto(pilotoObtenido);
         agregarComponente(naveObtenida);
         return naveObtenida;
     }
+    
     
 }

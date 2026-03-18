@@ -19,16 +19,15 @@ import com.mycompany.Mapas.Casillas.CasillaWarp;
 public class GeneradorCasillasMapa {
     
     // Colores para las casillas
-    private final String COLOR_CASILLA_ESTRELLA= "\u001B[40m"; // color negro para casilla estrekka
-    private final String COLOR_CASILLA_BASE_ENEMIGA = "\u001B[33m"; // color amarillo para casilla de base enemiga
-    private final String COLOR_CASILLA_COMBATE = "\u001B[41m"; // color rojo para casilla combate
-    private final String COLOR_CASILLA_ESTACION = " \u001B[45m"; // color morado para casilla estacion espacial
-    private final String COLOR_CASILLA_NORMAL = "\u001B[44m"; //  color azul para casilla normal
-    private final String COLOR_CASILLA_WARP =   "\u001B[47m"; // color blanco para casilla warp
+    private final String AZUL = "\u001B[34m";
+    private final String ROJO = "\u001B[31m";
+    private final String AMARILLO = "\u001B[33m";
+    private final String MORADO = "\u001B[35m";
+    private final String BLANCO = "\u001B[37m";
     
     //Simbolos para las casillas 
     
-    private final String SIMBOLO_ESTRELLA = "☠";
+    private final String SIMBOLO_ESTRELLA = "★";
     private final String SIMBOLO_COMBATE = "⚔";
     private final String SIMBOLO_ESTACION = "⚙";
     private final String SIMBOLO_WARP = "↩";
@@ -41,27 +40,27 @@ public class GeneradorCasillasMapa {
      * @return 
      */
     public CasillaModelo crearCasillaNormal(){
-        return new CasillaNormal( SIMBOLO_NORMAL, COLOR_CASILLA_NORMAL);
+        return new CasillaNormal( SIMBOLO_NORMAL, AZUL);
     }
     
     public CasillaModelo crearCasillaWarp(){
-        return new CasillaWarp(SIMBOLO_WARP, COLOR_CASILLA_WARP);
+        return new CasillaWarp(SIMBOLO_WARP, AZUL );
     }
     
     public CasillaModelo crearCasillaEstrella(){
-        return new CasillaEstrella(SIMBOLO_ESTRELLA, COLOR_CASILLA_ESTRELLA);
+        return new CasillaEstrella(SIMBOLO_ESTRELLA, BLANCO);
     }
     
     public CasillaModelo crearCasillaEstacion(){
-        return new CasillaEstacionEspacial(SIMBOLO_ESTACION, COLOR_CASILLA_ESTACION);
+        return new CasillaEstacionEspacial(SIMBOLO_ESTACION, MORADO);
     }
     
     public CasillaModelo crearCasillaCombate(){
-        return new CasillaCombate(SIMBOLO_COMBATE, COLOR_CASILLA_COMBATE);
+        return new CasillaCombate(SIMBOLO_COMBATE, ROJO);
     }
     
     public CasillaModelo crearCasillaBase(){
-        return new CasillaBaseEnemiga(SIMBOLO_BASE, COLOR_CASILLA_BASE_ENEMIGA);
+        return new CasillaBaseEnemiga(SIMBOLO_BASE, AMARILLO);
     }
     
 }

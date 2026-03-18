@@ -67,6 +67,15 @@ public abstract class Nave {
         }
     }
     
+    public void mostrarPiloto(){
+        for (int i = 0; i < piloto.length; i++) {
+            if(piloto[i] != null){
+                System.out.println("PilotoAbordo: " + piloto[i].getNombrePiloto());
+            }
+        }
+    }
+    
+    
     
     public void verificarSHP(){
         

@@ -16,7 +16,7 @@ public class Partida {
     private String nombrePartida;
     
     public Partida(){
-        this.jugador = new PersonajeDeJugador(2);
+        
     }
     
     public void iniciarPartida(){

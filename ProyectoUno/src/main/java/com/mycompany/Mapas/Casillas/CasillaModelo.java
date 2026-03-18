@@ -12,6 +12,7 @@ public abstract class CasillaModelo {
     
     private String simboloCasilla;
     private String colorCasilla;
+    private String SIMBOLO_FLOTA =  "▲";
 
     public CasillaModelo(String simboloCasilla, String colorCasilla){
         this.simboloCasilla = simboloCasilla;
@@ -26,6 +27,10 @@ public abstract class CasillaModelo {
 
     public String getColorCasilla() {
         return colorCasilla;
+    }
+
+    public String getSIMBOLO_FLOTA() {
+        return SIMBOLO_FLOTA;
     }
     
     

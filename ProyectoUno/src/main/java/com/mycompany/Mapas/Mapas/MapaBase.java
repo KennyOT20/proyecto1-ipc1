@@ -4,9 +4,10 @@
  */
 package com.mycompany.Mapas.Mapas;
 
+import com.mycompany.Controladores.ControladorRandom.ControladorRandom;
 import com.mycompany.Generadores.GeneradorDeCasillas.GeneradorCasillasMapa;
 import com.mycompany.Mapas.Casillas.CasillaModelo;
-import java.util.Random;
+import com.mycompany.Personajes.PersonajeDeJugador;
 
 
 
@@ -18,8 +19,9 @@ public abstract class MapaBase {
 
     private final CasillaModelo[][] tableroMapa;
     private final CasillaModelo[] simbolo;
+    private final PersonajeDeJugador jugador;
     
-    private final Random random = new Random();
+    private final ControladorRandom random;
     private final GeneradorCasillasMapa generadorCasillas;
     private final String RESETEAR_COLOR = "\u001B[0m";
     
@@ -35,10 +37,13 @@ public abstract class MapaBase {
         this.cantidadDeCasillas = 5;
         this.simbolo = new CasillaModelo[cantidadDeCasillas];
         this.generadorCasillas = new GeneradorCasillasMapa();
+        this.jugador = new PersonajeDeJugador();
+        this.random = new ControladorRandom();
     }
     
     public void generarMapa(){
         colocarCasillasEnArreglo();
+        calcularPosicionJugador();
         
         for (int i = 0; i < cantidadFilas; i++) {
             for (int j = 0; j < cantidadColumnas; j++) {
@@ -47,25 +52,77 @@ public abstract class MapaBase {
         }
     }
     
-    public void colocarJugadorEnMapa(){
-        
+    private void calcularPosicionJugador(){
+       int posicionX = random.calcularNumeroAleatorios(0, cantidadFilas);
+       int posicionY = random.calcularNumeroAleatorios(0, cantidadColumnas);
+       
+       jugador.setPosicionX(posicionX);
+       jugador.setPosicionY(posicionY);
+       
     }
     
     public void imprimirMapa(){
+    
+        String RESET = RESETEAR_COLOR;
+
         for (int i = 0; i < cantidadFilas; i++) {
             for (int j = 0; j < cantidadColumnas; j++) {
-                System.out.print(RESETEAR_COLOR + tableroMapa[i][j].getColorCasilla() +tableroMapa[i][j].getSimboloCasilla() + RESETEAR_COLOR);
+
+                String contenidoDeCasilla;
+
+                if(i == jugador.getPosicionX() && j == jugador.getPosicionY()){
+                    contenidoDeCasilla = " " + jugador.getSIMBOLO_FLOTA() + " ";
+                    System.out.print(RESET + jugador.getFONDO_JUGADOR() + contenidoDeCasilla + RESET); 
+                } else {
+                    String simboloCasilla = tableroMapa[i][j].getSimboloCasilla();
+                    String color = tableroMapa[i][j].getColorCasilla();
+
+                    contenidoDeCasilla = " " + simboloCasilla + " ";
+                    System.out.print(RESET + color + contenidoDeCasilla + RESET);
+                }
             }
             System.out.println();
         }
     }
-    
+ 
+        public void calcularMovimientos(String movimiento){
+            
+            switch(movimiento){
+                case "W" :
+                     int coordenadaArriba = jugador.getPosicionX() - 1;
+                     if(coordenadaArriba >= 0){
+                     jugador.setPosicionX(coordenadaArriba);
+                     }
+                     break;   
+                     
+                case "S" :
+                    int coordenadaAbajo = jugador.getPosicionX()  + 1;
+                    if(coordenadaAbajo < cantidadColumnas){
+                    jugador.setPosicionX(coordenadaAbajo);
+                    }
+                    break;
+                    
+                case "D" :
+                     int coordenadaDerecha = jugador.getPosicionY() + 1;
+                     if(coordenadaDerecha < cantidadFilas) {
+                     jugador.setPosicionY(coordenadaDerecha);
+                     }
+                     break;
+                     
+                case "A" :
+                     int coordenadaIzquierda = jugador.getPosicionY() - 1;
+                     if(coordenadaIzquierda >= 0){
+                     jugador.setPosicionY(coordenadaIzquierda);
+                     }
+                    
+            }
+        }
     
      public abstract void colocarCasillasEnArreglo();
      
      
      protected CasillaModelo obtenerCasilla(){
-        int casillasRandom = random.nextInt(0, simbolo.length);
+        int casillasRandom = random.calcularNumeroAleatorios(0, simbolo.length);
         return simbolo[casillasRandom];
     }
 

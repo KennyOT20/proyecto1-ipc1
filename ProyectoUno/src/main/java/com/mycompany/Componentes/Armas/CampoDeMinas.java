@@ -4,6 +4,7 @@
  */
 package com.mycompany.Componentes.Armas;
 
+import com.mycompany.Componentes.ComponentesDeNaves.ComponenteDeNave;
 import com.mycompany.Naves.Nave;
 
 /**
@@ -18,6 +19,11 @@ public class CampoDeMinas extends Arma {
 
     @Override
     public void aplicarEfectoComponente(Nave naveElegida) {
+    }
+
+    @Override
+    public void mejorarComponente(ComponenteDeNave componente) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

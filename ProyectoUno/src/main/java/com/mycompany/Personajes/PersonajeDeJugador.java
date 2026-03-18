@@ -12,10 +12,13 @@ public class PersonajeDeJugador extends Personaje {
 
     private int creditosGalacticos;
     private int puntosDeTecnologia;
-    private String SIMBOLO_FLOTA = "▲";
+    private int posicionX;
+    private int posicionY;
+    private final String FONDO_JUGADOR ="\u001B[42m";
+    private final String SIMBOLO_FLOTA = "▲";
 
-    public PersonajeDeJugador(int cantidadDeFlota) {
-        super("Ender Wiggin", cantidadDeFlota);
+    public PersonajeDeJugador() {
+        super("Ender Wiggin", 3 );
     }
     
     @Override
@@ -48,6 +51,27 @@ public class PersonajeDeJugador extends Personaje {
         return SIMBOLO_FLOTA;
     }
 
+    public int getPosicionX() {
+        return posicionX;
+    }
+
+    public void setPosicionX(int posicionX) {
+        this.posicionX = posicionX;
+    }
+
+    public int getPosicionY() {
+        return posicionY;
+    }
+
+    public void setPosicionY(int posicionY) {
+        this.posicionY = posicionY;
+    }
+
+    public String getFONDO_JUGADOR() {
+        return FONDO_JUGADOR;
+    }
+
+    
     
     
     

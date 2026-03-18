@@ -8,6 +8,7 @@ import com.mycompany.Generadores.GeneradorDeNaves.GeneradorDeNaves;
 import com.mycompany.Naves.Nave;
 import com.mycompany.Personajes.PersonajeDeJugador;
 import com.mycompany.Personajes.PersonajeDeLaMaquina;
+import com.mycompany.Pilotos.Piloto;
 
 /**
  *
@@ -25,6 +26,8 @@ public class Flota {
 
     public void asingarFlotaInicial(PersonajeDeJugador jugador){
         Nave fragata = generarNave.crearFragata();
+        Piloto pilotoObtenido = ensambladorNave.obtenerPilotoRandom();
+        fragata.agregarPiloto(pilotoObtenido);
         ensambladorNave.agregarComponente(fragata);
         jugador.agregarNave(fragata);
     }
