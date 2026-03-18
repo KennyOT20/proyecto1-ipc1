@@ -4,7 +4,7 @@
 
 package com.mycompany.proyectouno;
 
-import com.mycompany.Mapas.Mapas.MapaGalactico;
+import com.mycompany.Menus.MenuInicial.MenuInicial;
 
 
 
@@ -15,38 +15,8 @@ import com.mycompany.Mapas.Mapas.MapaGalactico;
 public class ProyectoUno {
 
     public static void main(String[] args) {
-        /*MenuInicial menuInicial = new MenuInicial();
+        MenuInicial menuInicial = new MenuInicial();
         menuInicial.mostrarInformacion();
-        menuInicial.validarOpcion();*/
-        
-        MapaGalactico mapa = new MapaGalactico(5, 5);
-        mapa.generarMapa();
-        mapa.imprimirMapa();
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("Arriba");
-        mapa.calcularMovimientos("W");
-        mapa.imprimirMapa();
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("Derecha");
-        mapa.calcularMovimientos("D");
-        mapa.imprimirMapa();
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("Izquierda");
-        mapa.calcularMovimientos("A");
-        mapa.imprimirMapa();
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("Abajo");
-        mapa.calcularMovimientos("S");
-        mapa.imprimirMapa();
-        
+        menuInicial.validarOpcion(); 
     }
 }

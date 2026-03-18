@@ -41,6 +41,12 @@ public abstract class MapaBase {
         this.random = new ControladorRandom();
     }
     
+    /**
+     * Metodo encargado de generar el mapa, instancia al metodo {@link #colocarCasillasEnArreglo()} lo cual 
+     * llena el arreglo con casillas dadas.
+     * Instancia al metodo encargado de calcular la posicion del jugador {@link #calcularPosicionJugador() }
+     * Por ultimo se encarga de generar y llenar al mapa con las casillas dadas
+     */
     public void generarMapa(){
         colocarCasillasEnArreglo();
         calcularPosicionJugador();
@@ -52,6 +58,10 @@ public abstract class MapaBase {
         }
     }
     
+    /**
+     * Metodo encargado de recibir un numero random en las coordenadas x y y del arreglo
+     * para que el jugador empiece en un lugar random.
+     */
     private void calcularPosicionJugador(){
        int posicionX = random.calcularNumeroAleatorios(0, cantidadFilas);
        int posicionY = random.calcularNumeroAleatorios(0, cantidadColumnas);
@@ -61,6 +71,10 @@ public abstract class MapaBase {
        
     }
     
+    /**
+     * Metodo encargado de imprimir el mapa de la mejor manera posibe.
+     * 
+     */
     public void imprimirMapa(){
     
         String RESET = RESETEAR_COLOR;

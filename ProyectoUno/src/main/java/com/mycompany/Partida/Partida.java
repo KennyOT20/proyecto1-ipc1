@@ -4,6 +4,10 @@
  */
 package com.mycompany.Partida;
 
+import com.mycompany.Controladores.ControladorPartida.ControladorPartida;
+import com.mycompany.Controladores.ControladorRandom.ControladorRandom;
+import com.mycompany.Controladores.Flota.Flota;
+import com.mycompany.Mapas.Mapas.MapaGalactico;
 import com.mycompany.Personajes.PersonajeDeJugador;
 
 /**
@@ -12,15 +16,29 @@ import com.mycompany.Personajes.PersonajeDeJugador;
  */
 public class Partida {
     
-    private PersonajeDeJugador jugador;
+    private final PersonajeDeJugador jugador;
+    private final MapaGalactico mapaGalactico;
+    private final ControladorRandom random;
+    private final Flota flota;
+    private int filasRandom;
+    private int columnasRandom;
     private String nombrePartida;
+    private ControladorPartida controladorPartida;
     
     public Partida(){
-        
+        this.random = new ControladorRandom();
+        this.filasRandom = random.calcularNumeroAleatorios(12, 16);
+        this.columnasRandom = random.calcularNumeroAleatorios(13, 18);
+        this.jugador = new PersonajeDeJugador();
+        this.mapaGalactico = new MapaGalactico(filasRandom, columnasRandom);
+        this.flota = new Flota();
+        this.controladorPartida = new ControladorPartida(this);
     }
     
     public void iniciarPartida(){
-        
+        controladorPartida.obtenerNombreDePartida();
+        mapaGalactico.generarMapa();
+        mapaGalactico.imprimirMapa();
     }
 
     public String getNombrePartida() {
@@ -29,6 +47,10 @@ public class Partida {
 
     public void setNombrePartida(String nombrePartida) {
         this.nombrePartida = nombrePartida;
+    }
+
+    public MapaGalactico getMapaGalactico() {
+        return mapaGalactico;
     }
 
     

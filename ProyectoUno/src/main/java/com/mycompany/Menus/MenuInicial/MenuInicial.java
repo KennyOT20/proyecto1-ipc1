@@ -5,7 +5,8 @@
 package com.mycompany.Menus.MenuInicial;
 
 import com.mycompany.Menus.MenuBase.MenuBase;
-import com.mycompany.Controladores.ControladorPartida.ControladorPartida;
+import com.mycompany.Menus.MenusDePartida.MenuPartidaInicial;
+import com.mycompany.Partida.Partida;
 
 /**
  *
@@ -33,9 +34,11 @@ public class MenuInicial extends MenuBase{
     public void ejecutarOpcion(int opcion) {
         switch(opcion){
             case 1:
-                ControladorPartida controladorPartida = new ControladorPartida();
                 limpiarPantalla();
-                controladorPartida.obtenerNombreDePartida();
+                Partida partida = new Partida();
+                MenuPartidaInicial menuPartida = new MenuPartidaInicial(partida);
+                partida.iniciarPartida();
+                menuPartida.mostrarInformacion();
                 break;
             case 2:
                 break;

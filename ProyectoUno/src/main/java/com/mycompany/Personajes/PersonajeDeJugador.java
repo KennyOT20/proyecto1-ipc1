@@ -4,16 +4,17 @@
  */
 package com.mycompany.Personajes;
 
+
 /**
  *
  * @author Kenny
  */
 public class PersonajeDeJugador extends Personaje {
-
     private int creditosGalacticos;
     private int puntosDeTecnologia;
     private int posicionX;
     private int posicionY;
+    private int cantidadFLota;
     private final String FONDO_JUGADOR ="\u001B[42m";
     private final String SIMBOLO_FLOTA = "▲";
 

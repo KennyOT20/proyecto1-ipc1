@@ -4,8 +4,7 @@
  */
 package com.mycompany.Controladores.ControladorPartida;
 
-import com.mycompany.Generadores.GeneradorDeMApa.GeneradorDeMapas;
-import com.mycompany.Mapas.Mapas.MapaBase;
+
 import com.mycompany.Partida.Partida;
 import java.util.Scanner;
 
@@ -16,11 +15,9 @@ import java.util.Scanner;
 public class ControladorPartida {
     
     private final Partida partida;
-    private final  GeneradorDeMapas crearMapaGalactico;
     
-    public ControladorPartida(){
-        this.partida = new Partida();
-        this.crearMapaGalactico = new GeneradorDeMapas();
+    public ControladorPartida(Partida partida){
+        this.partida = partida;
     }
     
     public void obtenerNombreDePartida(){
@@ -35,19 +32,14 @@ public class ControladorPartida {
         
         if(!nombreDePartida.isEmpty()){
             partida.setNombrePartida(nombreDePartida);
-            scanner.close();
+            
         } else {
             System.out.println("Error el nombre no puede ir vacio.");
             obtenerNombreDePartida();
         }   
     }
     
-    public void generarAtributosPartida(){
-        MapaBase  mapaGalactico = crearMapaGalactico.crearMapaGalactico();
-        mapaGalactico.generarMapa();
-        mapaGalactico.imprimirMapa();
-    }
-    
+   
     
     
 }

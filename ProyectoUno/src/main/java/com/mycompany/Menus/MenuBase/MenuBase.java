@@ -12,11 +12,16 @@ import java.util.Scanner;
  */
 public abstract class MenuBase{
     
-    private final Scanner scanner = new Scanner(System.in);
-    private final int CANTIDAD_DE_ANCHO = 60;
+    private final Scanner scanner;
+    private final int CANTIDAD_DE_ANCHO = 85;
+    
+    public MenuBase(){
+        this.scanner = new Scanner(System.in);
+    }
     
     public abstract void mostrarInformacion();
     public abstract void ejecutarOpcion(int opcion);
+    
     
     
     public void validarOpcion(){
@@ -63,4 +68,11 @@ public abstract class MenuBase{
         
         System.out.println("||");
     }
+
+    public Scanner getScanner() {
+        return scanner;
+    }
+    
+    
+    
 }
