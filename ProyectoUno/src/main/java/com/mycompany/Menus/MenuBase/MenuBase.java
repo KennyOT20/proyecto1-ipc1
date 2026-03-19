@@ -4,6 +4,7 @@
  */
 package com.mycompany.Menus.MenuBase;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Scanner;
 public abstract class MenuBase{
     
     private final Scanner scanner;
-    private final int CANTIDAD_DE_ANCHO = 85;
+    private final int CANTIDAD_DE_ANCHO = 95;
     
     public MenuBase(){
         this.scanner = new Scanner(System.in);
@@ -28,20 +29,20 @@ public abstract class MenuBase{
         
         boolean opcionCorrecta = false;
         
-        try{
+        
             while(opcionCorrecta == false){
+        try{    
                 int opcionUsuario = Integer.valueOf(scanner.nextLine());
                 ejecutarOpcion(opcionUsuario);
                 opcionCorrecta = true;
-                
-            }
         } catch(NumberFormatException e){
             scanner.nextLine();
             limpiarPantalla();
             System.out.println("Opcion no valida, intente de nuevo");
             mostrarInformacion();
         }
-       
+            }
+            
     }
     
     protected void limpiarPantalla(){

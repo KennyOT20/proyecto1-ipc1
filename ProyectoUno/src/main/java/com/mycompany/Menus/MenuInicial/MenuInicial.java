@@ -36,9 +36,9 @@ public class MenuInicial extends MenuBase{
             case 1:
                 limpiarPantalla();
                 Partida partida = new Partida();
-                MenuPartidaInicial menuPartida = new MenuPartidaInicial(partida);
+                partida.preprararPartida();
+                limpiarPantalla();
                 partida.iniciarPartida();
-                menuPartida.mostrarInformacion();
                 break;
             case 2:
                 break;
@@ -50,6 +50,7 @@ public class MenuInicial extends MenuBase{
                 limpiarPantalla();
                 System.out.println("Opcion incorrecta, intente de nuevo. ");
                 mostrarInformacion();
+                break;
         }
     }    
     

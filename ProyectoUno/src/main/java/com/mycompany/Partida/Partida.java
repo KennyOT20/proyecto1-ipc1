@@ -8,6 +8,7 @@ import com.mycompany.Controladores.ControladorPartida.ControladorPartida;
 import com.mycompany.Controladores.ControladorRandom.ControladorRandom;
 import com.mycompany.Controladores.Flota.Flota;
 import com.mycompany.Mapas.Mapas.MapaGalactico;
+import com.mycompany.Menus.MenusDePartida.MenuPartidaInicial;
 import com.mycompany.Personajes.PersonajeDeJugador;
 
 /**
@@ -19,11 +20,12 @@ public class Partida {
     private final PersonajeDeJugador jugador;
     private final MapaGalactico mapaGalactico;
     private final ControladorRandom random;
+    private final MenuPartidaInicial menuPartida;
     private final Flota flota;
     private int filasRandom;
     private int columnasRandom;
     private String nombrePartida;
-    private ControladorPartida controladorPartida;
+    private final ControladorPartida controladorPartida;
     
     public Partida(){
         this.random = new ControladorRandom();
@@ -33,12 +35,21 @@ public class Partida {
         this.mapaGalactico = new MapaGalactico(filasRandom, columnasRandom);
         this.flota = new Flota();
         this.controladorPartida = new ControladorPartida(this);
+        this.menuPartida = new MenuPartidaInicial(this);
+    }
+    
+    public void preprararPartida(){
+        controladorPartida.obtenerNombreDePartida();
+        mapaGalactico.generarMapa();
     }
     
     public void iniciarPartida(){
-        controladorPartida.obtenerNombreDePartida();
-        mapaGalactico.generarMapa();
-        mapaGalactico.imprimirMapa();
+        boolean partidaEnCurso = controladorPartida.verificarEstadoPartida();
+        while(partidaEnCurso){
+            menuPartida.mostrarSimbologia();
+            mapaGalactico.imprimirMapa();
+            menuPartida.mostrarInformacion();
+        }
     }
 
     public String getNombrePartida() {

@@ -4,7 +4,6 @@
  */
 package com.mycompany.Menus.MenusDePartida;
 
-import com.mycompany.Controladores.ControladorPartida.ControladorPartida;
 import com.mycompany.Menus.MenuBase.MenuBase;
 import com.mycompany.Partida.Partida;
 
@@ -14,7 +13,7 @@ import com.mycompany.Partida.Partida;
  */
 public class MenuPartidaInicial extends MenuBase {
 
-    private Partida partida;
+    private final Partida partida;
     
     public MenuPartidaInicial(Partida partida){
         this.partida = partida;
@@ -24,38 +23,65 @@ public class MenuPartidaInicial extends MenuBase {
     @Override
     public void mostrarInformacion() {
         imprimirBordeDeMenu();
-        imprimirLineaDeTexto("W : Arriba,  A: Derecha, S : Abajo, D: Derecha, G : Guardar partida,  X : Salir ");
+        imprimirLineaDeTexto("W : Arriba,  D: Derecha, S : Abajo, A: Izquierda G : Guardar partida,  X : Salir ");
         imprimirBordeDeMenu(); 
         System.out.print("Ingrese un movimiento: ");
         validarOpcionUsuario();
     }
     
+    public void mostrarSimbologia(){
+        String RESET = "\u001B[0m";
+
+        String COMBATE = "\u001B[31m⚔" + RESET;
+        String ESTACION = "\u001B[35m⚙" + RESET;
+        String NORMAL = "\u001B[34m✦" + RESET;
+        String BASE = "\u001B[33m☣" + RESET;
+        String ESTRELLA = "\u001B[37m★" + RESET;
+        String JUGADOR ="\u001B[42m▲" + RESET;
+
+        imprimirBordeDeMenu();
+        imprimirLineaDeTexto("Nombre de Partida: " + partida.getNombrePartida());
+        imprimirLineaDeTexto(
+            "Estrella: " + ESTRELLA +
+            "  Combate: " + COMBATE +
+            "  Estación: " + ESTACION +
+            "  Normal: " + NORMAL +
+            "  Base: " + BASE +
+            "  Jugador: " + JUGADOR + "                       "
+        );
+        imprimirBordeDeMenu();
+    }
+    
     public void validarOpcionUsuario(){
         String opcion;
-        opcion = getScanner().nextLine();
+        opcion = getScanner().nextLine().toUpperCase();
         
         switch(opcion){
             case "W" :
                 partida.getMapaGalactico().calcularMovimientos(opcion);
                 limpiarPantalla();
+                mostrarSimbologia();
                 partida.getMapaGalactico().imprimirMapa();
                 mostrarInformacion();
                 break;
             case "A":
                 partida.getMapaGalactico().calcularMovimientos(opcion);
                 limpiarPantalla();
+                mostrarSimbologia();
                 partida.getMapaGalactico().imprimirMapa();
                 mostrarInformacion();
                 break;
             case "S" :
-                limpiarPantalla();
                 partida.getMapaGalactico().calcularMovimientos(opcion);
+                limpiarPantalla();
+                mostrarSimbologia();
                 partida.getMapaGalactico().imprimirMapa();
                 mostrarInformacion();
                 break;
             case "D":
-                limpiarPantalla();
                 partida.getMapaGalactico().calcularMovimientos(opcion);
+                limpiarPantalla();
+                mostrarSimbologia();
                 partida.getMapaGalactico().imprimirMapa();
                 mostrarInformacion();
                 break;    

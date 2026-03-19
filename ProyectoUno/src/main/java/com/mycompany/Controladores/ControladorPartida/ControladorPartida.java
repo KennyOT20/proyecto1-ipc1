@@ -15,9 +15,11 @@ import java.util.Scanner;
 public class ControladorPartida {
     
     private final Partida partida;
+    private boolean partidaActiva;
     
     public ControladorPartida(Partida partida){
         this.partida = partida;
+        this.partidaActiva = true;
     }
     
     public void obtenerNombreDePartida(){
@@ -37,6 +39,11 @@ public class ControladorPartida {
             System.out.println("Error el nombre no puede ir vacio.");
             obtenerNombreDePartida();
         }   
+    }
+    
+    
+    public boolean verificarEstadoPartida(){
+        return partidaActiva == true;
     }
     
    
