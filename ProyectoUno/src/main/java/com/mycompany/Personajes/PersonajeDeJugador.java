@@ -20,6 +20,7 @@ public class PersonajeDeJugador extends Personaje {
 
     public PersonajeDeJugador() {
         super("Ender Wiggin", 3 );
+        this.creditosGalacticos = 1000;
     }
     
     @Override

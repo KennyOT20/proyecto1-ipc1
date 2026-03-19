@@ -14,7 +14,7 @@ import com.mycompany.Pilotos.Piloto;
 public abstract class Nave {
     
     private String nombreDeNave;
-    private Piloto[] piloto;
+    private final Piloto[] piloto;
     private int cantidadDeComponentes;
     private ComponenteDeNave componentesDeNave [];
     private String tipoDeNave;
@@ -70,7 +70,7 @@ public abstract class Nave {
     public void mostrarPiloto(){
         for (int i = 0; i < piloto.length; i++) {
             if(piloto[i] != null){
-                System.out.println("PilotoAbordo: " + piloto[i].getNombrePiloto());
+                System.out.println("Piloto abordo: " + piloto[i].getNombrePiloto());
             }
         }
     }
@@ -176,5 +176,11 @@ public abstract class Nave {
     public int getPrecioDeNave() {
         return precioDeNave;
     }
+
+    public Piloto[] getPiloto() {
+        return piloto;
+    }
+    
+    
    
 }

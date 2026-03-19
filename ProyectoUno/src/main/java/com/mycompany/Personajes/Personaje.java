@@ -50,8 +50,8 @@ public abstract class Personaje {
     public void mostrarNaves(){
         for (int i = 0; i < flota.length; i++) {
             if(flota[i] != null){
-                System.out.println("Nave " + (i + 1 ) + " : " + flota[i].getNombreDeNave() );
-                flota[i].mostrarPiloto();
+                System.out.println("||Nave " + (i + 1 ) + " : " + flota[i].getNombreDeNave() + 
+                        "        Vida: " + flota[i].getPuntosDeVida() + "          Piloto abordo: " +flota[i].getPiloto()[0].getNombrePiloto() );
             }
         }
     }

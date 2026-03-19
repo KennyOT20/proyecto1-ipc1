@@ -49,6 +49,8 @@ public class MenuPartidaInicial extends MenuBase {
             "  Base: " + BASE +
             "  Jugador: " + JUGADOR + "                       "
         );
+        imprimirLineaDeTexto("Naves en turno:                            Cr: " + partida.getJugador().getCreditosGalacticos() );
+        partida.getJugador().mostrarNaves();
         imprimirBordeDeMenu();
     }
     

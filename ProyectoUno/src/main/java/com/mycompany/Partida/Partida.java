@@ -6,6 +6,7 @@ package com.mycompany.Partida;
 
 import com.mycompany.Controladores.ControladorPartida.ControladorPartida;
 import com.mycompany.Controladores.ControladorRandom.ControladorRandom;
+import com.mycompany.Controladores.Flota.EnsambladorDeNaves;
 import com.mycompany.Controladores.Flota.Flota;
 import com.mycompany.Mapas.Mapas.MapaGalactico;
 import com.mycompany.Menus.MenusDePartida.MenuPartidaInicial;
@@ -40,6 +41,7 @@ public class Partida {
     
     public void preprararPartida(){
         controladorPartida.obtenerNombreDePartida();
+        flota.asingarFlotaInicial(jugador);
         mapaGalactico.generarMapa();
     }
     
@@ -64,8 +66,9 @@ public class Partida {
         return mapaGalactico;
     }
 
-    
-    
+    public PersonajeDeJugador getJugador() {
+        return jugador;
+    }
     
     
     

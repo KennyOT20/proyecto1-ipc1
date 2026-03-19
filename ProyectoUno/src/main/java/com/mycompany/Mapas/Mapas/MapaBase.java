@@ -78,7 +78,7 @@ public abstract class MapaBase {
     public void imprimirMapa(){
     
         String RESET = RESETEAR_COLOR;
-
+        
         for (int i = 0; i < cantidadFilas; i++) {
             for (int j = 0; j < cantidadColumnas; j++) {
 
@@ -98,7 +98,7 @@ public abstract class MapaBase {
             System.out.println();
         }
     }
- 
+    
         public void calcularMovimientos(String movimiento){
             
             switch(movimiento){
