@@ -106,20 +106,26 @@ public abstract class MapaBase {
                      int coordenadaArriba = jugador.getPosicionX() - 1;
                      if(coordenadaArriba >= 0){
                      jugador.setPosicionX(coordenadaArriba);
+                     } else {
+                         System.out.println("Movimiento fuera de los limites");
                      }
                      break;   
                      
                 case "S" :
                     int coordenadaAbajo = jugador.getPosicionX()  + 1;
-                    if(coordenadaAbajo < cantidadColumnas){
+                    if(coordenadaAbajo < cantidadFilas){
                     jugador.setPosicionX(coordenadaAbajo);
+                    } else{
+                         System.out.println("Movimiento fuera de los limites");
                     }
                     break;
                     
                 case "D" :
                      int coordenadaDerecha = jugador.getPosicionY() + 1;
-                     if(coordenadaDerecha < cantidadFilas) {
+                     if(coordenadaDerecha < cantidadColumnas) {
                      jugador.setPosicionY(coordenadaDerecha);
+                     } else {
+                          System.out.println("Movimiento fuera de los limites");
                      }
                      break;
                      
@@ -128,7 +134,9 @@ public abstract class MapaBase {
                      if(coordenadaIzquierda >= 0){
                      jugador.setPosicionY(coordenadaIzquierda);
                      }
-                    
+                     else {
+                          System.out.println("Movimiento fuera de los limites");
+                     }
             }
         }
     
@@ -147,8 +155,6 @@ public abstract class MapaBase {
     public GeneradorCasillasMapa getGeneradorCasillas() {
         return generadorCasillas;
     }
-    
-    
 
 }
 
