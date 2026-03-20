@@ -4,14 +4,16 @@
  */
 package com.mycompany.Mapas.Mapas;
 
+import com.mycompany.Partida.Partida;
+
 /**
  *
  * @author Kenny
  */
 public class MapaDeEstrella extends MapaBase {
 
-    public MapaDeEstrella(int cantidadFilas, int cantidadColumnas) {
-        super(cantidadFilas, cantidadColumnas);
+    public MapaDeEstrella(int cantidadFilas, int cantidadColumnas, Partida partida) {
+        super(cantidadFilas, cantidadColumnas, partida);
     }
 
     @Override

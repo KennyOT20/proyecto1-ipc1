@@ -7,7 +7,8 @@ package com.mycompany.Mapas.Mapas;
 import com.mycompany.Controladores.ControladorRandom.ControladorRandom;
 import com.mycompany.Generadores.GeneradorDeCasillas.GeneradorCasillasMapa;
 import com.mycompany.Mapas.Casillas.CasillaModelo;
-import com.mycompany.Personajes.PersonajeDeJugador;
+import com.mycompany.Partida.Partida;
+import com.mycompany.Personajes.PersonajeDelJugador;
 
 
 
@@ -19,7 +20,10 @@ public abstract class MapaBase {
 
     private final CasillaModelo[][] tableroMapa;
     private final CasillaModelo[] simbolo;
-    private final PersonajeDeJugador jugador;
+    private final CasillaModelo[] simboloObtenido;
+    private final Partida partida;
+    
+    private final PersonajeDelJugador jugador;
     
     private final ControladorRandom random;
     private final GeneradorCasillasMapa generadorCasillas;
@@ -30,15 +34,17 @@ public abstract class MapaBase {
     private int cantidadDeCasillas;
     
     
-    public MapaBase(int cantidadFilas, int cantidadColumnas){
+    public MapaBase(int cantidadFilas, int cantidadColumnas, Partida partida){
         this.cantidadFilas = cantidadFilas;
         this.cantidadColumnas = cantidadColumnas;
         tableroMapa = new CasillaModelo[cantidadFilas][cantidadColumnas];
         this.cantidadDeCasillas = 5;
         this.simbolo = new CasillaModelo[cantidadDeCasillas];
-        this.generadorCasillas = new GeneradorCasillasMapa();
-        this.jugador = new PersonajeDeJugador();
+        this.simboloObtenido = new CasillaModelo[1];
+        this.generadorCasillas = new GeneradorCasillasMapa(partida);
+        this.jugador = new PersonajeDelJugador();
         this.random = new ControladorRandom();
+        this.partida = partida;
     }
     
     /**
@@ -46,14 +52,30 @@ public abstract class MapaBase {
      * llena el arreglo con casillas dadas.
      * Instancia al metodo encargado de calcular la posicion del jugador {@link #calcularPosicionJugador() }
      * Por ultimo se encarga de generar y llenar al mapa con las casillas dadas
+     * @param cantidadSimbolos
+     * @param simboloCasilla
      */
-    public void generarMapa(){
+    public void generarMapa(int cantidadSimbolos, String simboloCasilla){
         colocarCasillasEnArreglo();
         calcularPosicionJugador();
         
+        int simbolosColocados = 0;
+        
         for (int i = 0; i < cantidadFilas; i++) {
             for (int j = 0; j < cantidadColumnas; j++) {
-                tableroMapa[i][j] = obtenerCasilla();
+                simboloObtenido[0] = obtenerCasilla();
+                
+                if(simboloObtenido[0].getSimboloCasilla().equalsIgnoreCase(simboloCasilla)){
+                    if(simbolosColocados <= cantidadSimbolos ){
+                        tableroMapa[i][j] = simboloObtenido[0];
+                        simboloObtenido[0] = null;
+                        simbolosColocados ++;
+                    } else {
+                        tableroMapa[i][j] = simbolo[3];
+                    }
+                } else {
+                    tableroMapa[i][j] = simboloObtenido[0];
+                }
             }
         }
     }
@@ -140,10 +162,18 @@ public abstract class MapaBase {
             }
         }
     
+     public void verificarCasilla(){
+         int x = jugador.getPosicionX();
+         int y = jugador.getPosicionY();
+         
+         CasillaModelo casillaActual = tableroMapa[x][y];
+         
+         casillaActual.efectoDeCasilla();
+     }    
+        
      public abstract void colocarCasillasEnArreglo();
      
-     
-     protected CasillaModelo obtenerCasilla(){
+     private CasillaModelo obtenerCasilla(){
         int casillasRandom = random.calcularNumeroAleatorios(0, simbolo.length);
         return simbolo[casillasRandom];
     }

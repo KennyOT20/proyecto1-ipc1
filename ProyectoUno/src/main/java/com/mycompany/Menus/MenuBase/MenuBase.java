@@ -4,7 +4,6 @@
  */
 package com.mycompany.Menus.MenuBase;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**

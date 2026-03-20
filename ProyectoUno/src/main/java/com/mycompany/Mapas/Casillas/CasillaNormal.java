@@ -4,6 +4,8 @@
  */
 package com.mycompany.Mapas.Casillas;
 
+import com.mycompany.Partida.Partida;
+
 /**
  *
  * @author Kenny
@@ -11,12 +13,13 @@ package com.mycompany.Mapas.Casillas;
 public class CasillaNormal extends CasillaModelo
 {
 
-    public CasillaNormal(String simboloCasilla, String colorCasilla) {
-        super(simboloCasilla, colorCasilla);
+    public CasillaNormal(String simboloCasilla, String colorCasilla, Partida partida) {
+        super(simboloCasilla, colorCasilla, partida);
     }
 
     @Override
     public void efectoDeCasilla() {
+        System.out.println("Casilla normal, siga avanzando");
     }
     
 }

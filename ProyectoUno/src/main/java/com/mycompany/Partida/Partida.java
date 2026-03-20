@@ -6,11 +6,10 @@ package com.mycompany.Partida;
 
 import com.mycompany.Controladores.ControladorPartida.ControladorPartida;
 import com.mycompany.Controladores.ControladorRandom.ControladorRandom;
-import com.mycompany.Controladores.Flota.EnsambladorDeNaves;
 import com.mycompany.Controladores.Flota.Flota;
 import com.mycompany.Mapas.Mapas.MapaGalactico;
 import com.mycompany.Menus.MenusDePartida.MenuPartidaInicial;
-import com.mycompany.Personajes.PersonajeDeJugador;
+import com.mycompany.Personajes.PersonajeDelJugador;
 
 /**
  *
@@ -18,7 +17,7 @@ import com.mycompany.Personajes.PersonajeDeJugador;
  */
 public class Partida {
     
-    private final PersonajeDeJugador jugador;
+    private final PersonajeDelJugador jugador;
     private final MapaGalactico mapaGalactico;
     private final ControladorRandom random;
     private final MenuPartidaInicial menuPartida;
@@ -32,17 +31,19 @@ public class Partida {
         this.random = new ControladorRandom();
         this.filasRandom = random.calcularNumeroAleatorios(12, 16);
         this.columnasRandom = random.calcularNumeroAleatorios(13, 18);
-        this.jugador = new PersonajeDeJugador();
-        this.mapaGalactico = new MapaGalactico(filasRandom, columnasRandom);
+        this.jugador = new PersonajeDelJugador();
+        this.mapaGalactico = new MapaGalactico(filasRandom, columnasRandom, this);
         this.flota = new Flota();
         this.controladorPartida = new ControladorPartida(this);
         this.menuPartida = new MenuPartidaInicial(this);
     }
     
     public void preprararPartida(){
+        int cantidadEstrellas = random.calcularNumeroAleatorios(3, 4);
+        String SIMBOLO_ESTRELLA = "★";
         controladorPartida.obtenerNombreDePartida();
         flota.asingarFlotaInicial(jugador);
-        mapaGalactico.generarMapa();
+        mapaGalactico.generarMapa(cantidadEstrellas, SIMBOLO_ESTRELLA );
     }
     
     public void iniciarPartida(){
@@ -66,7 +67,7 @@ public class Partida {
         return mapaGalactico;
     }
 
-    public PersonajeDeJugador getJugador() {
+    public PersonajeDelJugador getJugador() {
         return jugador;
     }
     

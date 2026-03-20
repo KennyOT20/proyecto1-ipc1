@@ -62,6 +62,7 @@ public class MenuPartidaInicial extends MenuBase {
             case "W" :
                 partida.getMapaGalactico().calcularMovimientos(opcion);
                 limpiarPantalla();
+                partida.getMapaGalactico().verificarCasilla();
                 mostrarSimbologia();
                 partida.getMapaGalactico().imprimirMapa();
                 mostrarInformacion();
@@ -69,6 +70,7 @@ public class MenuPartidaInicial extends MenuBase {
             case "A":
                 partida.getMapaGalactico().calcularMovimientos(opcion);
                 limpiarPantalla();
+                partida.getMapaGalactico().verificarCasilla();
                 mostrarSimbologia();
                 partida.getMapaGalactico().imprimirMapa();
                 mostrarInformacion();
@@ -76,6 +78,8 @@ public class MenuPartidaInicial extends MenuBase {
             case "S" :
                 partida.getMapaGalactico().calcularMovimientos(opcion);
                 limpiarPantalla();
+                partida.getMapaGalactico().verificarCasilla();
+                partida.getMapaGalactico().verificarCasilla();
                 mostrarSimbologia();
                 partida.getMapaGalactico().imprimirMapa();
                 mostrarInformacion();
@@ -83,6 +87,7 @@ public class MenuPartidaInicial extends MenuBase {
             case "D":
                 partida.getMapaGalactico().calcularMovimientos(opcion);
                 limpiarPantalla();
+                partida.getMapaGalactico().verificarCasilla();
                 mostrarSimbologia();
                 partida.getMapaGalactico().imprimirMapa();
                 mostrarInformacion();

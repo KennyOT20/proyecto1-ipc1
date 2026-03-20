@@ -4,14 +4,16 @@
  */
 package com.mycompany.Mapas.Mapas;
 
+import com.mycompany.Partida.Partida;
+
 /**
  *
  * @author Kenny
  */
 public class MapaGalactico extends MapaBase {
 
-    public MapaGalactico(int cantidadFilas, int cantidadColumnas) {
-        super(cantidadFilas, cantidadColumnas);
+    public MapaGalactico(int cantidadFilas, int cantidadColumnas, Partida partida) {
+        super(cantidadFilas, cantidadColumnas, partida);
     }
 
     @Override
@@ -22,6 +24,7 @@ public class MapaGalactico extends MapaBase {
         getSimbolo()[3] = getGeneradorCasillas().crearCasillaNormal();
         getSimbolo()[4] = getGeneradorCasillas().crearCasillaEstrella();
     }
+    
 
 
     

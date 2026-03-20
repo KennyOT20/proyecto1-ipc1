@@ -4,18 +4,21 @@
  */
 package com.mycompany.Mapas.Casillas;
 
+import com.mycompany.Partida.Partida;
+
 /**
  *
  * @author Kenny
  */
 public class CasillaEstrella extends CasillaModelo{
 
-    public CasillaEstrella(String simboloCasilla, String colorCasilla) {
-        super(simboloCasilla, colorCasilla);
+    public CasillaEstrella(String simboloCasilla, String colorCasilla, Partida partida) {
+        super(simboloCasilla, colorCasilla, partida);
     }
 
     @Override
     public void efectoDeCasilla() {
+         System.out.println("Nafa");
     }
     
 }

@@ -11,12 +11,19 @@ import com.mycompany.Mapas.Casillas.CasillaEstrella;
 import com.mycompany.Mapas.Casillas.CasillaModelo;
 import com.mycompany.Mapas.Casillas.CasillaNormal;
 import com.mycompany.Mapas.Casillas.CasillaWarp;
+import com.mycompany.Partida.Partida;
 
 /**
  *
  * @author Kenny
  */
 public class GeneradorCasillasMapa {
+    
+    private final Partida partida;
+    
+    public GeneradorCasillasMapa(Partida partida){
+        this.partida = partida;
+    }
     
     // Colores para las casillas
     private final String AZUL = "\u001B[34m";
@@ -40,27 +47,27 @@ public class GeneradorCasillasMapa {
      * @return 
      */
     public CasillaModelo crearCasillaNormal(){
-        return new CasillaNormal( SIMBOLO_NORMAL, AZUL);
+        return new CasillaNormal( SIMBOLO_NORMAL, AZUL, partida);
     }
     
     public CasillaModelo crearCasillaWarp(){
-        return new CasillaWarp(SIMBOLO_WARP, AZUL );
+        return new CasillaWarp(SIMBOLO_WARP, AZUL, partida );
     }
     
     public CasillaModelo crearCasillaEstrella(){
-        return new CasillaEstrella(SIMBOLO_ESTRELLA, BLANCO);
+        return new CasillaEstrella(SIMBOLO_ESTRELLA, BLANCO, partida);
     }
     
     public CasillaModelo crearCasillaEstacion(){
-        return new CasillaEstacionEspacial(SIMBOLO_ESTACION, MORADO);
+        return new CasillaEstacionEspacial(SIMBOLO_ESTACION, MORADO, partida);
     }
     
     public CasillaModelo crearCasillaCombate(){
-        return new CasillaCombate(SIMBOLO_COMBATE, ROJO);
+        return new CasillaCombate(SIMBOLO_COMBATE, ROJO, partida);
     }
     
     public CasillaModelo crearCasillaBase(){
-        return new CasillaBaseEnemiga(SIMBOLO_BASE, AMARILLO);
+        return new CasillaBaseEnemiga(SIMBOLO_BASE, AMARILLO, partida);
     }
     
 }
