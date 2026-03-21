@@ -13,9 +13,9 @@ import com.mycompany.Naves.Nave;
 public class Comandante extends Piloto {
 
     public Comandante(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, 
-            int puntosDePilotaje, int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia) {
+            int puntosDePilotaje, int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia, int precioPiloto) {
         super(nombrePiloto, nivel, puntosDeExperiencia, puntosDeEstrategia, puntosDePilotaje, 
-                puntosDeIngenieria, puntosDeLiderazgo, puntosDeResistencia);
+                puntosDeIngenieria, puntosDeLiderazgo, puntosDeResistencia, precioPiloto);
     }
 
     @Override

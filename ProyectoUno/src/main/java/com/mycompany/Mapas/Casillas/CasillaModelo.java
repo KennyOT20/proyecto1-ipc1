@@ -36,6 +36,10 @@ public abstract class CasillaModelo {
     public String getSIMBOLO_FLOTA() {
         return SIMBOLO_FLOTA;
     }
+
+    public Partida getPartida() {
+        return partida;
+    }
     
     
     

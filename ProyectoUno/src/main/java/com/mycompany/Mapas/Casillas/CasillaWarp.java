@@ -18,7 +18,7 @@ public class CasillaWarp extends CasillaModelo {
 
     @Override
     public void efectoDeCasilla() {
-         System.out.println("Nafa");
+        getPartida().getMapaGalactico().imprimirMapa();
     }
     
 }

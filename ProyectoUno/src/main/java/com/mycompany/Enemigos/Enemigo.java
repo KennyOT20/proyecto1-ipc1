@@ -22,7 +22,7 @@ public class Enemigo {
     
     public Enemigo(){
         this.random = new ControladorRandom();
-        this.cantidadFlotaEnemiga = random.calcularNumeroAleatorios(3, 4);
+        this.cantidadFlotaEnemiga = random.calcularNumeroAleatorios(1, 4);
         this.personajeMaquina = new PersonajeDeLaMaquina("Patrulla de Mazer Rhakam", cantidadFlotaEnemiga);
         this.flota = new Flota();
     }

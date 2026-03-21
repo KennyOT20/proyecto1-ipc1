@@ -38,9 +38,9 @@ public class Flota {
         int contadorArreglo = -1;
         
         while(contadorArreglo <= personajeMaquina.getFlota().length){
-         Nave naveObtenida = ensambladorNave.naveEnsamblada();
-        personajeMaquina.agregarNave(naveObtenida);
-        contadorArreglo ++;
+            Nave naveObtenida = ensambladorNave.naveEnsamblada();
+           personajeMaquina.agregarNave(naveObtenida);
+           contadorArreglo ++;
         }
     }
     

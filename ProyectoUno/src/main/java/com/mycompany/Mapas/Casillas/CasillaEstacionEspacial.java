@@ -4,6 +4,7 @@
  */
 package com.mycompany.Mapas.Casillas;
 
+import com.mycompany.Menus.MenuBaseEspacial.MenuBaseInicial;
 import com.mycompany.Partida.Partida;
 
 /**
@@ -12,13 +13,16 @@ import com.mycompany.Partida.Partida;
  */
 public class CasillaEstacionEspacial extends CasillaModelo {
 
+    private final MenuBaseInicial menuBaseInicial;
+    
     public CasillaEstacionEspacial(String simboloCasilla, String colorCasilla, Partida partida) {
         super(simboloCasilla, colorCasilla, partida);
+        this.menuBaseInicial = new MenuBaseInicial(partida);
     }
 
     @Override
     public void efectoDeCasilla() {
-         System.out.println("Nafa");
+         menuBaseInicial.mostrarInformacion();
     }
     
 }

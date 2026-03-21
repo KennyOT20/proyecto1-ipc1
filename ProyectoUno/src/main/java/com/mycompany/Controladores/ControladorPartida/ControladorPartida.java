@@ -27,12 +27,13 @@ public class ControladorPartida {
         String nombreDePartida; 
         
         System.out.println("-----------------------------------------------------");
-        System.out.println("|| Ingrese el nombre de la partida:                ||");
+        System.out.println("|| Ingrese el nombre de la partida                 ||");
         System.out.println("-----------------------------------------------------");
+        System.out.print("Nombre:");
         
         nombreDePartida = scanner.nextLine();
         
-        if(!nombreDePartida.isEmpty()){
+        if(!nombreDePartida.isEmpty()){ 
             partida.setNombrePartida(nombreDePartida);
             
         } else {

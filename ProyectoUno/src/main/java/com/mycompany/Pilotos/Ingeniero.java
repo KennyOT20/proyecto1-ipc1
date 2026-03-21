@@ -15,9 +15,9 @@ public class Ingeniero extends Piloto{
     private final int  turnosEnfriamiento;
     
     public Ingeniero(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, int puntosDePilotaje,
-            int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia) {
+            int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia, int precioPiloto) {
         super(nombrePiloto, nivel, puntosDeExperiencia, puntosDeEstrategia, puntosDePilotaje, puntosDeIngenieria, 
-                puntosDeLiderazgo, puntosDeResistencia);
+                puntosDeLiderazgo, puntosDeResistencia, precioPiloto);
         this.turnosEnfriamiento = 2;
     }
 

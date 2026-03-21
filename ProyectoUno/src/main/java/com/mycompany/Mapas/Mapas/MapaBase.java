@@ -66,7 +66,7 @@ public abstract class MapaBase {
                 simboloObtenido[0] = obtenerCasilla();
                 
                 if(simboloObtenido[0].getSimboloCasilla().equalsIgnoreCase(simboloCasilla)){
-                    if(simbolosColocados <= cantidadSimbolos ){
+                    if(simbolosColocados < cantidadSimbolos ){
                         tableroMapa[i][j] = simboloObtenido[0];
                         simboloObtenido[0] = null;
                         simbolosColocados ++;
@@ -185,6 +185,16 @@ public abstract class MapaBase {
     public GeneradorCasillasMapa getGeneradorCasillas() {
         return generadorCasillas;
     }
+
+    public int getCantidadFilas() {
+        return cantidadFilas;
+    }
+
+    public int getCantidadColumnas() {
+        return cantidadColumnas;
+    }
+    
+    
 
 }
 

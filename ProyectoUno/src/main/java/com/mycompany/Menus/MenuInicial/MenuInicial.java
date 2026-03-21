@@ -18,7 +18,7 @@ public class MenuInicial extends MenuBase{
         imprimirBordeDeMenu();
         imprimirLineaDeTexto(" ");
         imprimirLineaDeTexto("Bienvenido a");
-        imprimirLineaDeTexto("Ender's Armada");
+        imprimirLineaDeTexto("Liberacion Galactica");
         imprimirLineaDeTexto(" ");
         imprimirBordeDeMenu();
         imprimirLineaDeTexto(" 1. Iniciar partida.");

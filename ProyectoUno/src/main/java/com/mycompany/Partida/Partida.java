@@ -39,7 +39,7 @@ public class Partida {
     }
     
     public void preprararPartida(){
-        int cantidadEstrellas = random.calcularNumeroAleatorios(3, 4);
+        int cantidadEstrellas = random.calcularNumeroAleatorios(2, 4);
         String SIMBOLO_ESTRELLA = "★";
         controladorPartida.obtenerNombreDePartida();
         flota.asingarFlotaInicial(jugador);
@@ -70,7 +70,5 @@ public class Partida {
     public PersonajeDelJugador getJugador() {
         return jugador;
     }
-    
-    
     
 }

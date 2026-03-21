@@ -24,18 +24,18 @@ public class GeneradorDePilotos {
      */
     
     public Piloto crearIngeniero(){
-        return new Ingeniero("Ingeniero", 1, 0, 0, 0, 500, 0, 250);
+        return new Ingeniero("Ingeniero", 1, 0, 0, 0, 500, 0, 250, 800);
     }
     
     public Piloto crearEstratega(){
-        return new Estratega("Estratega", 1, 0, 500, 0, 0, 0, 125);
+        return new Estratega("Estratega", 1, 0, 500, 0, 0, 0, 125, 450);
     }
     
     public Piloto crearAce(){
-        return new Ace("Ace", 1, 0, 125, 500, 0, 0, 0 ); 
+        return new Ace("Ace", 1, 0, 125, 500, 0, 0, 0 , 600); 
     }
     
     public Piloto crearComandante(){
-        return new Comandante("Comandante", 1, 0, 125, 200, 175, 500, 120);
+        return new Comandante("Comandante", 1, 0, 125, 200, 175, 500, 120, 200);
     }
 }

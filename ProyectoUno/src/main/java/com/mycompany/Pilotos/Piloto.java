@@ -20,8 +20,10 @@ public abstract class Piloto {
     private int puntosDeIngenieria;
     private int puntosDeLiderazgo;
     private int puntosDeResistencia;
+    private int precioPiloto;
 
-    public Piloto(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, int puntosDePilotaje, int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia) {
+    public Piloto(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, int puntosDePilotaje, int puntosDeIngenieria, 
+            int puntosDeLiderazgo, int puntosDeResistencia, int precioPiloto) {
         this.nombrePiloto = nombrePiloto;
         this.nivel = nivel;
         this.puntosDeExperiencia = puntosDeExperiencia;
@@ -30,7 +32,9 @@ public abstract class Piloto {
         this.puntosDeIngenieria = puntosDeIngenieria;
         this.puntosDeLiderazgo = puntosDeLiderazgo;
         this.puntosDeResistencia = puntosDeResistencia;
+        this.precioPiloto = precioPiloto;
     }
+
 
     public void subirNivel(){
       
@@ -43,63 +47,66 @@ public abstract class Piloto {
         return nombrePiloto;
     }
 
-    public void setNombrePiloto(String nombrePiloto) {
-        this.nombrePiloto = nombrePiloto;
-    }
-
     public int getNivel() {
         return nivel;
-    }
-
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
     }
 
     public int getPuntosDeExperiencia() {
         return puntosDeExperiencia;
     }
 
-    public void setPuntosDeExperiencia(int puntosDeExperiencia) {
-        this.puntosDeExperiencia = puntosDeExperiencia;
-    }
-
     public int getPuntosDeEstrategia() {
         return puntosDeEstrategia;
-    }
-
-    public void setPuntosDeEstrategia(int puntosDeEstrategia) {
-        this.puntosDeEstrategia = puntosDeEstrategia;
     }
 
     public int getPuntosDePilotaje() {
         return puntosDePilotaje;
     }
 
-    public void setPuntosDePilotaje(int puntosDePilotaje) {
-        this.puntosDePilotaje = puntosDePilotaje;
-    }
-
     public int getPuntosDeIngenieria() {
         return puntosDeIngenieria;
-    }
-
-    public void setPuntosDeIngenieria(int puntosDeIngenieria) {
-        this.puntosDeIngenieria = puntosDeIngenieria;
     }
 
     public int getPuntosDeLiderazgo() {
         return puntosDeLiderazgo;
     }
 
-    public void setPuntosDeLiderazgo(int puntosDeLiderazgo) {
-        this.puntosDeLiderazgo = puntosDeLiderazgo;
-    }
-
     public int getPuntosDeResistencia() {
         return puntosDeResistencia;
+    }
+
+    public int getPrecioPiloto() {
+        return precioPiloto;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public void setPuntosDeExperiencia(int puntosDeExperiencia) {
+        this.puntosDeExperiencia = puntosDeExperiencia;
+    }
+
+    public void setPuntosDeEstrategia(int puntosDeEstrategia) {
+        this.puntosDeEstrategia = puntosDeEstrategia;
+    }
+
+    public void setPuntosDePilotaje(int puntosDePilotaje) {
+        this.puntosDePilotaje = puntosDePilotaje;
+    }
+
+    public void setPuntosDeIngenieria(int puntosDeIngenieria) {
+        this.puntosDeIngenieria = puntosDeIngenieria;
+    }
+
+    public void setPuntosDeLiderazgo(int puntosDeLiderazgo) {
+        this.puntosDeLiderazgo = puntosDeLiderazgo;
     }
 
     public void setPuntosDeResistencia(int puntosDeResistencia) {
         this.puntosDeResistencia = puntosDeResistencia;
     }
+
+    
+    
 }

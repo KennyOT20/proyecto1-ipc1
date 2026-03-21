@@ -16,9 +16,9 @@ public class Estratega extends Piloto {
     private final int turnoEnfriamiento;
     
     public Estratega(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, 
-            int puntosDePilotaje, int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia) {
+            int puntosDePilotaje, int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia, int precioPiloto) {
         super(nombrePiloto, nivel, puntosDeExperiencia, puntosDeEstrategia, puntosDePilotaje, 
-                puntosDeIngenieria, puntosDeLiderazgo, puntosDeResistencia);
+                puntosDeIngenieria, puntosDeLiderazgo, puntosDeResistencia, precioPiloto);
         this.turnoPerdido = 1;
         this.turnoEnfriamiento = 1;
     }
