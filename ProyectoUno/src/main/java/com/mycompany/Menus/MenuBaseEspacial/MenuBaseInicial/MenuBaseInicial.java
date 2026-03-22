@@ -2,9 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.Menus.MenuBaseEspacial;
+package com.mycompany.Menus.MenuBaseEspacial.MenuBaseInicial;
 
+import com.mycompany.Menus.MenuBaseEspacial.MenuBarraca.MenuBarraca;
 import com.mycompany.Menus.MenuBase.MenuBase;
+import com.mycompany.Menus.MenuBaseEspacial.MenusDeTienda.MenuGeneral.MenuTiendaGeneral;
 import com.mycompany.Partida.Partida;
 
 /**
@@ -38,11 +40,14 @@ public class MenuBaseInicial extends MenuBase {
     public void ejecutarOpcion(int opcion) {
         switch(opcion){
             case 1:
+                MenuTiendaGeneral menuTienda = new MenuTiendaGeneral();
+                limpiarPantalla();
+                menuTienda.mostrarInformacion();
                 break;
             case 2:
                 break;
             case 3:
-                MenuBarraca barraca = new MenuBarraca(partida.getJugador(), partida);
+                MenuBarraca barraca = new MenuBarraca(partida.getJugador(), partida, this);
                 limpiarPantalla();
                 barraca.mostrarInformacion();
                 break;

@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.Menus.MenuBaseEspacial;
+package com.mycompany.Menus.MenuBaseEspacial.MenuBarraca;
 
 import com.mycompany.BaseEspacial.Barraca;
 import com.mycompany.Generadores.GeneradorDePilotos.GeneradorDePilotos;
 import com.mycompany.Menus.MenuBase.MenuBase;
+import com.mycompany.Menus.MenuBaseEspacial.MenuBaseInicial.MenuBaseInicial;
 import com.mycompany.Partida.Partida;
 import com.mycompany.Personajes.Jugador;
 import com.mycompany.Pilotos.Piloto;
@@ -21,14 +22,16 @@ public class MenuBarraca extends MenuBase{
     private final Partida partida;
     private final Jugador jugador;
     private final GeneradorDePilotos generarPiloto;
+    private final MenuBaseInicial menuBase;
     
     private boolean compraValida;
     
-    public MenuBarraca(Jugador jugador, Partida partida){
+    public MenuBarraca(Jugador jugador, Partida partida, MenuBaseInicial menuBase){
         this.partida = partida;
         this.barraca = new Barraca(partida);
         this.jugador = jugador;
         this.generarPiloto = new GeneradorDePilotos();
+        this.menuBase = menuBase;
         this.compraValida = false;
     }
     
@@ -132,6 +135,8 @@ public class MenuBarraca extends MenuBase{
                 mostrarResultadoCompra(pilotoObtenido);
                 break;
             case 5: 
+                limpiarPantalla();
+                menuBase.mostrarInformacion();
                 break;
         }
         
@@ -141,7 +146,7 @@ public class MenuBarraca extends MenuBase{
     private void mostrarResultadoCompra(Piloto pilotoObtenido){
         
         String nombrePiloto = pilotoObtenido.getNombrePiloto();
-        String lineaDeTexto = "Felicidades, has comprado al piloto " + nombrePiloto; 
+        String lineaDeTexto = "Felicidades, has contratado al piloto " + nombrePiloto; 
         imprimirBordeDeMenu();
         if(compraValida){
             imprimirLineaDeTexto(lineaDeTexto);

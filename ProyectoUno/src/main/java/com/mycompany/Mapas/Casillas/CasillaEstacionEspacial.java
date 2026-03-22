@@ -4,7 +4,7 @@
  */
 package com.mycompany.Mapas.Casillas;
 
-import com.mycompany.Menus.MenuBaseEspacial.MenuBaseInicial;
+import com.mycompany.Menus.MenuBaseEspacial.MenuBaseInicial.MenuBaseInicial;
 import com.mycompany.Partida.Partida;
 
 /**
