@@ -6,6 +6,7 @@ package com.mycompany.Personajes;
 
 import com.mycompany.Controladores.Inventarios.InventarioComponente;
 import com.mycompany.Controladores.Inventarios.InventarioNave;
+import com.mycompany.Controladores.Inventarios.InventarioPilotos;
 
 /**
  *
@@ -15,6 +16,7 @@ public class Jugador extends Personaje {
     
     private final  InventarioNave inventarioNaves;            
     private final InventarioComponente inventarioComponentes;
+    private final InventarioPilotos inventarioPilotos;
     private int creditosGalacticos;
     private int puntosDeTecnologia;
     private int posicionX;
@@ -26,6 +28,7 @@ public class Jugador extends Personaje {
         super("Ender Wiggin", 3 );
         this.inventarioNaves = new InventarioNave();
         this.inventarioComponentes = new InventarioComponente();
+        this.inventarioPilotos = new InventarioPilotos();
         this.creditosGalacticos = 1000;
     }
     
@@ -80,6 +83,19 @@ public class Jugador extends Personaje {
         return FONDO_JUGADOR;
     }
 
+    public InventarioNave getInventarioNaves() {
+        return inventarioNaves;
+    }
+
+    public InventarioComponente getInventarioComponentes() {
+        return inventarioComponentes;
+    }
+
+    public InventarioPilotos getInventarioPilotos() {
+        return inventarioPilotos;
+    }
+
+    
     
     
 }

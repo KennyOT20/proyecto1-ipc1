@@ -4,6 +4,7 @@
  */
 package com.mycompany.Generadores.GeneradorDeNaves;
 
+import com.mycompany.Controladores.ControladorRandom.ControladorRandom;
 import com.mycompany.Naves.Nave;
 import com.mycompany.Naves.NaveAcorazado;
 import com.mycompany.Naves.NaveCaza;
@@ -16,6 +17,14 @@ import com.mycompany.Naves.NaveFragata;
  */
 public class GeneradorDeNaves {
     
+    private final ControladorRandom random;
+    private int espacioNave;
+    
+    public GeneradorDeNaves(){
+        this.random = new ControladorRandom();
+        this.espacioNave = 0;
+    }
+    
     /**
      * Serie de Metodos  encargados de crear lazs naves reciben como parametros : 
      * nombreDeNave, cantidadDeComponentes, tipoDeNave, puntosDeVida, vidaMax, 
@@ -25,19 +34,23 @@ public class GeneradorDeNaves {
     
     
     public Nave crearCaza(){
-        return new NaveCaza("Caza", 3, "Ligero", 500, 500, 1000, 400, 0, 800, 1000);
+        espacioNave = random.calcularNumeroAleatorios(2, 3);
+        return new NaveCaza("Caza", espacioNave, "Ligero", 500, 500, 1000, 400, 0, 800, 1000);
     }
     
     public Nave crearAcorazado(){
-        return new NaveAcorazado("Acorazado", 8, "Pesado", 2000, 2000, 100, 100, 0, 2000, 4000 ); 
+        espacioNave = random.calcularNumeroAleatorios(6 , 8);
+        return new NaveAcorazado("Acorazado", espacioNave, "Pesado", 2000, 2000, 100, 100, 0, 2000, 4000 ); 
     }
     
     public Nave crearFragata(){
-        return new NaveFragata("Fragata", 5, "Normal", 1200, 1200,  600, 200, 0, 1200, 1500);
+        espacioNave = random.calcularNumeroAleatorios(4, 5);
+        return new NaveFragata("Fragata", espacioNave, "Normal", 1200, 1200,  600, 200, 0, 1200, 1500);
     }
     
     public Nave crearNaveApoyo(){
-        return new NaveDeApoyo("Nave de apoyo", 6, "Normal", 800, 800, 500, 400, 0, 200, 600);
+        espacioNave = random.calcularNumeroAleatorios(4, 6);
+        return new NaveDeApoyo("Nave de apoyo", espacioNave, "Normal", 800, 800, 500, 400, 0, 200, 600);
     }
     
 }

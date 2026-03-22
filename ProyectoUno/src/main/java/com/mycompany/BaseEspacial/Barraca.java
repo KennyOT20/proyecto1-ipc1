@@ -22,15 +22,19 @@ public class Barraca {
         pilotos.generarArregloPiloto();
     }
     
-    public void validarCompra(Piloto pilotoComprado){
+    public boolean validarCompra(Piloto pilotoComprado){
         int crJugador = partida.getJugador().getCreditosGalacticos();
         int precioPiloto = pilotoComprado.getPrecioPiloto();
         
         if(crJugador >= precioPiloto){
-            
+            partida.getJugador().getInventarioPilotos().agregarPiloto(pilotoComprado);
+            partida.getJugador().setCreditosGalacticos(crJugador - precioPiloto);
+            return true;
+        } else {
+            return false;
         }
+        
     }
-    
 
     public ArregloDePilotos getPilotos() {
         return pilotos;

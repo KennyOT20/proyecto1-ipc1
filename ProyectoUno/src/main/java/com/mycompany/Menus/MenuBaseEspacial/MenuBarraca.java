@@ -5,9 +5,11 @@
 package com.mycompany.Menus.MenuBaseEspacial;
 
 import com.mycompany.BaseEspacial.Barraca;
+import com.mycompany.Generadores.GeneradorDePilotos.GeneradorDePilotos;
 import com.mycompany.Menus.MenuBase.MenuBase;
 import com.mycompany.Partida.Partida;
 import com.mycompany.Personajes.Jugador;
+import com.mycompany.Pilotos.Piloto;
 
 /**
  *
@@ -18,11 +20,16 @@ public class MenuBarraca extends MenuBase{
     private final Barraca barraca;
     private final Partida partida;
     private final Jugador jugador;
+    private final GeneradorDePilotos generarPiloto;
+    
+    private boolean compraValida;
     
     public MenuBarraca(Jugador jugador, Partida partida){
         this.partida = partida;
         this.barraca = new Barraca(partida);
         this.jugador = jugador;
+        this.generarPiloto = new GeneradorDePilotos();
+        this.compraValida = false;
     }
     
     @Override
@@ -71,6 +78,9 @@ public class MenuBarraca extends MenuBase{
             imprimirLineaDeTexto(lineaDeTexto);
         }
         
+        imprimirLineaDeTexto("");
+        imprimirLineaDeTexto("5. Volver al menu de base espacial");
+        
     }
     
     public void mostrarDatos(){
@@ -91,6 +101,57 @@ public class MenuBarraca extends MenuBase{
 
     @Override
     public void ejecutarOpcion(int opcion) {
+        
+        Piloto pilotoObtenido;
+        
+        
+        switch (opcion){
+            case  1 :
+                pilotoObtenido = generarPiloto.crearAce();
+                compraValida = barraca.validarCompra(pilotoObtenido);
+                limpiarPantalla();
+                mostrarResultadoCompra(pilotoObtenido);
+
+                break;
+            case 2 :
+                pilotoObtenido = generarPiloto.crearComandante();
+                compraValida = barraca.validarCompra(pilotoObtenido);
+                limpiarPantalla();
+                mostrarResultadoCompra(pilotoObtenido);
+                break;
+            case 3 : 
+                pilotoObtenido = generarPiloto.crearEstratega();
+                compraValida = barraca.validarCompra(pilotoObtenido);
+                limpiarPantalla();
+                mostrarResultadoCompra(pilotoObtenido);
+                break;
+            case 4 :
+                pilotoObtenido = generarPiloto.crearIngeniero();
+                compraValida = barraca.validarCompra(pilotoObtenido);
+                limpiarPantalla();
+                mostrarResultadoCompra(pilotoObtenido);
+                break;
+            case 5: 
+                break;
+        }
+        
+    }
+   
+    
+    private void mostrarResultadoCompra(Piloto pilotoObtenido){
+        
+        String nombrePiloto = pilotoObtenido.getNombrePiloto();
+        String lineaDeTexto = "Felicidades, has comprado al piloto " + nombrePiloto; 
+        imprimirBordeDeMenu();
+        if(compraValida){
+            imprimirLineaDeTexto(lineaDeTexto);
+        } else {
+            imprimirLineaDeTexto("CR insuficiente.");
+        }
+        
+        imprimirBordeDeMenu();
+        
+        mostrarInformacion();
     }
     
     

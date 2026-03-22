@@ -6,7 +6,6 @@ package com.mycompany.Personajes;
 
 import com.mycompany.Controladores.Inventarios.InventarioObjetos;
 import com.mycompany.Naves.Nave;
-import com.mycompany.Objetos.ObjetoPrincipal.ObjetoPrincipal;
 
 
 /**
