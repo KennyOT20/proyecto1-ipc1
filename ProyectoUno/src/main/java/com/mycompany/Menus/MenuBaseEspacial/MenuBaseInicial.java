@@ -4,7 +4,6 @@
  */
 package com.mycompany.Menus.MenuBaseEspacial;
 
-import com.mycompany.BaseEspacial.Barraca;
 import com.mycompany.Menus.MenuBase.MenuBase;
 import com.mycompany.Partida.Partida;
 
@@ -43,7 +42,7 @@ public class MenuBaseInicial extends MenuBase {
             case 2:
                 break;
             case 3:
-                MenuBarraca barraca = new MenuBarraca();
+                MenuBarraca barraca = new MenuBarraca(partida.getJugador(), partida);
                 limpiarPantalla();
                 barraca.mostrarInformacion();
                 break;

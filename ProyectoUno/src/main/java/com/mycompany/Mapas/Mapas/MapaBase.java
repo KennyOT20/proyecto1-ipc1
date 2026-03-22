@@ -8,7 +8,7 @@ import com.mycompany.Controladores.ControladorRandom.ControladorRandom;
 import com.mycompany.Generadores.GeneradorDeCasillas.GeneradorCasillasMapa;
 import com.mycompany.Mapas.Casillas.CasillaModelo;
 import com.mycompany.Partida.Partida;
-import com.mycompany.Personajes.PersonajeDelJugador;
+import com.mycompany.Personajes.Jugador;
 
 
 
@@ -23,7 +23,7 @@ public abstract class MapaBase {
     private final CasillaModelo[] simboloObtenido;
     private final Partida partida;
     
-    private final PersonajeDelJugador jugador;
+    private final Jugador jugador;
     
     private final ControladorRandom random;
     private final GeneradorCasillasMapa generadorCasillas;
@@ -42,7 +42,7 @@ public abstract class MapaBase {
         this.simbolo = new CasillaModelo[cantidadDeCasillas];
         this.simboloObtenido = new CasillaModelo[1];
         this.generadorCasillas = new GeneradorCasillasMapa(partida);
-        this.jugador = new PersonajeDelJugador();
+        this.jugador = new Jugador();
         this.random = new ControladorRandom();
         this.partida = partida;
     }

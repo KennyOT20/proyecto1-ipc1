@@ -6,25 +6,25 @@ package com.mycompany.Controladores.Flota;
 
 import com.mycompany.Generadores.GeneradorDeNaves.GeneradorDeNaves;
 import com.mycompany.Naves.Nave;
-import com.mycompany.Personajes.PersonajeDelJugador;
-import com.mycompany.Personajes.PersonajeDeLaMaquina;
+import com.mycompany.Personajes.Jugador;
+import com.mycompany.Personajes.Maquina;
 import com.mycompany.Pilotos.Piloto;
 
 /**
  *
  * @author Kenny
  */
-public class Flota {
+public class GenerarFlota {
     
     private final GeneradorDeNaves generarNave;
     private final EnsambladorDeNaves ensambladorNave;
     
-    public Flota(){
+    public GenerarFlota(){
         this.generarNave = new GeneradorDeNaves();
         this.ensambladorNave = new EnsambladorDeNaves();
     }
 
-    public void asingarFlotaInicial(PersonajeDelJugador jugador){
+    public void asingarFlotaInicial(Jugador jugador){
         Nave fragata = generarNave.crearFragata();
         Piloto pilotoObtenido = ensambladorNave.obtenerPilotoRandom();
         fragata.agregarPiloto(pilotoObtenido);
@@ -34,7 +34,7 @@ public class Flota {
     
     
  
-    public void obtenerFlotaRandom(PersonajeDeLaMaquina personajeMaquina){
+    public void obtenerFlotaRandom(Maquina personajeMaquina){
         int contadorArreglo = -1;
         
         while(contadorArreglo <= personajeMaquina.getFlota().length){

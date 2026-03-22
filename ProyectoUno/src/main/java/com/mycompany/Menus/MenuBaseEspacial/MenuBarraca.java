@@ -6,6 +6,8 @@ package com.mycompany.Menus.MenuBaseEspacial;
 
 import com.mycompany.BaseEspacial.Barraca;
 import com.mycompany.Menus.MenuBase.MenuBase;
+import com.mycompany.Partida.Partida;
+import com.mycompany.Personajes.Jugador;
 
 /**
  *
@@ -14,9 +16,13 @@ import com.mycompany.Menus.MenuBase.MenuBase;
 public class MenuBarraca extends MenuBase{
 
     private final Barraca barraca;
+    private final Partida partida;
+    private final Jugador jugador;
     
-    public MenuBarraca(){
-        this.barraca = new Barraca();
+    public MenuBarraca(Jugador jugador, Partida partida){
+        this.partida = partida;
+        this.barraca = new Barraca(partida);
+        this.jugador = jugador;
     }
     
     @Override
@@ -24,21 +30,24 @@ public class MenuBarraca extends MenuBase{
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Barraca");
         imprimirBordeDeMenu();
-        mostrarInformacionEstadisticas();
+        mostrarDatos();
         mostrarPilotos();
         imprimirBordeDeMenu();
+        System.out.print("Ingrese una opcion: ");
         validarOpcion();
         
     }
     
     
     private void mostrarPilotos(){
-        imprimirLineaDeTexto("Pilotos: ");
-        imprimirLineaDeTexto("Nombre de piloto:        Precio:        Estadisticas:");
+        imprimirLineaDeTexto("Pilotos ");
+        imprimirLineaDeTexto("Nombre de piloto:    Precio:        Estadisticas:");
+        imprimirBordeDeMenu();
+        
         for (int i = 0; i < barraca.getPilotos().getArregloDePilotos().length; i++) {
             
             String nombrePiloto = barraca.getPilotos().getArregloDePilotos()[i].getNombrePiloto();
-            String precioPiloto = String.valueOf(barraca.getPilotos().getArregloDePilotos()[i].getPrecioPiloto());
+            String precioPiloto = String.valueOf(barraca.getPilotos().getArregloDePilotos()[i].getPrecioPiloto()) + " CR";
             imprimirLineaDeTexto("");
             
             while(nombrePiloto.length() < 20){
@@ -61,9 +70,15 @@ public class MenuBarraca extends MenuBase{
            
             imprimirLineaDeTexto(lineaDeTexto);
         }
+        
     }
     
-    public void mostrarInformacionEstadisticas(){
+    public void mostrarDatos(){
+         String creditosEstelarJugador = String.valueOf(jugador.getCreditosGalacticos());
+        String datos = "CR: " + creditosEstelarJugador;
+        
+        imprimirBordeDeMenu();
+        imprimirLineaDeTexto(datos);
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("EXP: Puntos de experiencia");
         imprimirLineaDeTexto("LEA: Puntos de liderazgo");
@@ -72,7 +87,6 @@ public class MenuBarraca extends MenuBase{
         imprimirLineaDeTexto("RES: Puntos de resistencia ");
         imprimirLineaDeTexto("EST: Puntos de estrategia");
         imprimirBordeDeMenu();
-        System.out.print("Ingrese una opcion: ");
     }
 
     @Override

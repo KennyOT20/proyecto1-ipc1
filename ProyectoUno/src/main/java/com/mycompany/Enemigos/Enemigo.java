@@ -5,8 +5,8 @@
 package com.mycompany.Enemigos;
 
 import com.mycompany.Controladores.ControladorRandom.ControladorRandom;
-import com.mycompany.Controladores.Flota.Flota;
-import com.mycompany.Personajes.PersonajeDeLaMaquina;
+import com.mycompany.Controladores.Flota.GenerarFlota;
+import com.mycompany.Personajes.Maquina;
 
 /**
  *
@@ -14,24 +14,24 @@ import com.mycompany.Personajes.PersonajeDeLaMaquina;
  */
 public class Enemigo {
     
-    private final PersonajeDeLaMaquina personajeMaquina;
+    private final Maquina personajeMaquina;
     private final ControladorRandom random;
-    private final Flota flota;
+    private final GenerarFlota flota;
     private int cantidadFlotaEnemiga;
     
     
     public Enemigo(){
         this.random = new ControladorRandom();
         this.cantidadFlotaEnemiga = random.calcularNumeroAleatorios(1, 4);
-        this.personajeMaquina = new PersonajeDeLaMaquina("Patrulla de Mazer Rhakam", cantidadFlotaEnemiga);
-        this.flota = new Flota();
+        this.personajeMaquina = new Maquina("Patrulla de Mazer Rhakam", cantidadFlotaEnemiga);
+        this.flota = new GenerarFlota();
     }
     
     public void generarEnemigosRandom(){
         flota.obtenerFlotaRandom(personajeMaquina);
     }
 
-    public PersonajeDeLaMaquina getPersonajeMaquina() {
+    public Maquina getPersonajeMaquina() {
         return personajeMaquina;
     }
     

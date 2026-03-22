@@ -5,6 +5,8 @@
 package com.mycompany.BaseEspacial;
 
 import com.mycompany.Arreglos.ArregloDePilotos.ArregloDePilotos;
+import com.mycompany.Partida.Partida;
+import com.mycompany.Pilotos.Piloto;
 
 /**
  *
@@ -12,10 +14,21 @@ import com.mycompany.Arreglos.ArregloDePilotos.ArregloDePilotos;
  */
 public class Barraca {
     private final ArregloDePilotos pilotos;
+    private final Partida partida;
     
-    public Barraca(){
+    public Barraca(Partida partida){
         this.pilotos = new ArregloDePilotos();
+        this.partida = partida;
         pilotos.generarArregloPiloto();
+    }
+    
+    public void validarCompra(Piloto pilotoComprado){
+        int crJugador = partida.getJugador().getCreditosGalacticos();
+        int precioPiloto = pilotoComprado.getPrecioPiloto();
+        
+        if(crJugador >= precioPiloto){
+            
+        }
     }
     
 

@@ -18,7 +18,6 @@ public class MenuPartidaInicial extends MenuBase {
     public MenuPartidaInicial(Partida partida){
         this.partida = partida;
     }
-   
     
     @Override
     public void mostrarInformacion() {

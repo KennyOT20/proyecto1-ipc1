@@ -8,9 +8,9 @@ package com.mycompany.Personajes;
  *
  * @author Kenny
  */
-public class PersonajeDeLaMaquina extends Personaje  {
+public class Maquina extends Personaje  {
 
-    public PersonajeDeLaMaquina(String nombrePersonaje, int cantidadDeFlota) {
+    public Maquina(String nombrePersonaje, int cantidadDeFlota) {
         super(nombrePersonaje, cantidadDeFlota);
     }
     

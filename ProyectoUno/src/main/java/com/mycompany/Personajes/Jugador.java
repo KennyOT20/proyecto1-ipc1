@@ -4,23 +4,35 @@
  */
 package com.mycompany.Personajes;
 
+import com.mycompany.Componentes.ComponentesDeNaves.ComponenteDeNave;
+import com.mycompany.Naves.Nave;
+import com.mycompany.Pilotos.Piloto;
+
 
 /**
  *
  * @author Kenny
  */
-public class PersonajeDelJugador extends Personaje {
+public class Jugador extends Personaje {
+    
+    private final ComponenteDeNave[] inventarioComponentes;
+    private final Piloto[] inventarioPiloto;
+    private final Nave[] inventarioNaves;
     private int creditosGalacticos;
     private int puntosDeTecnologia;
     private int posicionX;
     private int posicionY;
-    private int cantidadFLota;
+    private final int CANTIDAD_FLOTA;
     private final String FONDO_JUGADOR ="\u001B[42m";
     private final String SIMBOLO_FLOTA = "▲";
 
-    public PersonajeDelJugador() {
-        super("Ender Wiggin", 3 );
+    public Jugador() {
+        this.CANTIDAD_FLOTA = 3;
+        super("Ender Wiggin", CANTIDAD_FLOTA );
         this.creditosGalacticos = 1000;
+        this.inventarioComponentes = new ComponenteDeNave[1];
+        this.inventarioPiloto = new Piloto[1];
+        this.inventarioNaves = new Nave[1];
     }
     
     @Override
@@ -32,6 +44,7 @@ public class PersonajeDelJugador extends Personaje {
     public void recibirRecompensas(){
         
     }
+    
 
     public int getCreditosGalacticos() {
         return creditosGalacticos;
@@ -73,9 +86,17 @@ public class PersonajeDelJugador extends Personaje {
         return FONDO_JUGADOR;
     }
 
-    
-    
-    
-    
+    public ComponenteDeNave[] getInventarioComponentes() {
+        return inventarioComponentes;
+    }
+
+    public Piloto[] getInventarioPiloto() {
+        return inventarioPiloto;
+    }
+
+    public Nave[] getInventarioNaves() {
+        return inventarioNaves;
+    }
+
     
 }

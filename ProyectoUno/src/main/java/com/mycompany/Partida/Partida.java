@@ -6,10 +6,10 @@ package com.mycompany.Partida;
 
 import com.mycompany.Controladores.ControladorPartida.ControladorPartida;
 import com.mycompany.Controladores.ControladorRandom.ControladorRandom;
-import com.mycompany.Controladores.Flota.Flota;
+import com.mycompany.Controladores.Flota.GenerarFlota;
 import com.mycompany.Mapas.Mapas.MapaGalactico;
 import com.mycompany.Menus.MenusDePartida.MenuPartidaInicial;
-import com.mycompany.Personajes.PersonajeDelJugador;
+import com.mycompany.Personajes.Jugador;
 
 /**
  *
@@ -17,11 +17,11 @@ import com.mycompany.Personajes.PersonajeDelJugador;
  */
 public class Partida {
     
-    private final PersonajeDelJugador jugador;
+    private final Jugador jugador;
     private final MapaGalactico mapaGalactico;
     private final ControladorRandom random;
     private final MenuPartidaInicial menuPartida;
-    private final Flota flota;
+    private final GenerarFlota flota;
     private int filasRandom;
     private int columnasRandom;
     private String nombrePartida;
@@ -31,9 +31,9 @@ public class Partida {
         this.random = new ControladorRandom();
         this.filasRandom = random.calcularNumeroAleatorios(12, 16);
         this.columnasRandom = random.calcularNumeroAleatorios(13, 18);
-        this.jugador = new PersonajeDelJugador();
+        this.jugador = new Jugador();
         this.mapaGalactico = new MapaGalactico(filasRandom, columnasRandom, this);
-        this.flota = new Flota();
+        this.flota = new GenerarFlota();
         this.controladorPartida = new ControladorPartida(this);
         this.menuPartida = new MenuPartidaInicial(this);
     }
@@ -67,7 +67,7 @@ public class Partida {
         return mapaGalactico;
     }
 
-    public PersonajeDelJugador getJugador() {
+    public Jugador getJugador() {
         return jugador;
     }
     
