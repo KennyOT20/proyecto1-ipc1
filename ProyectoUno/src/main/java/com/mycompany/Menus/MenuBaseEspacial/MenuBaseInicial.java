@@ -43,8 +43,9 @@ public class MenuBaseInicial extends MenuBase {
             case 2:
                 break;
             case 3:
-                Barraca barraca = new Barraca();
-                barraca.mostrarPilotos();
+                MenuBarraca barraca = new MenuBarraca();
+                limpiarPantalla();
+                barraca.mostrarInformacion();
                 break;
             case 4:
                 partida.getMapaGalactico().imprimirMapa();

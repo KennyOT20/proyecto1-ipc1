@@ -18,12 +18,10 @@ public class Barraca {
         pilotos.generarArregloPiloto();
     }
     
-    public void mostrarPilotos(){
-        for (int i = 0; i < pilotos.getArregloDePilotos().length; i++) {
-            System.out.println("Pilotos");
-            System.out.println("Nombre de piloto:                      Precio:                      Estadisticas:");
-            System.out.println((i+1) + pilotos.getArregloDePilotos()[i].getNombrePiloto() + " " +pilotos.getArregloDePilotos()[i].getPrecioPiloto()  );
-        }
+
+    public ArregloDePilotos getPilotos() {
+        return pilotos;
     }
+    
     
 }

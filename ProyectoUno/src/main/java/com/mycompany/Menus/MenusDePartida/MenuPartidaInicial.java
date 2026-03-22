@@ -29,6 +29,29 @@ public class MenuPartidaInicial extends MenuBase {
         validarOpcionUsuario();
     }
     
+    public void mostrarInformacionNavesJugador(){
+        imprimirLineaDeTexto("Naves en turno");
+        imprimirLineaDeTexto("Nave:                     Piloto abordo:   ");
+        for (int i = 0; i < partida.getJugador().getFlota().length; i++) {
+           if(partida.getJugador().getFlota()[i] != null){
+            String nombreDeNave = partida.getJugador().getFlota()[i].getNombreDeNave();
+            String pilotoAbordo = partida.getJugador().getFlota()[i].getPiloto()[0].getNombrePiloto();
+            
+            while(nombreDeNave.length() < 25){
+                nombreDeNave += " ";
+            }
+
+            while(pilotoAbordo.length() < 20){
+                pilotoAbordo += " ";
+            }
+
+            String lineaDeTexto = (i + 1) + ". " + nombreDeNave + pilotoAbordo;
+
+            imprimirLineaDeTexto(lineaDeTexto);
+                   }
+         }
+    }
+    
     public void mostrarSimbologia(){
         String RESET = "\u001B[0m";
 
@@ -49,8 +72,7 @@ public class MenuPartidaInicial extends MenuBase {
             "  Base: " + BASE +
             "  Jugador: " + JUGADOR + "                       "
         );
-        imprimirLineaDeTexto("Naves en turno:                            Cr: " + partida.getJugador().getCreditosGalacticos() );
-        partida.getJugador().mostrarNaves();
+        mostrarInformacionNavesJugador();
         imprimirBordeDeMenu();
     }
     
