@@ -22,13 +22,11 @@ public class Jugador extends Personaje {
     private int puntosDeTecnologia;
     private int posicionX;
     private int posicionY;
-    private final int CANTIDAD_FLOTA;
     private final String FONDO_JUGADOR ="\u001B[42m";
     private final String SIMBOLO_FLOTA = "▲";
 
     public Jugador() {
-        this.CANTIDAD_FLOTA = 3;
-        super("Ender Wiggin", CANTIDAD_FLOTA );
+        super("Ender Wiggin", 3 );
         this.creditosGalacticos = 1000;
         this.inventarioComponentes = new ComponenteDeNave[1];
         this.inventarioPiloto = new Piloto[1];
