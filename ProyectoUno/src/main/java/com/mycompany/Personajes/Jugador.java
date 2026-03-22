@@ -4,10 +4,8 @@
  */
 package com.mycompany.Personajes;
 
-import com.mycompany.Componentes.ComponentesDeNaves.ComponenteDeNave;
-import com.mycompany.Naves.Nave;
-import com.mycompany.Pilotos.Piloto;
-
+import com.mycompany.Controladores.Inventarios.InventarioComponente;
+import com.mycompany.Controladores.Inventarios.InventarioNave;
 
 /**
  *
@@ -15,9 +13,8 @@ import com.mycompany.Pilotos.Piloto;
  */
 public class Jugador extends Personaje {
     
-    private final ComponenteDeNave[] inventarioComponentes;
-    private final Piloto[] inventarioPiloto;
-    private final Nave[] inventarioNaves;
+    private final  InventarioNave inventarioNaves;            
+    private final InventarioComponente inventarioComponentes;
     private int creditosGalacticos;
     private int puntosDeTecnologia;
     private int posicionX;
@@ -27,10 +24,9 @@ public class Jugador extends Personaje {
 
     public Jugador() {
         super("Ender Wiggin", 3 );
+        this.inventarioNaves = new InventarioNave();
+        this.inventarioComponentes = new InventarioComponente();
         this.creditosGalacticos = 1000;
-        this.inventarioComponentes = new ComponenteDeNave[1];
-        this.inventarioPiloto = new Piloto[1];
-        this.inventarioNaves = new Nave[1];
     }
     
     @Override
@@ -84,17 +80,6 @@ public class Jugador extends Personaje {
         return FONDO_JUGADOR;
     }
 
-    public ComponenteDeNave[] getInventarioComponentes() {
-        return inventarioComponentes;
-    }
-
-    public Piloto[] getInventarioPiloto() {
-        return inventarioPiloto;
-    }
-
-    public Nave[] getInventarioNaves() {
-        return inventarioNaves;
-    }
-
+    
     
 }

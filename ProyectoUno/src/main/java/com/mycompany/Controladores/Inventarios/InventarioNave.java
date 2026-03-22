@@ -2,6 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package com.mycompany.Controladores.Inventarios;
+
 import com.mycompany.Naves.Nave;
 
 /**
@@ -29,7 +31,7 @@ public class InventarioNave {
     }
     
     private void agrandarInventario(){
-        Nave[] arregloAgrandado = new Nave[inventarioNave.length *2 ];
+        Nave[] arregloAgrandado = new Nave[inventarioNave.length * 2 ];
         
         for (int i = 0; i < inventarioNave.length; i++) {
             arregloAgrandado[i] = inventarioNave[i];

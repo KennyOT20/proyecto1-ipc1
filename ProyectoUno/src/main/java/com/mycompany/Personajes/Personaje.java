@@ -4,6 +4,7 @@
  */
 package com.mycompany.Personajes;
 
+import com.mycompany.Controladores.Inventarios.InventarioObjetos;
 import com.mycompany.Naves.Nave;
 import com.mycompany.Objetos.ObjetoPrincipal.ObjetoPrincipal;
 
@@ -15,15 +16,14 @@ import com.mycompany.Objetos.ObjetoPrincipal.ObjetoPrincipal;
 public abstract class Personaje {
     
     private final Nave[] flota;
-    private final ObjetoPrincipal[] inventarioObjetos;
     private final String nombrePersonaje;
+    private final InventarioObjetos inventarioObjetos;
     private int cantidadDeFlota;
     
     public Personaje(String nombrePersonaje, int cantidadDeFlota) {
         this.nombrePersonaje = nombrePersonaje;
         this.flota = new Nave[cantidadDeFlota];
-        this.inventarioObjetos = new ObjetoPrincipal[1];
-        
+        this.inventarioObjetos = new InventarioObjetos();
     }
     
     public void agregarNave(Nave nave){
@@ -50,11 +50,8 @@ public abstract class Personaje {
         return flota;
     }
 
-    public ObjetoPrincipal[] getInventarioObjetos() {
+    public InventarioObjetos getInventarioObjetos() {
         return inventarioObjetos;
     }
 
-
-
-    
 }
