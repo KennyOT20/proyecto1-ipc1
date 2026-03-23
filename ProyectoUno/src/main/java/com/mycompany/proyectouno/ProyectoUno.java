@@ -4,7 +4,7 @@
 
 package com.mycompany.proyectouno;
 
-import com.mycompany.Menus.MenuInicial.MenuInicial;
+import com.mycompany.ParteVisual.Menus.MenuInicial.MenuInicial;
 
 
 

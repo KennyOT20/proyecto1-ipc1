@@ -1,0 +1,56 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.ParteLogica.Personajes;
+
+import com.mycompany.ParteLogica.Inventarios.InventarioObjetos;
+import com.mycompany.ParteLogica.Naves.Nave;
+
+
+/**
+ *
+ * @author Kenny
+ */
+public abstract class Personaje {
+    
+    private final Nave[] flota;
+    private final String nombrePersonaje;
+    private final InventarioObjetos inventarioObjetos;
+    private int cantidadDeFlota;
+    
+    public Personaje(String nombrePersonaje, int cantidadDeFlota) {
+        this.nombrePersonaje = nombrePersonaje;
+        this.flota = new Nave[cantidadDeFlota];
+        this.inventarioObjetos = new InventarioObjetos();
+    }
+    
+    public void agregarNave(Nave nave){
+        for (int i = 0; i < flota.length; i++) {
+            if(flota[i] == null){
+                flota[i] = nave; 
+                return;
+            }
+        }
+    }
+    
+    public abstract void ejecutarOpcion(); 
+
+
+    public int getCantidadDeFlota() {
+        return cantidadDeFlota;
+    }
+
+    public String getNombrePersonaje() {
+        return nombrePersonaje;
+    }
+
+    public Nave[] getFlota() {
+        return flota;
+    }
+
+    public InventarioObjetos getInventarioObjetos() {
+        return inventarioObjetos;
+    }
+
+}
