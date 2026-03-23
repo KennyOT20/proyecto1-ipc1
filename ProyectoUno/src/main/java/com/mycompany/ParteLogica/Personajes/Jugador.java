@@ -29,7 +29,7 @@ public class Jugador extends Personaje {
         this.inventarioNaves = new InventarioNave();
         this.inventarioComponentes = new InventarioComponente();
         this.inventarioPilotos = new InventarioPilotos();
-        this.creditosGalacticos = 1000;
+        this.creditosGalacticos = 100000000;
     }
     
     @Override
