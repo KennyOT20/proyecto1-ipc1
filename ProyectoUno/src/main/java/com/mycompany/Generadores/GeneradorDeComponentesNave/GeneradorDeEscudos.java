@@ -23,23 +23,23 @@ public class GeneradorDeEscudos {
      * @return 
      */
     public Escudo crearCampoDeflexion(){
-        return new CampoDeDeflexion(10, "Ligero", "Campo de defleccion", 100);
+        return new CampoDeDeflexion(10, "Ligero", "Campo de defleccion", 100, 0);
     }
     
     public Escudo crearEscudoReforzado(){
-        return new EscudoReforzado(30, "Normal", "Escudo reforzado", 200);
+        return new EscudoReforzado(30, "Normal", "Escudo reforzado", 200, 0);
     }
     
     public Escudo crearGeneradorDeOndas(){
-        return new GeneradorDeOndas(15, "Normal", "Generador de Ondas", 150);
+        return new GeneradorDeOndas(15, "Normal", "Generador de Ondas", 150, 0);
     }
     
     public Escudo crearNucleoDeEnergia(){
-        return new NucleoDeEnergia(5, "Normal", "Nucleo de energia", 80);
+        return new NucleoDeEnergia(5, "Normal", "Nucleo de energia", 80, 0);
     }
     
     public Escudo crearPantallaDeAsteroides(){
-        return new PantallaDeAsteroides(45, "Pesado", "Pantalla de asteroides", 300);
+        return new PantallaDeAsteroides(45, "Pesado", "Pantalla de asteroides", 300, 0);
     }
     
 }

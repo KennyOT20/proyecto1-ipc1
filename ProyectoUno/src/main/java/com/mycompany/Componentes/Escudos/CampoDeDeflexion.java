@@ -13,8 +13,8 @@ import com.mycompany.Naves.Nave;
  */
 public class CampoDeDeflexion extends Escudo {
 
-    public CampoDeDeflexion(int consumoDeEnergia, String pesoComponente, String nombreComponente, int escudoExtra) {
-        super(consumoDeEnergia, pesoComponente, nombreComponente, escudoExtra);
+    public CampoDeDeflexion(int consumoDeEnergia, String pesoComponente, String nombreComponente, int escudoExtra, int precioComponente) {
+        super(consumoDeEnergia, pesoComponente, nombreComponente, escudoExtra, precioComponente);
     }
 
     @Override

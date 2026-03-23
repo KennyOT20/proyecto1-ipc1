@@ -13,9 +13,11 @@ import com.mycompany.Naves.Nave;
  */
 public class MisilTeledirigido extends Arma {
 
-    public MisilTeledirigido(int consumoDeEnergia, String pesoComponente, String nombreComponente, int dañoDeArma) {
-        super(consumoDeEnergia, pesoComponente, nombreComponente, dañoDeArma);
+    public MisilTeledirigido(int consumoDeEnergia, String pesoComponente, String nombreComponente, int dañoDeArma, int precioComponente) {
+        super(consumoDeEnergia, pesoComponente, nombreComponente, dañoDeArma, precioComponente);
     }
+
+
 
     @Override
     public void aplicarEfectoComponente(Nave naveElegida) {

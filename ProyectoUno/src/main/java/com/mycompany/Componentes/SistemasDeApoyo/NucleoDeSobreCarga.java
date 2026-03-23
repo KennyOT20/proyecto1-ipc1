@@ -13,11 +13,10 @@ import com.mycompany.Naves.Nave;
  */
 public class NucleoDeSobreCarga extends SistemaDeApoyo {
 
-    public NucleoDeSobreCarga(int consumoDeEnergia, String pesoComponente, String nombreComponente, int enfriamiento) {
-        super(consumoDeEnergia, pesoComponente, nombreComponente, enfriamiento);
+    public NucleoDeSobreCarga(int consumoDeEnergia, String pesoComponente, String nombreComponente, int enfriamiento, int precioComponente) {
+        super(consumoDeEnergia, pesoComponente, nombreComponente, enfriamiento, precioComponente);
     }
 
-    @Override
     public void aplicarEfectoComponente(Nave naveElegida) {
     }
 

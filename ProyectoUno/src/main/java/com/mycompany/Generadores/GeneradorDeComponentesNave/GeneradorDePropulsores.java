@@ -22,19 +22,19 @@ public class GeneradorDePropulsores {
      * @return 
      */
     public Propulsor crearMicroPropulsor(){
-        return new MicroPropulsor(5, "Ligero", "Micropropulsor", 20, 0.5);
+        return new MicroPropulsor(5, "Ligero", "Micropropulsor", 20, 0.5, 0);
     }
     
     public Propulsor crearPropulsorCuantico(){
-        return new PropulsorCuantico(40,"Pesado", "Propulsor Cuantico", 50, 0.8);
+        return new PropulsorCuantico(40,"Pesado", "Propulsor Cuantico", 50, 0.8, 0);
     }
     
     public Propulsor crearTurboCompresor(){
-        return new TurboCompresor(25, "Normal", "Turbo compresor", 35, 0.2);
+        return new TurboCompresor(25, "Normal", "Turbo compresor", 35, 0.2, 0);
     }
     
     public Propulsor crearSistemaDeManiobra(){
-        return new SistemaDeManiobra(10, "Normal", "Sistema de Maniobra", 15, 0.10);
+        return new SistemaDeManiobra(10, "Normal", "Sistema de Maniobra", 15, 0.10, 0);
     }
     
 }

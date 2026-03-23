@@ -28,8 +28,10 @@ public class MenuPartidaInicial extends MenuBase {
         validarOpcionUsuario();
     }
     
-    public void mostrarInformacionNavesJugador(){
+    private void mostrarInformacionNavesJugador(){
         imprimirLineaDeTexto("Naves en turno");
+        imprimirBordeDeMenu();
+        
         imprimirLineaDeTexto("Nave:                     Piloto abordo:   ");
         for (int i = 0; i < partida.getJugador().getFlota().length; i++) {
            if(partida.getJugador().getFlota()[i] != null){
@@ -71,6 +73,8 @@ public class MenuPartidaInicial extends MenuBase {
             "  Base: " + BASE +
             "  Jugador: " + JUGADOR + "                       "
         );
+        
+        imprimirBordeDeMenu();
         mostrarInformacionNavesJugador();
         imprimirBordeDeMenu();
     }

@@ -13,9 +13,11 @@ import com.mycompany.Naves.Nave;
  */
 public class RayoDeParticulas extends Arma {
 
-    public RayoDeParticulas(int consumoDeEnergia, String pesoComponente, String nombreComponente, int dañoDeArma) {
-        super(consumoDeEnergia, pesoComponente, nombreComponente, dañoDeArma);
+    public RayoDeParticulas(int consumoDeEnergia, String pesoComponente, String nombreComponente, int dañoDeArma, int precioComponente) {
+        super(consumoDeEnergia, pesoComponente, nombreComponente, dañoDeArma, precioComponente);
     }
+
+
 
     @Override
     public void aplicarEfectoComponente(Nave naveElegida) {

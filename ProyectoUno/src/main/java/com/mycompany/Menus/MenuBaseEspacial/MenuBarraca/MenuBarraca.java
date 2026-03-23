@@ -9,7 +9,6 @@ import com.mycompany.Generadores.GeneradorDePilotos.GeneradorDePilotos;
 import com.mycompany.Menus.MenuBase.MenuBase;
 import com.mycompany.Menus.MenuBaseEspacial.MenuBaseInicial.MenuBaseInicial;
 import com.mycompany.Partida.Partida;
-import com.mycompany.Personajes.Jugador;
 import com.mycompany.Pilotos.Piloto;
 
 /**
@@ -20,16 +19,14 @@ public class MenuBarraca extends MenuBase{
 
     private final Barraca barraca;
     private final Partida partida;
-    private final Jugador jugador;
     private final GeneradorDePilotos generarPiloto;
     private final MenuBaseInicial menuBase;
     
     private boolean compraValida;
     
-    public MenuBarraca(Jugador jugador, Partida partida, MenuBaseInicial menuBase){
+    public MenuBarraca( Partida partida, MenuBaseInicial menuBase){
         this.partida = partida;
         this.barraca = new Barraca(partida);
-        this.jugador = jugador;
         this.generarPiloto = new GeneradorDePilotos();
         this.menuBase = menuBase;
         this.compraValida = false;
@@ -87,7 +84,7 @@ public class MenuBarraca extends MenuBase{
     }
     
     public void mostrarDatos(){
-         String creditosEstelarJugador = String.valueOf(jugador.getCreditosGalacticos());
+         String creditosEstelarJugador = String.valueOf(partida.getJugador().getCreditosGalacticos());
         String datos = "CR: " + creditosEstelarJugador;
         
         imprimirBordeDeMenu();
@@ -107,14 +104,12 @@ public class MenuBarraca extends MenuBase{
         
         Piloto pilotoObtenido;
         
-        
         switch (opcion){
             case  1 :
                 pilotoObtenido = generarPiloto.crearAce();
                 compraValida = barraca.validarCompra(pilotoObtenido);
                 limpiarPantalla();
                 mostrarResultadoCompra(pilotoObtenido);
-
                 break;
             case 2 :
                 pilotoObtenido = generarPiloto.crearComandante();

@@ -13,9 +13,11 @@ import com.mycompany.Naves.Nave;
  */
 public class NucleoDeEnergia extends Escudo{
 
-    public NucleoDeEnergia(int consumoDeEnergia, String pesoComponente, String nombreComponente, int escudoExtra) {
-        super(consumoDeEnergia, pesoComponente, nombreComponente, escudoExtra);
+    public NucleoDeEnergia(int consumoDeEnergia, String pesoComponente, String nombreComponente, int escudoExtra, int precioComponente) {
+        super(consumoDeEnergia, pesoComponente, nombreComponente, escudoExtra, precioComponente);
     }
+
+
 
     @Override
     public void aplicarEfectoComponente(Nave naveElegida) {

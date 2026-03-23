@@ -10,7 +10,8 @@ import com.mycompany.Menus.MenuBase.MenuBase;
  *
  * @author Kenny
  */
-public class MenuTiendaCompra extends MenuBase{
+public class MenuDeCompras extends MenuBase{
+
 
     @Override
     public void mostrarInformacion() {
@@ -21,7 +22,6 @@ public class MenuTiendaCompra extends MenuBase{
         imprimirLineaDeTexto("2. Componentes de nave");
         imprimirLineaDeTexto("3. Objetos de consumo");
         imprimirLineaDeTexto("4. Volver al menu de tienda");
-        imprimirLineaDeTexto("5. Volver al menu de base espacial");
         imprimirBordeDeMenu();
         System.out.print("Ingrese una opcion: ");
     }

@@ -13,10 +13,12 @@ import com.mycompany.Naves.Nave;
  */
 public class GeneradorEscudoDeEmergencia extends SistemaDeApoyo {
 
-    public GeneradorEscudoDeEmergencia(int consumoDeEnergia, String pesoComponente, String nombreComponente, int enfriamiento) {
-        super(consumoDeEnergia, pesoComponente, nombreComponente, enfriamiento);
+    public GeneradorEscudoDeEmergencia(int consumoDeEnergia, String pesoComponente, String nombreComponente, int enfriamiento, int precioComponente) {
+        super(consumoDeEnergia, pesoComponente, nombreComponente, enfriamiento, precioComponente);
     }
-
+    
+    
+    
     @Override
     public void aplicarEfectoComponente(Nave naveElegida) {
     }

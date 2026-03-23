@@ -13,8 +13,8 @@ import com.mycompany.Naves.Nave;
  */
 public class LanzaTorpedos extends Arma {
 
-    public LanzaTorpedos(int consumoDeEnergia, String pesoComponente, String nombreComponente, int dañoDeArma) {
-        super(consumoDeEnergia, pesoComponente, nombreComponente, dañoDeArma);
+    public LanzaTorpedos(int consumoDeEnergia, String pesoComponente, String nombreComponente, int dañoDeArma, int precioComponente) {
+        super(consumoDeEnergia, pesoComponente, nombreComponente, dañoDeArma, precioComponente);
     }
 
     @Override
@@ -23,7 +23,6 @@ public class LanzaTorpedos extends Arma {
 
     @Override
     public void mejorarComponente(ComponenteDeNave componente) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

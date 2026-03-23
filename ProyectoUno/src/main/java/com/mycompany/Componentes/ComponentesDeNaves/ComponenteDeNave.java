@@ -19,12 +19,15 @@ public abstract class ComponenteDeNave {
     private  String nombreComponente;
     private int VECES_MAX_MEJORA = 3;
     private int vezMejorada;
+    private int precioComponente;
 
-    public ComponenteDeNave(int consumoDeEnergia, String pesoComponente, String nombreComponente, String tipoDeComponente) {
+    public ComponenteDeNave(int consumoDeEnergia, String pesoComponente, String nombreComponente, String tipoDeComponente,
+    int precioComponente ) {
         this.tipoDeComponente = tipoDeComponente;
         this.consumoDeEnergia = consumoDeEnergia;
         this.pesoComponente = pesoComponente;
         this.nombreComponente = nombreComponente;
+        this.precioComponente = precioComponente;
     }
 
     public abstract void aplicarEfectoComponente(Nave naveElegida);
@@ -56,6 +59,12 @@ public abstract class ComponenteDeNave {
         return vezMejorada;
     }
 
+    public int getPrecioComponente() {
+        return precioComponente;
+    }
+
+    
+    
     
     
     

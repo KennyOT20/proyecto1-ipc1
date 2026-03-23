@@ -5,7 +5,9 @@
 package com.mycompany.Menus.MenuBaseEspacial.MenusDeTienda.MenuGeneral;
 
 import com.mycompany.Menus.MenuBase.MenuBase;
-import com.mycompany.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCompra.MenuCompraNave;
+import com.mycompany.Menus.MenuBaseEspacial.MenuBaseInicial.MenuBaseInicial;
+import com.mycompany.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCompra.MenuOpcionesCompra;
+import com.mycompany.Partida.Partida;
 
 /**
  *
@@ -13,6 +15,14 @@ import com.mycompany.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCompra.MenuComp
  */
 public class MenuTiendaGeneral extends MenuBase {
 
+    private MenuBaseInicial menuBaseEspacial;
+    private final Partida partida;
+    
+    public MenuTiendaGeneral(MenuBaseInicial menuBaseEspacial, Partida partida){
+        this.menuBaseEspacial = menuBaseEspacial;
+        this.partida = partida;
+    }
+    
     @Override
     public void mostrarInformacion() {
         imprimirBordeDeMenu();
@@ -30,12 +40,15 @@ public class MenuTiendaGeneral extends MenuBase {
     public void ejecutarOpcion(int opcion) {
         switch(opcion){
             case 1:
-                MenuCompraNave compra = new MenuCompraNave();
-                compra.mostrarInformacion();
+                MenuOpcionesCompra comprar = new MenuOpcionesCompra(partida);
+                limpiarPantalla();
+                comprar.mostrarInformacion();
                 break;
             case 2:
                 break;
             case 3:
+                limpiarPantalla();
+                menuBaseEspacial.mostrarInformacion();
                 break;
                 
         }

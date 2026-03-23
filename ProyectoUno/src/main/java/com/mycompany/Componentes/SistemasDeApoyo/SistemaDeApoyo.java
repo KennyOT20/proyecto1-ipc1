@@ -14,8 +14,8 @@ public abstract class SistemaDeApoyo extends ComponenteDeNave {
     
     private int enfriamiento;
 
-    public SistemaDeApoyo(int consumoDeEnergia, String pesoComponente, String nombreComponente, int enfriamiento) {
-        super(consumoDeEnergia, pesoComponente, nombreComponente, "Sistema de Apoyo");
+    public SistemaDeApoyo(int consumoDeEnergia, String pesoComponente, String nombreComponente, int enfriamiento, int precioComponente) {
+        super(consumoDeEnergia, pesoComponente, nombreComponente, "Sistema de Apoyo", precioComponente);
         this.enfriamiento = enfriamiento;
     }
     

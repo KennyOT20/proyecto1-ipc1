@@ -7,6 +7,7 @@ package com.mycompany.Menus.MenuBaseEspacial.MenuBaseInicial;
 import com.mycompany.Menus.MenuBaseEspacial.MenuBarraca.MenuBarraca;
 import com.mycompany.Menus.MenuBase.MenuBase;
 import com.mycompany.Menus.MenuBaseEspacial.MenusDeTienda.MenuGeneral.MenuTiendaGeneral;
+import com.mycompany.Menus.MenusDePartida.MenuPartidaInicial;
 import com.mycompany.Partida.Partida;
 
 /**
@@ -16,9 +17,11 @@ import com.mycompany.Partida.Partida;
 public class MenuBaseInicial extends MenuBase {
 
     private final Partida partida;
+    private final MenuPartidaInicial menuPartida;
 
     public MenuBaseInicial(Partida partida) {
         this.partida = partida;
+        this.menuPartida = new MenuPartidaInicial(partida);
     }
             
             
@@ -40,19 +43,22 @@ public class MenuBaseInicial extends MenuBase {
     public void ejecutarOpcion(int opcion) {
         switch(opcion){
             case 1:
-                MenuTiendaGeneral menuTienda = new MenuTiendaGeneral();
+                MenuTiendaGeneral menuTienda = new MenuTiendaGeneral(this, partida);
                 limpiarPantalla();
                 menuTienda.mostrarInformacion();
                 break;
             case 2:
                 break;
             case 3:
-                MenuBarraca barraca = new MenuBarraca(partida.getJugador(), partida, this);
+                MenuBarraca barraca = new MenuBarraca(partida, this);
                 limpiarPantalla();
                 barraca.mostrarInformacion();
                 break;
             case 4:
+                limpiarPantalla();
+                menuPartida.mostrarSimbologia();
                 partida.getMapaGalactico().imprimirMapa();
+                menuPartida.mostrarInformacion();
                 break;
         }
     }

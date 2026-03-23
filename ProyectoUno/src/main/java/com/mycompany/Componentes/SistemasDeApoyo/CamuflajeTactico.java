@@ -13,9 +13,10 @@ import com.mycompany.Naves.Nave;
  */
 public class CamuflajeTactico extends SistemaDeApoyo {
 
-    public CamuflajeTactico(int consumoDeEnergia, String pesoComponente, String nombreComponente, int enfriamiento) {
-        super(consumoDeEnergia, pesoComponente, nombreComponente, enfriamiento);
+    public CamuflajeTactico(int consumoDeEnergia, String pesoComponente, String nombreComponente, int enfriamiento, int precioComponente) {
+        super(consumoDeEnergia, pesoComponente, nombreComponente, enfriamiento, precioComponente);
     }
+
 
     @Override
     public void aplicarEfectoComponente(Nave naveElegida) {

@@ -15,8 +15,9 @@ public abstract class Propulsor extends ComponenteDeNave {
     private int velocidadExtra;
     private double evasion; 
 
-    public Propulsor(int consumoDeEnergia, String pesoComponente, String nombreComponente, int velocidadExtra, double evasion) {
-        super(consumoDeEnergia, pesoComponente, nombreComponente, "Propulsor");
+    public Propulsor(int consumoDeEnergia, String pesoComponente, String nombreComponente, 
+            int velocidadExtra, double evasion, int precioDeComponente) {
+        super(consumoDeEnergia, pesoComponente, nombreComponente, "Propulsor", precioDeComponente);
         this.velocidadExtra = velocidadExtra;
         this.evasion = evasion;
         

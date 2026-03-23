@@ -13,9 +13,11 @@ import com.mycompany.Naves.Nave;
  */
 public class PropulsorCuantico extends Propulsor {
 
-    public PropulsorCuantico(int consumoDeEnergia, String pesoComponente, String nombreComponente, int velocidadExtra, double evasion) {
-        super(consumoDeEnergia, pesoComponente, nombreComponente, velocidadExtra, evasion);
+    public PropulsorCuantico(int consumoDeEnergia, String pesoComponente, String nombreComponente, int velocidadExtra, double evasion, int precioDeComponente) {
+        super(consumoDeEnergia, pesoComponente, nombreComponente, velocidadExtra, evasion, precioDeComponente);
     }
+
+
 
     @Override
     public void aplicarEfectoComponente(Nave naveElegida) {

@@ -14,8 +14,8 @@ public abstract class Arma extends ComponenteDeNave {
     
     private int dañoDeArma;
 
-    public Arma(int consumoDeEnergia, String pesoComponente, String nombreComponente, int dañoDeArma) {
-        super(consumoDeEnergia, pesoComponente, nombreComponente, "Arma");
+    public Arma(int consumoDeEnergia, String pesoComponente, String nombreComponente, int dañoDeArma, int precioComponente) {
+        super(consumoDeEnergia, pesoComponente, nombreComponente, "Arma",   precioComponente);
         this.dañoDeArma = dañoDeArma;
     }
 

@@ -23,22 +23,22 @@ public class GeneradorDeSistemasDeApoyo {
      * @return 
      */
     public SistemaDeApoyo crearCampoDistorcion(){
-        return new CampoDeDistorcion(35, "Normal", "Campo de distorcion", 4);
+        return new CampoDeDistorcion(35, "Normal", "Campo de distorcion", 4, 0);
     }
     
     public SistemaDeApoyo crearCamuflajeTactico(){
-        return new CamuflajeTactico(25, "Ligero", "Camuflaje tactico", 4);
+        return new CamuflajeTactico(25, "Ligero", "Camuflaje tactico", 4, 0);
     }
     
     public SistemaDeApoyo crearDronDeReparacion(){
-        return new DronDeReparacion(30, "Normal", "Dron de reparacion", 3);
+        return new DronDeReparacion(30, "Normal", "Dron de reparacion", 3, 0 );
     }
     
     public SistemaDeApoyo crearGeneradorDeEscudo(){
-        return new GeneradorEscudoDeEmergencia(0, "Normal", "Escudo de emergencia", 0);
+        return new GeneradorEscudoDeEmergencia(0, "Normal", "Escudo de emergencia", 0, 0);
     }
     
     public SistemaDeApoyo crearNucleoDeSobreCarga(){
-        return new NucleoDeSobreCarga(50, "Pesado", "Nucleo de sobrecarga", 6);
+        return new NucleoDeSobreCarga(50, "Pesado", "Nucleo de sobrecarga", 6, 0);
     }
 }
