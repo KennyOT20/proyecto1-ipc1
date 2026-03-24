@@ -45,7 +45,7 @@ public abstract class MenuBase extends Bordes{
     }
     
     
-    protected void limpiarPantalla(){
+    public void limpiarPantalla(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }

@@ -133,6 +133,11 @@ public class MenuBarraca extends MenuBase{
                 limpiarPantalla();
                 menuBase.mostrarInformacion();
                 break;
+            default:
+                limpiarPantalla();
+                imprimirLineaDeTexto("Opcion no valida, intente de nuevo.");
+                mostrarInformacion();
+                break;
         }
         
     }

@@ -16,6 +16,7 @@ public class ProyectoUno {
 
     public static void main(String[] args) {
         MenuInicial menuInicial = new MenuInicial();
+        menuInicial.limpiarPantalla();
         menuInicial.mostrarInformacion();
     }
 }

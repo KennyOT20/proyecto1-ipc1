@@ -21,7 +21,8 @@ public class Inventarios extends Bordes{
     private final InventarioObjetos inventarioObjetos;
     private final InventarioPilotos inventarioPilotos;
 
-    public Inventarios(InventarioComponente inventarioComponente, InventarioNave inventarioNave, InventarioObjetos inventarioObjetos, InventarioPilotos inventarioPilotos) {
+    public Inventarios(InventarioComponente inventarioComponente, InventarioNave inventarioNave, 
+            InventarioObjetos inventarioObjetos, InventarioPilotos inventarioPilotos) {
         this.inventarioComponente = inventarioComponente;
         this.inventarioNave = inventarioNave;
         this.inventarioObjetos = inventarioObjetos;
@@ -45,6 +46,9 @@ public class Inventarios extends Bordes{
                 String lineaDeDatos = (i + 1 ) + ". " +   nombreDeNave + "        Hp: " + hpNave;
                 
                 imprimirLineaDeTexto(lineaDeDatos);
+                
+            } else if(inventarioNave.getInventarioNave()[0]== null){
+                imprimirLineaDeTexto("Inventario vacio. ");
             }
             
         }

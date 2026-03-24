@@ -60,6 +60,12 @@ public class MenuBaseInicial extends MenuBase {
                 partida.getMapaGalactico().imprimirMapa();
                 menuPartida.mostrarInformacion();
                 break;
+            default:
+                limpiarPantalla();
+                imprimirBordeDeMenu();
+                imprimirLineaDeTexto("Opcion no valida, intente de nuevo.");
+                mostrarInformacion();
+                break;
         }
     }
     

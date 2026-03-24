@@ -63,6 +63,12 @@ public class MenuTiendaGeneral extends MenuBase {
                 limpiarPantalla();
                 menuBaseEspacial.mostrarInformacion();
                 break;
+            default: 
+                limpiarPantalla();
+                imprimirBordeDeMenu();
+                imprimirLineaDeTexto("Opcion no valida, intente de nuevo.");
+                mostrarInformacion();
+                break;
         }
     }
     
@@ -74,6 +80,8 @@ public class MenuTiendaGeneral extends MenuBase {
                 Inventarios inventario = new Inventarios(inventarioComponente, inventarioDeNaves, inventarioDeObjetos, inventarioDePilotos);
                 inventario.mostraInventarioNaves();
                 inventario.mostrarPilotos();
+                inventario.mostrarObjetos();
+                inventario.mostrarComponentes();
     }
     
 }

@@ -7,6 +7,7 @@ package com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCo
 import com.mycompany.ParteVisual.Menus.MenuBase.MenuBase;
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenuGeneral.MenuTiendaGeneral;
 import com.mycompany.ParteLogica.Partida.Partida;
+import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCompra.MenuCompraDeComponentes.MenuComponentes;
 
 /**
  *
@@ -45,6 +46,9 @@ public class MenuOpcionesCompra extends MenuBase {
                 comprarNaves.mostrarInformacion();
                 break;
             case 2:
+                MenuComponentes comprarComponentes = new MenuComponentes(this, partida);
+                limpiarPantalla();
+                comprarComponentes.mostrarInformacion();
                 break;
             case 3: 
                 break;
@@ -53,6 +57,10 @@ public class MenuOpcionesCompra extends MenuBase {
                 menuGeneral.mostrarInformacion();
                 break;
             default:
+                limpiarPantalla();
+                imprimirBordeDeMenu();
+                imprimirLineaDeTexto("Opcion no valida, intente de nuevo.");
+                mostrarInformacion();
                 break;
         }
     

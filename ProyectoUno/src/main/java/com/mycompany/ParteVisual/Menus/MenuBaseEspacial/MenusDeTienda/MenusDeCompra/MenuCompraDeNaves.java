@@ -5,43 +5,37 @@
 package com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCompra;
 
 import com.mycompany.ParteLogica.Arreglos.ArregloDeNaves.ArregloDeNaves;
-import com.mycompany.ParteLogica.BaseEspacial.TiendaCompra;
 import com.mycompany.ParteLogica.Generadores.GeneradorDeNaves.GeneradorDeNaves;
-import com.mycompany.ParteVisual.Menus.MenuBase.MenuBase;
 import com.mycompany.ParteLogica.Naves.Nave;
 import com.mycompany.ParteLogica.Partida.Partida;
+import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenuCompraVenta.MenuCompraVenta;
 
 /**
  *
  * @author Kenny
  */
-public class MenuCompraDeNaves extends MenuBase{
+public class MenuCompraDeNaves extends MenuCompraVenta{
     
-    private final MenuOpcionesCompra menuOpciones;
     private final ArregloDeNaves arregloDeNaves;
     private final GeneradorDeNaves generarNave;
-    private final Partida partida;
-    private final TiendaCompra tienda;
     
     private boolean compraValida;
-    
-    public MenuCompraDeNaves(MenuOpcionesCompra menuOpciones, Partida partida){
-        this.menuOpciones = menuOpciones;
-        this.partida = partida;
+
+    public MenuCompraDeNaves(MenuOpcionesCompra menuOpciones, Partida partida) {
+        super(menuOpciones, partida);
         this.arregloDeNaves = new ArregloDeNaves();
         this.generarNave = new GeneradorDeNaves();
-        this.tienda = new TiendaCompra(partida);
         this.compraValida = false;
         
         arregloDeNaves.crearArregloNaves();
     }
-
+    
     @Override
     public void mostrarInformacion() {
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Tienda de naves");
         imprimirBordeDeMenu();
-        mostrarNaves();
+        mostrarOpcionesDeCompra();
     }
 
     @Override
@@ -52,43 +46,47 @@ public class MenuCompraDeNaves extends MenuBase{
         switch(opcion){
             case 1:
                 naveComprada = generarNave.crearAcorazado();
-                compraValida = tienda.validarCompraNave(naveComprada);
+                compraValida = getTienda().validarCompraNave(naveComprada);
                 limpiarPantalla();
                 mostrarInfoCompra(naveComprada);
                 break;
             case 2:
                 naveComprada = generarNave.crearCaza();
-                compraValida = tienda.validarCompraNave(naveComprada);
+                compraValida = getTienda().validarCompraNave(naveComprada);
                 limpiarPantalla();
                 mostrarInfoCompra(naveComprada);
                 break;
             case 3: 
                 naveComprada = generarNave.crearFragata();
-                compraValida = tienda.validarCompraNave(naveComprada);
+                compraValida = getTienda().validarCompraNave(naveComprada);
                 limpiarPantalla();
                 mostrarInfoCompra(naveComprada);
                 break;
             case 4: 
                 naveComprada = generarNave.crearNaveApoyo();
-                compraValida = tienda.validarCompraNave(naveComprada);
+                compraValida = getTienda().validarCompraNave(naveComprada);
                 limpiarPantalla();
                 mostrarInfoCompra(naveComprada);
                 break;
             case 5:
                 limpiarPantalla();
-                menuOpciones.mostrarInformacion();
+                getMenuOpciones().mostrarInformacion();
                 break;
             default: 
+                limpiarPantalla();
+                imprimirLineaDeTexto("Opcion no valida, intente de nuevo.");
+                mostrarInformacion();
                 break;
         }
     }
     
-    private void mostrarNaves(){
+    @Override
+    public void mostrarOpcionesDeCompra(){
         
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Naves");
         imprimirBordeDeMenu();
-        datos();
+        mostrarDatos();
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Nombre:              Precio:        Tipo:        Estadisticas:");
         imprimirBordeDeMenu();
@@ -128,10 +126,10 @@ public class MenuCompraDeNaves extends MenuBase{
         System.out.print("Ingrese una opcion: ");
         validarOpcion();
     }
-    
-    
-    private void datos(){
-        String creditosEstelarJugador = String.valueOf(partida.getJugador().getCreditosGalacticos());
+   
+    @Override
+    public void mostrarDatos(){
+        String creditosEstelarJugador = String.valueOf(getPartida().getJugador().getCreditosGalacticos());
         String datos = "CR: " + creditosEstelarJugador;
         imprimirBordeDeMenu();
         imprimirLineaDeTexto(datos);
@@ -143,9 +141,9 @@ public class MenuCompraDeNaves extends MenuBase{
     }
     
     private void mostrarInfoCompra(Nave naveComprada){
-        
+        String creditosEstelarJugador = String.valueOf(getPartida().getJugador().getCreditosGalacticos());
         String nombreNave = naveComprada.getNombreDeNave();
-        String lineaDeTexto = "Felicidades has comprado la nave " + nombreNave;
+        String lineaDeTexto = "Felicidades has comprado la nave " + nombreNave + " por " + creditosEstelarJugador + " CR." ;
         
         imprimirBordeDeMenu();
         
