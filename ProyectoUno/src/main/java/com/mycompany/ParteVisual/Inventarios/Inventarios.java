@@ -79,7 +79,13 @@ public class Inventarios extends Bordes{
     }
     
     public void mostrarComponentes(){
+        int cantidadDeComponentes = inventarioComponente.getInventarioComponentes().length;
         
+        imprimirBordeDeMenu();
+        
+        for (int i = 0; i < cantidadDeComponentes; i++) {
+            
+        }
     }
     
     public void mostrarObjetos(){

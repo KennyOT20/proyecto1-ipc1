@@ -26,7 +26,6 @@ public abstract  class MenuCompraVenta extends MenuBase{
     }
     
     public abstract void mostrarOpcionesDeCompra();
-    public abstract void mostrarDatos();
 
     public MenuOpcionesCompra getMenuOpciones() {
         return menuOpciones;

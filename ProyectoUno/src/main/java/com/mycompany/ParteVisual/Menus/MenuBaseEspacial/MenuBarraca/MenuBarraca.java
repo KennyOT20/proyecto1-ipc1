@@ -84,7 +84,7 @@ public class MenuBarraca extends MenuBase{
     }
     
     public void mostrarDatos(){
-         String creditosEstelarJugador = String.valueOf(partida.getJugador().getCreditosGalacticos());
+        String creditosEstelarJugador = String.valueOf(partida.getJugador().getCreditosGalacticos());
         String datos = "CR: " + creditosEstelarJugador;
         
         imprimirBordeDeMenu();
@@ -135,7 +135,9 @@ public class MenuBarraca extends MenuBase{
                 break;
             default:
                 limpiarPantalla();
+                imprimirBordeDeMenu();
                 imprimirLineaDeTexto("Opcion no valida, intente de nuevo.");
+                imprimirBordeDeMenu();
                 mostrarInformacion();
                 break;
         }

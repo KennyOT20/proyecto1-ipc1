@@ -23,4 +23,22 @@ public abstract class Propulsor extends ComponenteDeNave {
         
     }
 
+    public int getVelocidadExtra() {
+        return velocidadExtra;
+    }
+
+    public double getEvasion() {
+        return evasion;
+    }
+
+    public void setVelocidadExtra(int velocidadExtra) {
+        this.velocidadExtra = velocidadExtra;
+    }
+
+    public void setEvasion(double evasion) {
+        this.evasion = evasion;
+    }
+    
+    
+
 }

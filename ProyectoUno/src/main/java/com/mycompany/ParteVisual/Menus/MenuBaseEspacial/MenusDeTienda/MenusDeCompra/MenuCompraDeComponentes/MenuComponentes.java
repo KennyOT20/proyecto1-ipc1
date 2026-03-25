@@ -48,10 +48,16 @@ public class MenuComponentes extends MenuBase{
                 armas.mostrarInformacion();
                 break;
             case 2: 
+                MenuPropulsores propulsores = new MenuPropulsores(menuCompra, partida);
+                limpiarPantalla();
+                propulsores.mostrarInformacion();
                 break;
             case 3: 
                 break;
             case 4: 
+                MenuEscudos menuEscudos = new MenuEscudos(menuCompra, partida);
+                limpiarPantalla();
+                menuEscudos.mostrarInformacion();
                 break;
             case 5: 
                 break;

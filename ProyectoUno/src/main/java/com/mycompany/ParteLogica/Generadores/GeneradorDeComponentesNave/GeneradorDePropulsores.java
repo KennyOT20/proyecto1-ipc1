@@ -30,7 +30,7 @@ public class GeneradorDePropulsores {
     }
     
     public Propulsor crearTurboCompresor(){
-        return new TurboCompresor(25, "Normal", "Turbo compresor", 35, 0.2, 0);
+        return new TurboCompresor(25, "Normal", "Turbocompresor", 35, 0.2, 0);
     }
     
     public Propulsor crearSistemaDeManiobra(){

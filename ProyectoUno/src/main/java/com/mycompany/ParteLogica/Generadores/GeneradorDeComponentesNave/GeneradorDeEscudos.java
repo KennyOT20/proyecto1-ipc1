@@ -23,7 +23,7 @@ public class GeneradorDeEscudos {
      * @return 
      */
     public Escudo crearCampoDeflexion(){
-        return new CampoDeDeflexion(10, "Ligero", "Campo de defleccion", 100, 0);
+        return new CampoDeDeflexion(10, "Ligero", "Campo deflectivo", 100, 0);
     }
     
     public Escudo crearEscudoReforzado(){
@@ -39,7 +39,7 @@ public class GeneradorDeEscudos {
     }
     
     public Escudo crearPantallaDeAsteroides(){
-        return new PantallaDeAsteroides(45, "Pesado", "Pantalla de asteroides", 300, 0);
+        return new PantallaDeAsteroides(45, "Pesado", "AntiAsteroides", 300, 0);
     }
     
 }

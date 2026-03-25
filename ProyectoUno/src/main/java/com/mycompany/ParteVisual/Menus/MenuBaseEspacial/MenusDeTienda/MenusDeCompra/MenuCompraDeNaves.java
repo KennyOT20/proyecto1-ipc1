@@ -127,7 +127,6 @@ public class MenuCompraDeNaves extends MenuCompraVenta{
         validarOpcion();
     }
    
-    @Override
     public void mostrarDatos(){
         String creditosEstelarJugador = String.valueOf(getPartida().getJugador().getCreditosGalacticos());
         String datos = "CR: " + creditosEstelarJugador;

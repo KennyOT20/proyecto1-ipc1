@@ -34,8 +34,12 @@ public class MenuArmas extends MenuCompraVenta{
     
     @Override
     public void mostrarInformacion() {
+        String cr = "CR: " + getPartida().getJugador().getCreditosGalacticos();
+        
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Tienda de armas");
+        imprimirBordeDeMenu();
+        imprimirLineaDeTexto(cr);
         imprimirBordeDeMenu();
         mostrarOpcionesDeCompra();
         System.out.print("Ingrese una opcion: ");
@@ -85,10 +89,14 @@ public class MenuArmas extends MenuCompraVenta{
                 limpiarPantalla();
                 mostrarDatosCompra(armaComprada);
                 break;
-            case 7: 
-                
+            case 7:
+                limpiarPantalla();
+                getMenuOpciones().mostrarInformacion();
                 break;
             default: 
+                imprimirBordeDeMenu();
+                imprimirLineaDeTexto("Opcion no valida, intente de nuevo");
+                mostrarInformacion();
                 break;
                 
         }
@@ -136,10 +144,7 @@ public class MenuArmas extends MenuCompraVenta{
         imprimirBordeDeMenu();
     }
 
-    @Override
-    public void mostrarDatos() {
-    }
-    
+
     private void mostrarDatosCompra(Arma armaComprada){
         String nombreDeArma = armaComprada.getNombreComponente();
         String precioArma = String.valueOf(armaComprada.getPrecioComponente());
