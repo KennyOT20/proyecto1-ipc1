@@ -4,7 +4,7 @@
  */
 package com.mycompany.ParteLogica.Inventarios;
 
-import com.mycompany.ParteLogica.Objetos.ObjetoPrincipal.ObjetoPrincipal;
+import com.mycompany.ParteLogica.Objetos.ObjetoPrincipal;
 
 /**
  *

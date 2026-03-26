@@ -31,8 +31,7 @@ public class MenuComponentes extends MenuBase{
         imprimirLineaDeTexto("2. Propulsores");
         imprimirLineaDeTexto("3. Sistemas de apoyo");
         imprimirLineaDeTexto("4. Escudos");
-        imprimirLineaDeTexto("5. Ver inventario");
-        imprimirLineaDeTexto("6. Regresar al menu anterior");
+        imprimirLineaDeTexto("5. Regresar al menu anterior");
         imprimirBordeDeMenu();
         System.out.print("Ingrese una opcion: ");
         validarOpcion();
@@ -53,6 +52,9 @@ public class MenuComponentes extends MenuBase{
                 propulsores.mostrarInformacion();
                 break;
             case 3: 
+                MenuSistemas comprarSistema = new MenuSistemas(menuCompra, partida);
+                limpiarPantalla();
+                comprarSistema.mostrarInformacion();
                 break;
             case 4: 
                 MenuEscudos menuEscudos = new MenuEscudos(menuCompra, partida);
@@ -60,8 +62,14 @@ public class MenuComponentes extends MenuBase{
                 menuEscudos.mostrarInformacion();
                 break;
             case 5: 
+                limpiarPantalla();
+                menuCompra.mostrarInformacion();
                 break;
             default: 
+                limpiarPantalla();
+                imprimirBordeDeMenu();
+                imprimirLineaDeTexto("Opcion no valida, intente de nuevo");
+                mostrarInformacion();
                 break;
         }
     }

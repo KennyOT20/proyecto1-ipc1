@@ -6,6 +6,7 @@ package com.mycompany.ParteLogica.BaseEspacial;
 
 import com.mycompany.ParteLogica.Componentes.ComponentesDeNaves.ComponenteDeNave;
 import com.mycompany.ParteLogica.Naves.Nave;
+import com.mycompany.ParteLogica.Objetos.ObjetoPrincipal;
 import com.mycompany.ParteLogica.Partida.Partida;
 
 /**
@@ -44,6 +45,16 @@ public class TiendaCompra {
         }
     }
     
+    public boolean validarObjetos(ObjetoPrincipal objeto){
+        int precioObjeto = objeto.getPrecioDeObjeto();
+        if(crJugador >= precioObjeto){
+            partida.getJugador().getInventarioObjetos().agregarObjeto(objeto);
+            partida.getJugador().setCreditosGalacticos(crJugador - precioObjeto);
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     
 }

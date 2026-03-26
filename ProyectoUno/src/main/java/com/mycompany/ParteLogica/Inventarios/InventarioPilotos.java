@@ -48,5 +48,32 @@ public class InventarioPilotos {
     }
     
     
+    public void eliminarObjeto(int indiceObtenido){
+
+        int indiceReal = indiceObtenido - 1;
+
+        inventarioPiloto[indiceReal] = null;
+
+        actualizarInventario();
+    }
+
+    private void actualizarInventario(){
+
+        for (int i = 0; i < inventarioPiloto.length - 1; i++) {
+
+            if(inventarioPiloto[i] == null){
+
+                int j = i;
+
+                while(j < inventarioPiloto.length - 1){
+
+                    inventarioPiloto[j] = inventarioPiloto[j + 1];
+                    j++;
+                }
+
+                inventarioPiloto[inventarioPiloto.length - 1] = null;
+            }
+        }
+    }
     
 }

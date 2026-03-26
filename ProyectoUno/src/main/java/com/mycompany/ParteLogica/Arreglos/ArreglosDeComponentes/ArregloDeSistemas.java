@@ -4,7 +4,7 @@
  */
 package com.mycompany.ParteLogica.Arreglos.ArreglosDeComponentes;
 
-import com.mycompany.ParteLogica.Generadores.GeneradorDeComponentesNave.GeneradorDeSistemasDeApoyo;
+import com.mycompany.ParteLogica.Generadores.GeneradorDeComponentesNave.GeneradorDeSistemas;
 
 
 /**
@@ -13,11 +13,11 @@ import com.mycompany.ParteLogica.Generadores.GeneradorDeComponentesNave.Generado
  */
 public class ArregloDeSistemas extends ArregloDeComponentes {
 
-    private final GeneradorDeSistemasDeApoyo crearSistema;
+    private final GeneradorDeSistemas crearSistema;
 
     public ArregloDeSistemas() {
         super(5);
-        this.crearSistema = new GeneradorDeSistemasDeApoyo();
+        this.crearSistema = new GeneradorDeSistemas();
     }
 
     @Override

@@ -6,6 +6,7 @@ package com.mycompany.ParteLogica.Personajes;
 
 import com.mycompany.ParteLogica.Inventarios.InventarioComponente;
 import com.mycompany.ParteLogica.Inventarios.InventarioNave;
+import com.mycompany.ParteLogica.Inventarios.InventarioObjetos;
 import com.mycompany.ParteLogica.Inventarios.InventarioPilotos;
 
 /**
@@ -17,6 +18,7 @@ public class Jugador extends Personaje {
     private final  InventarioNave inventarioNaves;            
     private final InventarioComponente inventarioComponentes;
     private final InventarioPilotos inventarioPilotos;
+    private final InventarioObjetos inventarioObjetos;
     private int creditosGalacticos;
     private int puntosDeTecnologia;
     private int posicionX;
@@ -29,6 +31,7 @@ public class Jugador extends Personaje {
         this.inventarioNaves = new InventarioNave();
         this.inventarioComponentes = new InventarioComponente();
         this.inventarioPilotos = new InventarioPilotos();
+        this.inventarioObjetos = new InventarioObjetos();
         this.creditosGalacticos = 100000000;
     }
     
@@ -93,6 +96,10 @@ public class Jugador extends Personaje {
 
     public InventarioPilotos getInventarioPilotos() {
         return inventarioPilotos;
+    }
+
+    public InventarioObjetos getInventarioObjetos() {
+        return inventarioObjetos;
     }
 
     

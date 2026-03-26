@@ -82,6 +82,7 @@ public class MenuTiendaGeneral extends MenuBase {
                 inventario.mostrarPilotos();
                 inventario.mostrarObjetos();
                 inventario.mostrarComponentes();
+                System.out.print("Presione enter para continuar");
     }
     
 }

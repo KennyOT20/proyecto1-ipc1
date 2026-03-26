@@ -51,6 +51,9 @@ public class MenuOpcionesCompra extends MenuBase {
                 comprarComponentes.mostrarInformacion();
                 break;
             case 3: 
+                MenuObjetos menuObjetos = new MenuObjetos(this, partida);
+                limpiarPantalla();
+                menuObjetos.mostrarInformacion();
                 break;
             case 4:
                 limpiarPantalla();

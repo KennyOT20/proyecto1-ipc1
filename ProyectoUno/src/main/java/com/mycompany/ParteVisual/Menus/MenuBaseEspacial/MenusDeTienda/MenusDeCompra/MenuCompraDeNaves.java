@@ -140,9 +140,8 @@ public class MenuCompraDeNaves extends MenuCompraVenta{
     }
     
     private void mostrarInfoCompra(Nave naveComprada){
-        String creditosEstelarJugador = String.valueOf(getPartida().getJugador().getCreditosGalacticos());
         String nombreNave = naveComprada.getNombreDeNave();
-        String lineaDeTexto = "Felicidades has comprado la nave " + nombreNave + " por " + creditosEstelarJugador + " CR." ;
+        String lineaDeTexto = "Felicidades has comprado la nave " + nombreNave + " por " + naveComprada.getPrecioDeNave() + " CR." ;
         
         imprimirBordeDeMenu();
         

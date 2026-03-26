@@ -39,7 +39,8 @@ public class MenuEscudos extends MenuCompraVenta {
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Venta de Escudos");
         imprimirBordeDeMenu();
-        imprimirLineaDeTexto(linea);
+         imprimirLineaDeTexto(linea);
+        imprimirLineaDeTexto("SHP: Escudo extra");
         imprimirBordeDeMenu();
         mostrarOpcionesDeCompra();
         validarOpcion();
@@ -100,13 +101,16 @@ public class MenuEscudos extends MenuCompraVenta {
 
      int cantidadEscudo = arregloEscudos.getArregloDeComponentes().length;
 
-     imprimirLineaDeTexto("Escudo                  Peso            Precio");
+    imprimirLineaDeTexto("Escudo                  Peso            Precio        SHP");
+
 
      for (int i = 0; i < cantidadEscudo; i++) {
 
+         Escudo escudo = (Escudo) arregloEscudos.getArregloDeComponentes()[i];
          String nombreEscudo = arregloEscudos.getArregloDeComponentes()[i].getNombreComponente();
          String pesoEscudo = arregloEscudos.getArregloDeComponentes()[i].getPesoComponente();
          String precioEscudo = String.valueOf(arregloEscudos.getArregloDeComponentes()[i].getPrecioComponente());
+         String shp = String.valueOf(escudo.getEscudoExtra());
 
          String nombreFormateado = "";
          int contador = 0;
@@ -127,8 +131,12 @@ public class MenuEscudos extends MenuCompraVenta {
          while(precioEscudo.length() < 10){
              precioEscudo += " ";
          }
+         
+         while(shp.length() < 10){
+             shp += " ";
+         }
 
-         String lineaDeEscudos =  (i+1) + ". " +   nombreFormateado + pesoEscudo + precioEscudo;
+         String lineaDeEscudos =  (i+1) + ". " +   nombreFormateado + pesoEscudo + precioEscudo + shp;
 
          imprimirLineaDeTexto(lineaDeEscudos);
         }
@@ -159,5 +167,6 @@ public class MenuEscudos extends MenuCompraVenta {
         
         
     }
+    
     
 }

@@ -15,7 +15,7 @@ import com.mycompany.ParteLogica.Componentes.SistemasDeApoyo.SistemaDeApoyo;
  *
  * @author Kenny
  */
-public class GeneradorDeSistemasDeApoyo {
+public class GeneradorDeSistemas {
     
     /**
      * Metodos encargados de inicializar los sistema de apoyos
