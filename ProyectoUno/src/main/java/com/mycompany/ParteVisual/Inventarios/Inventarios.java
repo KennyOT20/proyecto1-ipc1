@@ -93,20 +93,36 @@ public class Inventarios extends Bordes {
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Nombre               Precio Venta");
         imprimirBordeDeMenu();
+
         for (int i = 0; i < cantidadPilotos; i++) {
 
             if (inventarioPilotos.getInventarioPiloto()[i] != null) {
 
                 vacio = false;
 
-                String nombrePiloto = inventarioPilotos.getInventarioPiloto()[i].getNombrePiloto();
-                String precioPiloto = String.valueOf(inventarioPilotos.getInventarioPiloto()[i].getPrecioDeVenta());
-                
-                while (precioPiloto.length() < 12) {
-                precioPiloto += " ";
-               }
-            
-                imprimirLineaDeTexto((i + 1) + ". " + nombrePiloto + precioPiloto);
+                String nombre = inventarioPilotos.getInventarioPiloto()[i].getNombrePiloto();
+                String precio = String.valueOf( inventarioPilotos.getInventarioPiloto()[i].getPrecioDeVenta()
+                );
+
+                String nombreFormateado = "";
+                int contador = 0;
+
+                while (contador < nombre.length() && contador < 20) {
+                    nombreFormateado += nombre.charAt(contador);
+                    contador++;
+                }
+
+                while (nombreFormateado.length() < 20) {
+                    nombreFormateado += " ";
+                }
+
+                while (precio.length() < 15) {
+                    precio += " ";
+                }
+
+                String linea = (i + 1) + ". " + nombreFormateado + precio;
+
+                imprimirLineaDeTexto(linea);
             }
         }
 

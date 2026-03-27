@@ -54,22 +54,27 @@ public abstract class Nave {
     public abstract void aplicarHabilidad();
     
     
-    public void agregarComponente (ComponenteDeNave componente){
+    public boolean agregarComponente (ComponenteDeNave componente){
         for (int i = 0; i < componentesDeNave.length; i++) {
             if(componentesDeNave[i] == null){
                 componentesDeNave[i] = componente;
-                return;
+                return true;
             }
-        }
+        }  
+        
+        return false;
     }
     
-    public void agregarPiloto(Piloto pilotoAsignado){
+    public boolean agregarPiloto(Piloto pilotoAsignado){
+      
         for (int i = 0; i < piloto.length; i++) {
             if(piloto[i] == null){
                 piloto[i] = pilotoAsignado;
-                return;
+                return true;
             }
         }
+        
+        return false;
     }
     
     public void mostrarPiloto(){

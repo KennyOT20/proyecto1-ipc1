@@ -84,6 +84,9 @@ public class MenuBaseInicial extends MenuBase {
         inventario.mostrarObjetos();
         inventario.mostrarPilotos();
         System.out.print("Presione enter para continuar: ");
+        getScanner().nextLine();
+        limpiarPantalla();
+        mostrarInformacion();
     }
     
 }

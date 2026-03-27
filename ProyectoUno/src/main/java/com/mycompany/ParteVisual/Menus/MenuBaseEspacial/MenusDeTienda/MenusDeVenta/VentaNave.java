@@ -50,7 +50,6 @@ public class VentaNave extends MenuBaseVenta{
         if(opcion == 0){
             limpiarPantalla();
             getMenuVentas().mostrarInformacion();
-            return;
         }
         if(opcion > 0 && opcion <= tamañoInventario){
             mostrarDatosDeVenta(opcion);

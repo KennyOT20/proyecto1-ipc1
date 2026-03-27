@@ -60,14 +60,24 @@ public class MenuDeVentas extends MenuBase{
                 venderComponente.mostrarInformacion();
                 break;
             case 3:
+                MenuVentaObjetos venderObjetos = new MenuVentaObjetos(inventarios, partida,tiendaVenta, this);
+                limpiarPantalla();
+                venderObjetos.mostrarInformacion();
                 break;
             case 4:
+                VentaPiloto venderPiloto = new VentaPiloto(inventarios, partida,tiendaVenta, this);
+                limpiarPantalla();
+                venderPiloto.mostrarInformacion();
                 break;
             case 5:
                 limpiarPantalla();
                 menuGeneral.mostrarInformacion();
                 break;
             default:
+                imprimirBordeDeMenu();
+                imprimirLineaDeTexto("Opcion no valida, intente de nuevo");
+                imprimirBordeDeMenu();
+                mostrarInformacion();
                 break;
         }
     }

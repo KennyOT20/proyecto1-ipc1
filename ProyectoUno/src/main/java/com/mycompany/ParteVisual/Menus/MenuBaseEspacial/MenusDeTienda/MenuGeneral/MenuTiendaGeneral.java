@@ -57,11 +57,7 @@ public class MenuTiendaGeneral extends MenuBase {
                 menuVender.mostrarInformacion();
                 break;
             case 3:
-                limpiarPantalla();
-                mostrarInventario();
-                getScanner().nextLine();
-                limpiarPantalla();
-                mostrarInformacion();
+               mostrarInventario();
                 break;
             case 4:
                 limpiarPantalla();
@@ -77,11 +73,16 @@ public class MenuTiendaGeneral extends MenuBase {
     }
     
     private void mostrarInventario(){
-                inventario.mostraInventarioNaves();
-                inventario.mostrarPilotos();
-                inventario.mostrarObjetos();
-                inventario.mostrarComponentes();
-                System.out.print("Presione enter para continuar: ");
+        limpiarPantalla();
+        inventario.mostraInventarioNaves();
+        inventario.mostrarPilotos();
+        inventario.mostrarObjetos();
+        inventario.mostrarComponentes();
+
+        System.out.print("Presione cualquier tecla para continuar: ");
+        getScanner().nextLine();
+        limpiarPantalla(); 
+        mostrarInformacion();
     }
     
 }

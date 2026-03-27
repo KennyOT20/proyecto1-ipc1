@@ -111,56 +111,65 @@ public class EnsambladorDeNaves {
      * Metodo encargado de agregar componentes random segun el tipo de la nave;
      * pesado, ligero o normal. 
      * @param naveElegida recibe la nave que se obtuvo en el metodo {@link #obtenerNaveRandom( ) }
+     * @param componenteIngresado
      */
-    public void agregarComponente(Nave naveElegida){
-        for (int i = 0; i < naveElegida.getComponentesDeNave().length ; i++) {
-           ComponenteDeNave componente = obtenerComponenteAleatorio();
-           
+    public boolean agregarComponente(Nave naveElegida, ComponenteDeNave componenteIngresado){
+        boolean componenteValido;
+        
           switch(naveElegida.getNombreDeNave()){
               case "Caza":
-                  colocarComponentesCaza(naveElegida,componente );
-                  break;
+                  componenteValido = colocarComponentesCaza(naveElegida,componenteIngresado );
+                  return componenteValido;
               case "Nave de apoyo" :
-                  colocarComponentesNaveApoyo(naveElegida, componente);
-                  break;
+                  componenteValido = colocarComponentesCaza(naveElegida,componenteIngresado );
+                  return componenteValido;
               case "Fragata" :;
-                  colocarComponentesFragata(naveElegida, componente);
-                  break;
+                  componenteValido = colocarComponentesCaza(naveElegida,componenteIngresado );
+                  return componenteValido;
               case "Acorazado":
-                  colocarComponentesAcorazado(naveElegida, componente);
-                  break;
+                 componenteValido = colocarComponentesCaza(naveElegida,componenteIngresado );
+                  return componenteValido;
           }
-        }
+        
+        return false;
     }
     
-    private void colocarComponentesCaza(Nave naveObtenida, ComponenteDeNave componente){
+    private boolean colocarComponentesCaza(Nave naveObtenida, ComponenteDeNave componente){
         if(componente.getPesoComponente().equalsIgnoreCase("Ligero")){
             naveObtenida.agregarComponente(componente);
+            return true;
         } else{
             naveObtenida.agregarComponente(null);
+            return false;
         }  
     }
     
-    private void colocarComponentesFragata(Nave naveObtenida, ComponenteDeNave componente){
+    private boolean colocarComponentesFragata(Nave naveObtenida, ComponenteDeNave componente){
         if(componente.getPesoComponente().equalsIgnoreCase("Ligero") || componente.getPesoComponente().equalsIgnoreCase("Normal")){
             naveObtenida.agregarComponente(componente);
+            return true;
+            
         } else{
             naveObtenida.agregarComponente(null);
-        }
+        } return false;
     }
     
-    private void colocarComponentesNaveApoyo(Nave naveObtenida, ComponenteDeNave componente){
+    private boolean colocarComponentesNaveApoyo(Nave naveObtenida, ComponenteDeNave componente){
         if(componente.getTipoDeComponente().equalsIgnoreCase("Arma")){
             naveObtenida.agregarComponente(null);
+            return false;
         } else if(componente.getPesoComponente().equalsIgnoreCase("Ligero") || componente.getPesoComponente().equalsIgnoreCase("Normal")){
             naveObtenida.agregarComponente(componente);
+            return true;
         } else {
             naveObtenida.agregarComponente(null);
+            return false;
         }
     }
     
-    private void colocarComponentesAcorazado(Nave naveObtenida, ComponenteDeNave componente){
+    private boolean colocarComponentesAcorazado(Nave naveObtenida, ComponenteDeNave componente){
         naveObtenida.agregarComponente(componente);
+        return true;
     }
     
     public Piloto obtenerPilotoRandom(){
@@ -168,6 +177,10 @@ public class EnsambladorDeNaves {
         return pilotos.getArregloDePilotos()[indicePiloto];
     }
     
+    public void colocarPiloto(Nave nave, Piloto piloto){
+        boolean pilotoColocado;
+        nave.
+    }
     
     /**
      * Metodo encargado de retornar una nave ya completa y ensamblada con todos sus componentes aleatorios
@@ -177,8 +190,9 @@ public class EnsambladorDeNaves {
     public Nave naveEnsamblada(){
         Nave naveObtenida = obtenerNaveRandom();
         Piloto pilotoObtenido = obtenerPilotoRandom();
+        ComponenteDeNave  componenteObtenido = obtenerComponenteAleatorio();
         naveObtenida.agregarPiloto(pilotoObtenido);
-        agregarComponente(naveObtenida);
+        agregarComponente(naveObtenida, componenteObtenido);
         return naveObtenida;
     }
     
