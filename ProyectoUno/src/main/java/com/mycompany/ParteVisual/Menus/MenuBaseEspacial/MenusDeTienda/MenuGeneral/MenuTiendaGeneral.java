@@ -52,7 +52,7 @@ public class MenuTiendaGeneral extends MenuBase {
                 comprar.mostrarInformacion();
                 break;
             case 2:
-                MenuDeVentas menuVender = new MenuDeVentas(opciones, partida, inventario);
+                MenuDeVentas menuVender = new MenuDeVentas( partida, inventario, this);
                 limpiarPantalla();
                 menuVender.mostrarInformacion();
                 break;

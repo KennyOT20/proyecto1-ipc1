@@ -44,7 +44,37 @@ public class InventarioComponente {
         
     }
     
+    public ComponenteDeNave eliminarComponente(int opcion){
+        int indiceReal = opcion  - 1 ;
+        
+         if(indiceReal < 0 || indiceReal >= inventarioComponentes.length  || inventarioComponentes[indiceReal] == null){
+
+             throw new IllegalArgumentException("Opcion invalida ");
+         }
+            
+         ComponenteDeNave componenteEliminado = inventarioComponentes[indiceReal];
+         
+         for (int i = indiceReal; i < inventarioComponentes.length - 1; i++) {
+            inventarioComponentes[i] = inventarioComponentes[i + 1];
+        }
+         
+         inventarioComponentes[inventarioComponentes.length -1 ] = null;
+         
+         return componenteEliminado;
+    }
     
+    public int contarComponentes(){
+        int contadorComponentes = 0;
+        
+        for (int i = 0; i < inventarioComponentes.length; i++) {
+            if(inventarioComponentes != null){
+                contadorComponentes ++;
+            }
+        }
+        
+        return contadorComponentes;
+    }
+
 
     public int getCantidadDeComponentes() {
         return cantidadDeComponentes;

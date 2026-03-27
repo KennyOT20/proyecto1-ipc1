@@ -44,31 +44,37 @@ public class InventarioPilotos {
     }
 
     
-    public void eliminarObjeto(int indiceObtenido){
+    public Piloto eliminarObjeto(int indiceObtenido){
 
         int indiceReal = indiceObtenido - 1;
+        
+        if(indiceReal < 0 || indiceReal >= inventarioPiloto.length  || inventarioPiloto[indiceReal] == null){
 
-        inventarioPiloto[indiceReal] = null;
+             throw new IllegalArgumentException("Opcion invalida ");
+         }
+        
+        Piloto pilotoEliminado = inventarioPiloto[indiceReal];
 
-        actualizarInventario();
+        for (int i = indiceReal; i < inventarioPiloto.length - 1; i++) {
+            inventarioPiloto[i] = inventarioPiloto[i + 1];
+        }
+
+        inventarioPiloto[inventarioPiloto.length - 1] = null;
+        
+        return pilotoEliminado;
     }
 
-    private void actualizarInventario(){
-
-        for (int i = 0; i < inventarioPiloto.length - 1; i++) {
-
-            if(inventarioPiloto[i] == null){
-
-                int j = i;
-
-                while(j < inventarioPiloto.length - 1){
-
-                    inventarioPiloto[j] = inventarioPiloto[j + 1];
-                    j++;
-                }
-                inventarioPiloto[inventarioPiloto.length - 1] = null;
+    
+    
+    public int contarPilotos(){
+        int contadorPilotos = 0;
+        for (int i = 0; i < inventarioPiloto.length; i++) {
+            if(inventarioPiloto[i] != null){
+                contadorPilotos ++;
             }
         }
+        
+        return contadorPilotos;
     }
 
     public Piloto[] getInventarioPiloto() {

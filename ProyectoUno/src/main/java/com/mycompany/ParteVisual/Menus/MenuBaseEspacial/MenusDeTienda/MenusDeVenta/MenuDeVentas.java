@@ -7,24 +7,25 @@ package com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeVe
 import com.mycompany.ParteLogica.BaseEspacial.TiendaVenta;
 import com.mycompany.ParteLogica.Partida.Partida;
 import com.mycompany.ParteVisual.Inventarios.Inventarios;
-import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenuCompraVenta.MenuCompraVenta;
-import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCompra.MenuOpcionesCompra;
+import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenuGeneral.MenuTiendaGeneral;
+import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 
 /**
  *
  * @author Kenny
  */
-public class MenuDeVentas extends MenuCompraVenta{
+public class MenuDeVentas extends MenuBase{
 
     private final Inventarios inventarios;
     private final TiendaVenta tiendaVenta;
     private final Partida partida;
+    private final MenuTiendaGeneral menuGeneral;
 
-    public MenuDeVentas(MenuOpcionesCompra menuOpciones, Partida partida, Inventarios inventarios) {
-        super(menuOpciones, partida);
+    public MenuDeVentas( Partida partida, Inventarios inventarios, MenuTiendaGeneral menuGeneral) {
         this.partida = partida;
         this.tiendaVenta = new TiendaVenta(partida);
         this.inventarios = inventarios;
+        this.menuGeneral = menuGeneral;
     }
     
     
@@ -37,7 +38,8 @@ public class MenuDeVentas extends MenuCompraVenta{
         imprimirLineaDeTexto("1. Naves");
         imprimirLineaDeTexto("2. Componentes de nave");
         imprimirLineaDeTexto("3. Objetos de consumo");
-        imprimirLineaDeTexto("4. Volver al menu de tienda");
+        imprimirLineaDeTexto("4. Pilotos");
+        imprimirLineaDeTexto("5. Volver al menu de tienda");
         imprimirBordeDeMenu();
         System.out.print("Ingrese una opcion: ");
         validarOpcion();
@@ -48,24 +50,27 @@ public class MenuDeVentas extends MenuCompraVenta{
     public void ejecutarOpcion(int opcion) {
         switch(opcion){
             case 1:
-                VentaNave venderNave = new VentaNave(getMenuOpciones(), partida, inventarios);
+                VentaNave venderNave = new VentaNave( inventarios, partida, tiendaVenta, this);
                 limpiarPantalla();
                 venderNave.mostrarOpciones();
                 break;
             case 2:
+                VentaComponente venderComponente = new VentaComponente(inventarios, partida,tiendaVenta, this);
+                limpiarPantalla();
+                venderComponente.mostrarInformacion();
                 break;
             case 3:
                 break;
             case 4:
+                break;
+            case 5:
+                limpiarPantalla();
+                menuGeneral.mostrarInformacion();
                 break;
             default:
                 break;
         }
     }
 
-    @Override
-    public void mostrarOpciones() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
 }

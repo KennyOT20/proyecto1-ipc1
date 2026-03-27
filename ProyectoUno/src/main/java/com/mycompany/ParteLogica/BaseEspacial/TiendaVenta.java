@@ -4,8 +4,11 @@
  */
 package com.mycompany.ParteLogica.BaseEspacial;
 
+import com.mycompany.ParteLogica.Componentes.ComponentesDeNaves.ComponenteDeNave;
 import com.mycompany.ParteLogica.Naves.Nave;
+import com.mycompany.ParteLogica.Objetos.ObjetoPrincipal;
 import com.mycompany.ParteLogica.Partida.Partida;
+import com.mycompany.ParteLogica.Pilotos.Piloto;
 
 /**
  *
@@ -23,8 +26,11 @@ public class TiendaVenta {
     
     
     
-    public void venderComponentes(){
-        
+    public ComponenteDeNave venderComponentes(int opcion){
+        ComponenteDeNave componenteVendido = partida.getJugador().getInventarioComponentes().eliminarComponente(opcion);
+        int precioObtendio = componenteVendido.getPrecioDeVenta();
+        partida.getJugador().setCreditosGalacticos(partida.getJugador().getCreditosGalacticos() + precioObtendio);
+        return componenteVendido;
     }
     
     public Nave venderNaves(int opcion){
@@ -34,12 +40,18 @@ public class TiendaVenta {
         return naveVendida;
     }
     
-    public void venderPilotos(){
-        
-    
+    public Piloto venderPilotos(int opcion){
+        Piloto pilotoVendido = partida.getJugador().getInventarioPilotos().eliminarObjeto(opcion);
+        int precioObtenido = pilotoVendido.getPrecioDeVenta();
+        partida.getJugador().setCreditosGalacticos(partida.getJugador().getCreditosGalacticos() + precioObtenido);
+        return pilotoVendido;
     }
     
-    public void venderObjetos(){
+    public ObjetoPrincipal venderObjetos(int opcion){
+        ObjetoPrincipal objetoVendido = partida.getJugador().getInventarioObjetos().eliminarObjeto(opcion);
+        int precioOtenido = objetoVendido.getPrecioDeVenta();
+        partida.getJugador().setCreditosGalacticos(partida.getJugador().getCreditosGalacticos() + precioOtenido);
+        return objetoVendido;
     }
     
 }

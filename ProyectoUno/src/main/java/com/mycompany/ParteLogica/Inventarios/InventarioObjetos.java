@@ -42,6 +42,42 @@ public class InventarioObjetos {
         inventarioDeObjetos = nuevoArreglo;
         
     }
+    
+    public ObjetoPrincipal eliminarObjeto(int opcion){
+        
+        int indiceReal = opcion - 1;
+        
+        if(indiceReal < 0 || indiceReal >= inventarioDeObjetos.length  || inventarioDeObjetos[indiceReal] == null){
+
+             throw new IllegalArgumentException("Opcion invalida ");
+         }
+        
+        ObjetoPrincipal objetoVendido = inventarioDeObjetos[indiceReal];
+
+        for (int i = indiceReal; i < inventarioDeObjetos.length - 1; i++) {
+            inventarioDeObjetos[i] = inventarioDeObjetos[i + 1];
+        }
+
+        inventarioDeObjetos[inventarioDeObjetos.length - 1] = null;
+        
+        return objetoVendido;
+    
+    }
+    
+    
+
+    
+    public int contadorObjetos(){
+        int contador = 0;
+        
+        for (int i = 0; i < inventarioDeObjetos.length; i++) {
+            if(inventarioDeObjetos[i] != null){
+                contador ++;
+            }
+        }
+        
+        return contador;
+    }
 
     public ObjetoPrincipal[] getInventarioDeObjetos() {
         return inventarioDeObjetos;
