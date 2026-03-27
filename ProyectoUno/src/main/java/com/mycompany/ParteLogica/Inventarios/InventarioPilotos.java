@@ -26,7 +26,7 @@ public class InventarioPilotos {
         }
         
         inventarioPiloto[cantidadDePilotos] = pilotoObtenido;
-        
+        pilotoObtenido.calcularPrecioVenta();
         cantidadDePilotos ++;
         
     }
@@ -43,10 +43,6 @@ public class InventarioPilotos {
         
     }
 
-    public Piloto[] getInventarioPiloto() {
-        return inventarioPiloto;
-    }
-    
     
     public void eliminarObjeto(int indiceObtenido){
 
@@ -75,5 +71,11 @@ public class InventarioPilotos {
             }
         }
     }
+
+    public Piloto[] getInventarioPiloto() {
+        return inventarioPiloto;
+    }
+    
+    
     
 }

@@ -5,7 +5,7 @@
 package com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCompra.MenuCompraDeComponentes;
 
 import com.mycompany.ParteLogica.Partida.Partida;
-import com.mycompany.ParteVisual.Menus.MenuBase.MenuBase;
+import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCompra.MenuOpcionesCompra;
 
 /**

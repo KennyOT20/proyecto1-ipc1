@@ -32,7 +32,7 @@ public class MenuPropulsores extends MenuCompraVenta {
     }
 
     @Override
-   public void mostrarOpcionesDeCompra() {
+   public void mostrarOpciones() {
 
         int cantidadPropulsores = arregloPropulsores.getArregloDeComponentes().length;
 
@@ -91,7 +91,7 @@ public class MenuPropulsores extends MenuCompraVenta {
         imprimirBordeDeMenu();
         imprimirLineaDeTexto(crJugador);
         imprimirBordeDeMenu();
-        mostrarOpcionesDeCompra();
+        mostrarOpciones();
         System.out.print("Ingrese una opcion: ");
         validarOpcion();
     }

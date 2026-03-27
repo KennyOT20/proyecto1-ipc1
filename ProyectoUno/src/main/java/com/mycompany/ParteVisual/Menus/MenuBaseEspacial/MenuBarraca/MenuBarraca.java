@@ -6,7 +6,7 @@ package com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenuBarraca;
 
 import com.mycompany.ParteLogica.BaseEspacial.Barraca;
 import com.mycompany.ParteLogica.Generadores.GeneradorDePilotos.GeneradorDePilotos;
-import com.mycompany.ParteVisual.Menus.MenuBase.MenuBase;
+import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenuBaseInicial.MenuBaseInicial;
 import com.mycompany.ParteLogica.Partida.Partida;
 import com.mycompany.ParteLogica.Pilotos.Piloto;

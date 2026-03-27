@@ -4,7 +4,7 @@
  */
 package com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenuInventario;
 
-import com.mycompany.ParteVisual.Menus.MenuBase.MenuBase;
+import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 
 /**
  *

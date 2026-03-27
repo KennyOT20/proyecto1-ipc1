@@ -27,6 +27,7 @@ public class InventarioComponente {
         }
         
         inventarioComponentes[cantidadDeComponentes] = componenteRecibido;
+        componenteRecibido.calcularPrecioDeVenta();
         cantidadDeComponentes ++; 
         
     }

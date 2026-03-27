@@ -39,14 +39,14 @@ public class MenuSistemas extends MenuCompraVenta{
         imprimirBordeDeMenu();
         imprimirLineaDeTexto(datos);
         imprimirBordeDeMenu();
-        mostrarOpcionesDeCompra();
+        mostrarOpciones();
         System.out.print("Ingrese una opcion: ");
         validarOpcion();
 
     }
     
     @Override
-    public void mostrarOpcionesDeCompra() {
+    public void mostrarOpciones() {
 
         int cantidadSistemas = arregloSistemas.getArregloDeComponentes().length;
 

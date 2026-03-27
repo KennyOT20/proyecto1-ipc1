@@ -26,6 +26,7 @@ public class InventarioObjetos {
         }
         
         inventarioDeObjetos[cantidadDeObjetos] = objetoObtenido;
+        objetoObtenido.calcularPrecioDeVenta();
         cantidadDeObjetos ++;
         
     }

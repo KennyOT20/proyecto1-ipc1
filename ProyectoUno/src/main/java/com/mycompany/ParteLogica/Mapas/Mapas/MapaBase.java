@@ -12,6 +12,7 @@ import com.mycompany.ParteLogica.Personajes.Jugador;
 
 
 
+
 /**
  *
  * @author Kenny
@@ -121,44 +122,44 @@ public abstract class MapaBase {
         }
     }
     
-        public void calcularMovimientos(String movimiento){
+        public boolean calcularMovimientos(String movimiento){
             
             switch(movimiento){
                 case "W" :
                      int coordenadaArriba = jugador.getPosicionX() - 1;
                      if(coordenadaArriba >= 0){
                      jugador.setPosicionX(coordenadaArriba);
+                     return true;
                      } else {
-                         System.out.println("Movimiento fuera de los limites");
+                         return false;
                      }
-                     break;   
-                     
                 case "S" :
                     int coordenadaAbajo = jugador.getPosicionX()  + 1;
                     if(coordenadaAbajo < cantidadFilas){
                     jugador.setPosicionX(coordenadaAbajo);
+                    return true;
                     } else{
-                         System.out.println("Movimiento fuera de los limites");
+                         return false;
                     }
-                    break;
-                    
                 case "D" :
                      int coordenadaDerecha = jugador.getPosicionY() + 1;
                      if(coordenadaDerecha < cantidadColumnas) {
                      jugador.setPosicionY(coordenadaDerecha);
+                     return true;
                      } else {
-                          System.out.println("Movimiento fuera de los limites");
+                         return false;
                      }
-                     break;
-                     
                 case "A" :
                      int coordenadaIzquierda = jugador.getPosicionY() - 1;
                      if(coordenadaIzquierda >= 0){
                      jugador.setPosicionY(coordenadaIzquierda);
+                     return true;
                      }
                      else {
-                          System.out.println("Movimiento fuera de los limites");
+                          return false;
                      }
+                default: 
+                   return false;
             }
         }
     

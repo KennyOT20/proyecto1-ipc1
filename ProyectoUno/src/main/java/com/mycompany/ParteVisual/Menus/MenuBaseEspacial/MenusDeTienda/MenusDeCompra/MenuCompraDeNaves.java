@@ -35,7 +35,7 @@ public class MenuCompraDeNaves extends MenuCompraVenta{
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Tienda de naves");
         imprimirBordeDeMenu();
-        mostrarOpcionesDeCompra();
+        mostrarOpciones();
     }
 
     @Override
@@ -81,7 +81,7 @@ public class MenuCompraDeNaves extends MenuCompraVenta{
     }
     
     @Override
-    public void mostrarOpcionesDeCompra(){
+    public void mostrarOpciones(){
         
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Naves");

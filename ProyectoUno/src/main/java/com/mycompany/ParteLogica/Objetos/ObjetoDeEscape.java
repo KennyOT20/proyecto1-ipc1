@@ -19,6 +19,7 @@ public class ObjetoDeEscape  extends ObjetoPrincipal{
 
     @Override
     public void efectoEspecialObjeto(Nave naveElegida) {
+        naveElegida.setCombustiblePremium(naveElegida.getCombustiblePremium() + 100);
     }
 
 

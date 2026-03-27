@@ -6,7 +6,7 @@ package com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenuCompr
 
 import com.mycompany.ParteLogica.BaseEspacial.TiendaCompra;
 import com.mycompany.ParteLogica.Partida.Partida;
-import com.mycompany.ParteVisual.Menus.MenuBase.MenuBase;
+import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCompra.MenuOpcionesCompra;
 
 /**
@@ -25,7 +25,7 @@ public abstract  class MenuCompraVenta extends MenuBase{
         this.tienda = new TiendaCompra(partida);
     }
     
-    public abstract void mostrarOpcionesDeCompra();
+    public abstract void mostrarOpciones();
 
     public MenuOpcionesCompra getMenuOpciones() {
         return menuOpciones;

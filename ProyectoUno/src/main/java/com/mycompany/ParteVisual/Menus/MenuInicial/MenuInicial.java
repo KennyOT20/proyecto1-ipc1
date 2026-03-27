@@ -4,7 +4,7 @@
  */
 package com.mycompany.ParteVisual.Menus.MenuInicial;
 
-import com.mycompany.ParteVisual.Menus.MenuBase.MenuBase;
+import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 import com.mycompany.ParteLogica.Partida.Partida;
 
 /**

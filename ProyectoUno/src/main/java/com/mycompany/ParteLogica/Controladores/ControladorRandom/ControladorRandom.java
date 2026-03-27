@@ -19,6 +19,11 @@ public class ControladorRandom {
     }
     
     public int calcularNumeroAleatorios(int min, int max){
+        
+        if(min >=  max){
+            max = min +1;
+        }
+        
         return random.nextInt(min, max);
     }
 

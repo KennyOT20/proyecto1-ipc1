@@ -5,6 +5,7 @@
 package com.mycompany.ParteLogica.Naves;
 
 import com.mycompany.ParteLogica.Componentes.ComponentesDeNaves.ComponenteDeNave;
+import com.mycompany.ParteLogica.Controladores.ControladorRandom.ControladorRandom;
 import com.mycompany.ParteLogica.Pilotos.Piloto;
 
 /**
@@ -13,6 +14,7 @@ import com.mycompany.ParteLogica.Pilotos.Piloto;
  */
 public abstract class Nave {
     
+    private final ControladorRandom random;
     private String nombreDeNave;
     private final Piloto[] piloto;
     private int cantidadDeComponentes;
@@ -25,10 +27,12 @@ public abstract class Nave {
     private int combustiblePremium;
     private int puntosDeEnergia;
     private int precioDeNave;
+    private int precioDeVenta;
     private double evasionBase;
 
     public Nave(String nombreDeNave, int cantidadDeComponentes, String tipoDeNave,
             int puntosDeVida,int vidaMax, int velocidad, int puntosDeEscudo, int combustiblePremium, int puntosDeEnergia, int precioDeNave) {
+        this.random = new ControladorRandom();
         this.piloto = new Piloto[1];
         this.nombreDeNave = nombreDeNave;
         this.cantidadDeComponentes = cantidadDeComponentes;
@@ -41,6 +45,7 @@ public abstract class Nave {
         this.puntosDeEnergia = puntosDeEnergia;
         this.precioDeNave = precioDeNave;
         this.evasionBase = 0.20;
+
     }
     
     
@@ -75,7 +80,14 @@ public abstract class Nave {
         }
     }
     
-    
+    public final void calcularPrecioVenta(){
+       int puntosVida = random.calcularNumeroAleatorios(0, puntosDeVida);
+       int puntosEscudo = random.calcularNumeroAleatorios(0, puntosDeEscudo);
+       int puntosEp = random.calcularNumeroAleatorios(0, puntosEscudo);
+       
+       int precioTotal = puntosEp + puntosVida + puntosEscudo + random.calcularNumeroAleatorios(0, precioDeVenta);
+       precioDeVenta = precioTotal;
+    }
     
     public void verificarSHP(){
         
@@ -179,6 +191,10 @@ public abstract class Nave {
 
     public Piloto[] getPiloto() {
         return piloto;
+    }
+
+    public int getPrecioDeVenta() {
+        return precioDeVenta;
     }
     
     

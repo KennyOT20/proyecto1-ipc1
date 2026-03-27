@@ -8,7 +8,7 @@ import com.mycompany.ParteLogica.Inventarios.InventarioComponente;
 import com.mycompany.ParteLogica.Inventarios.InventarioNave;
 import com.mycompany.ParteLogica.Inventarios.InventarioObjetos;
 import com.mycompany.ParteLogica.Inventarios.InventarioPilotos;
-import com.mycompany.ParteVisual.Menus.MenuBase.MenuBase;
+import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenuBaseInicial.MenuBaseInicial;
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCompra.MenuOpcionesCompra;
 import com.mycompany.ParteLogica.Partida.Partida;
@@ -82,7 +82,7 @@ public class MenuTiendaGeneral extends MenuBase {
                 inventario.mostrarPilotos();
                 inventario.mostrarObjetos();
                 inventario.mostrarComponentes();
-                System.out.print("Presione enter para continuar");
+                System.out.print("Presione enter para continuar: ");
     }
     
 }

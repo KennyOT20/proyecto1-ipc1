@@ -27,6 +27,7 @@ public class InventarioNave {
         } 
         
         inventarioNave[cantidadArreglo] = naveObtenida;
+        naveObtenida.calcularPrecioVenta();
         cantidadArreglo ++;
     }
     

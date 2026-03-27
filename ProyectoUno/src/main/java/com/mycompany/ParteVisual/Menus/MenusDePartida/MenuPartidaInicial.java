@@ -4,7 +4,7 @@
  */
 package com.mycompany.ParteVisual.Menus.MenusDePartida;
 
-import com.mycompany.ParteVisual.Menus.MenuBase.MenuBase;
+import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 import com.mycompany.ParteLogica.Partida.Partida;
 
 /**
@@ -85,40 +85,47 @@ public class MenuPartidaInicial extends MenuBase {
         
         switch(opcion){
             case "W" :
-                partida.getMapaGalactico().calcularMovimientos(opcion);
                 limpiarPantalla();
-                partida.getMapaGalactico().verificarCasilla();
-                mostrarSimbologia();
-                partida.getMapaGalactico().imprimirMapa();
-                mostrarInformacion();
+                verificarMovimiento(opcion);
                 break;
             case "A":
-                partida.getMapaGalactico().calcularMovimientos(opcion);
                 limpiarPantalla();
-                partida.getMapaGalactico().verificarCasilla();
-                mostrarSimbologia();
-                partida.getMapaGalactico().imprimirMapa();
-                mostrarInformacion();
+                verificarMovimiento(opcion);
                 break;
             case "S" :
-                partida.getMapaGalactico().calcularMovimientos(opcion);
                 limpiarPantalla();
-                partida.getMapaGalactico().verificarCasilla();
-                partida.getMapaGalactico().verificarCasilla();
+                verificarMovimiento(opcion);
+                break;
+            case "D":
+                limpiarPantalla();
+                verificarMovimiento(opcion);
+                break;    
+            default:
+                limpiarPantalla();
+                imprimirBordeDeMenu();
+                imprimirLineaDeTexto("Opcion no valida, intente de nuevo");
+                imprimirBordeDeMenu();
                 mostrarSimbologia();
                 partida.getMapaGalactico().imprimirMapa();
                 mostrarInformacion();
                 break;
-            case "D":
-                partida.getMapaGalactico().calcularMovimientos(opcion);
-                limpiarPantalla();
-                partida.getMapaGalactico().verificarCasilla();
-                mostrarSimbologia();
-                partida.getMapaGalactico().imprimirMapa();
-                mostrarInformacion();
-                break;    
+        } 
+    }
+    
+    private void verificarMovimiento(String opcion){
+         boolean opcionValida =   partida.getMapaGalactico().calcularMovimientos(opcion);
+         
+        if(!opcionValida){
+         imprimirBordeDeMenu();
+         imprimirLineaDeTexto("Movimiento no valido");
+         imprimirBordeDeMenu();
+        } else {
+            partida.getMapaGalactico().verificarCasilla();
         }
         
+         mostrarSimbologia();
+         partida.getMapaGalactico().imprimirMapa();
+         mostrarInformacion();
         
     }
 

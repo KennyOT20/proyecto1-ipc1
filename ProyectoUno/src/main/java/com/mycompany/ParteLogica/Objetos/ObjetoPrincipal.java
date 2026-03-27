@@ -4,6 +4,7 @@
  */
 package com.mycompany.ParteLogica.Objetos;
 
+import com.mycompany.ParteLogica.Controladores.ControladorRandom.ControladorRandom;
 import com.mycompany.ParteLogica.Naves.Nave;
 
 /**
@@ -12,15 +13,23 @@ import com.mycompany.ParteLogica.Naves.Nave;
  */
 public abstract class ObjetoPrincipal {
     
+    private final ControladorRandom random;
     private String nombreDeObjeto;
     private int precioDeObjeto;
+    private int precioDeVenta;
 
     public ObjetoPrincipal(String nombreDeObjeto, int precioDeObjeto) {
         this.nombreDeObjeto = nombreDeObjeto;
         this.precioDeObjeto = precioDeObjeto;
+        this.random = new ControladorRandom();
     }
 
     public abstract void efectoEspecialObjeto(Nave naveElegida);
+    
+    public final void calcularPrecioDeVenta(){
+        int precioCalculado = random.calcularNumeroAleatorios(0, precioDeObjeto);
+        precioDeObjeto = precioCalculado;
+    }
 
     public String getNombreDeObjeto() {
         return nombreDeObjeto;
@@ -29,6 +38,12 @@ public abstract class ObjetoPrincipal {
     public int getPrecioDeObjeto() {
         return precioDeObjeto;
     }
+
+    public int getPrecioDeVenta() {
+        return precioDeVenta;
+    }
+    
+    
 }
 
 

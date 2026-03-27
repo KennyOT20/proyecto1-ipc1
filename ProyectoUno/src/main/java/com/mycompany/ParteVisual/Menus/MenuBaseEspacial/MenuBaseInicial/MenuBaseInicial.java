@@ -5,7 +5,7 @@
 package com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenuBaseInicial;
 
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenuBarraca.MenuBarraca;
-import com.mycompany.ParteVisual.Menus.MenuBase.MenuBase;
+import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenuGeneral.MenuTiendaGeneral;
 import com.mycompany.ParteVisual.Menus.MenusDePartida.MenuPartidaInicial;
 import com.mycompany.ParteLogica.Partida.Partida;

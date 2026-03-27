@@ -4,7 +4,9 @@
  */
 package com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeVenta;
 
-import com.mycompany.ParteVisual.Menus.MenuBase.MenuBase;
+import com.mycompany.ParteLogica.BaseEspacial.TiendaVenta;
+import com.mycompany.ParteLogica.Partida.Partida;
+import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 
 /**
  *
@@ -12,6 +14,13 @@ import com.mycompany.ParteVisual.Menus.MenuBase.MenuBase;
  */
 public class MenuDeVentas extends MenuBase{
 
+    private final TiendaVenta tiendaVenta;
+    private final Partida partida;
+    
+    public MenuDeVentas(Partida partida){
+        this.partida  = partida;
+        this.tiendaVenta = new TiendaVenta(partida);
+    }
 
     @Override
     public void mostrarInformacion() {
@@ -28,6 +37,18 @@ public class MenuDeVentas extends MenuBase{
 
     @Override
     public void ejecutarOpcion(int opcion) {
+        switch(opcion){
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            default:
+                break;
+        }
     }
     
 }

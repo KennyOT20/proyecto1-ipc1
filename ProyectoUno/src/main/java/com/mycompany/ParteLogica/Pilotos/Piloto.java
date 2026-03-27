@@ -4,6 +4,7 @@
  */
 package com.mycompany.ParteLogica.Pilotos;
 
+import com.mycompany.ParteLogica.Controladores.ControladorRandom.ControladorRandom;
 import com.mycompany.ParteLogica.Naves.Nave;
 
 /**
@@ -12,6 +13,7 @@ import com.mycompany.ParteLogica.Naves.Nave;
  */
 public abstract class Piloto {
     
+    private ControladorRandom random;
     private String nombrePiloto;
     private int nivel;
     private int puntosDeExperiencia;
@@ -21,6 +23,8 @@ public abstract class Piloto {
     private int puntosDeLiderazgo;
     private int puntosDeResistencia;
     private int precioPiloto;
+    private int precioDeVenta;
+    
 
     public Piloto(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, int puntosDePilotaje, int puntosDeIngenieria, 
             int puntosDeLiderazgo, int puntosDeResistencia, int precioPiloto) {
@@ -33,11 +37,18 @@ public abstract class Piloto {
         this.puntosDeLiderazgo = puntosDeLiderazgo;
         this.puntosDeResistencia = puntosDeResistencia;
         this.precioPiloto = precioPiloto;
+        this.random = new ControladorRandom();
+        calcularPrecioVenta();
     }
 
 
     public void subirNivel(){
       
+    }
+    
+    public final void calcularPrecioVenta(){
+        int precio = puntosDeExperiencia * 2 + puntosDeEstrategia *3 ;
+        precioDeVenta = precio + random.calcularNumeroAleatorios(0, precioPiloto);
     }
     
     public abstract void bonificacion();
@@ -105,6 +116,10 @@ public abstract class Piloto {
 
     public void setPuntosDeResistencia(int puntosDeResistencia) {
         this.puntosDeResistencia = puntosDeResistencia;
+    }
+
+    public int getPrecioDeVenta() {
+        return precioDeVenta;
     }
 
     

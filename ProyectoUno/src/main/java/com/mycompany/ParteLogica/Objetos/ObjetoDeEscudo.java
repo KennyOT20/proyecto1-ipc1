@@ -20,6 +20,8 @@ public class ObjetoDeEscudo extends ObjetoPrincipal{
 
     @Override
     public void efectoEspecialObjeto(Nave naveElegida) {
+        escudoReparado = 100  +  naveElegida.getPuntosDeEscudo()*2;
+        naveElegida.setPuntosDeEscudo(escudoReparado);
     }
     
 }

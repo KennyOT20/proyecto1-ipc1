@@ -42,7 +42,7 @@ public class MenuEscudos extends MenuCompraVenta {
          imprimirLineaDeTexto(linea);
         imprimirLineaDeTexto("SHP: Escudo extra");
         imprimirBordeDeMenu();
-        mostrarOpcionesDeCompra();
+        mostrarOpciones();
         validarOpcion();
     }
 
@@ -97,7 +97,7 @@ public class MenuEscudos extends MenuCompraVenta {
     }
     
     @Override
-    public void mostrarOpcionesDeCompra() {
+    public void mostrarOpciones() {
 
      int cantidadEscudo = arregloEscudos.getArregloDeComponentes().length;
 

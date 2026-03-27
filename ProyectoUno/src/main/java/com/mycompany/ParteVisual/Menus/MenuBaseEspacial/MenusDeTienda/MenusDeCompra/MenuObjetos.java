@@ -28,7 +28,7 @@ public class MenuObjetos extends MenuCompraVenta{
     }
 
     @Override
-    public void mostrarOpcionesDeCompra() {
+    public void mostrarOpciones() {
 
         int cantidadObjetos = arregloObjetos.getArregloDeObjetos().length;
 
@@ -73,7 +73,7 @@ public class MenuObjetos extends MenuCompraVenta{
         imprimirBordeDeMenu();
         imprimirLineaDeTexto(crJugador);
         imprimirBordeDeMenu();
-        mostrarOpcionesDeCompra();
+        mostrarOpciones();
         System.out.print("Ingrese una opcion: ");
         validarOpcion();
     }

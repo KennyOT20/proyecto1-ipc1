@@ -37,6 +37,8 @@ public class Inventarios extends Bordes {
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Naves en inventario");
         imprimirBordeDeMenu();
+        imprimirLineaDeTexto("Nombre               HP              Precio Venta");
+        imprimirBordeDeMenu();
 
         for (int i = 0; i < cantidadDeNaves; i++) {
 
@@ -46,20 +48,29 @@ public class Inventarios extends Bordes {
 
                 String nombreDeNave = inventarioNave.getInventarioNave()[i].getNombreDeNave();
                 String hpNave = String.valueOf(inventarioNave.getInventarioNave()[i].getPuntosDeVida());
+                String precioDeVenta = String.valueOf(inventarioNave.getInventarioNave()[i].getPrecioDeVenta());
 
                 String nombreFormateado = "";
-                int c = 0;
+                int contador = 0;
 
-                while (c < nombreDeNave.length() && c < 20) {
-                    nombreFormateado += nombreDeNave.charAt(c);
-                    c++;
+                while (contador < nombreDeNave.length() && contador < 20) {
+                    nombreFormateado += nombreDeNave.charAt(contador);
+                    contador++;
                 }
 
                 while (nombreFormateado.length() < 20) {
                     nombreFormateado += " ";
                 }
+                
+                while (hpNave.length() < 15) {
+                hpNave += " ";
+                }
+                
+                while(precioDeVenta.length() < 12){
+                    precioDeVenta += " ";
+                }
 
-                String linea = (i + 1) + ". " + nombreFormateado + "Hp: " + hpNave;
+                String linea = (i + 1) + ". " + nombreFormateado + hpNave + precioDeVenta;
 
                 imprimirLineaDeTexto(linea);
             }
@@ -80,7 +91,8 @@ public class Inventarios extends Bordes {
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Pilotos en inventario");
         imprimirBordeDeMenu();
-
+        imprimirLineaDeTexto("Nombre               Precio Venta");
+        imprimirBordeDeMenu();
         for (int i = 0; i < cantidadPilotos; i++) {
 
             if (inventarioPilotos.getInventarioPiloto()[i] != null) {
@@ -88,8 +100,13 @@ public class Inventarios extends Bordes {
                 vacio = false;
 
                 String nombrePiloto = inventarioPilotos.getInventarioPiloto()[i].getNombrePiloto();
-
-                imprimirLineaDeTexto((i + 1) + ". " + nombrePiloto);
+                String precioPiloto = String.valueOf(inventarioPilotos.getInventarioPiloto()[i].getPrecioDeVenta());
+                
+                while (precioPiloto.length() < 12) {
+                precioPiloto += " ";
+               }
+            
+                imprimirLineaDeTexto((i + 1) + ". " + nombrePiloto + precioPiloto);
             }
         }
 
@@ -108,7 +125,7 @@ public class Inventarios extends Bordes {
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Inventario de componentes");
         imprimirBordeDeMenu();
-        imprimirLineaDeTexto("Nombre               Tipo               Peso               Consumo de EP");
+         imprimirLineaDeTexto("Nombre               Tipo               Peso               Consumo EP     Precio Venta");
         imprimirBordeDeMenu();
 
         for (int i = 0; i < cantidadDeComponentes; i++) {
@@ -116,13 +133,14 @@ public class Inventarios extends Bordes {
             if (inventarioComponente.getInventarioComponentes()[i] != null) {
 
                 vacio = false;
-
+                
                 String nombre = inventarioComponente.getInventarioComponentes()[i].getNombreComponente();
                 String tipo = inventarioComponente.getInventarioComponentes()[i].getTipoDeComponente();
                 String peso = inventarioComponente.getInventarioComponentes()[i].getPesoComponente();
                 String consumo = String.valueOf(
-                        inventarioComponente.getInventarioComponentes()[i].getConsumoDeEnergia()
-                );
+                        inventarioComponente.getInventarioComponentes()[i].getConsumoDeEnergia() );
+                
+                String precioDeVenta = String.valueOf(inventarioComponente.getInventarioComponentes()[i].getPrecioDeVenta());
 
                 String nombreComponente = "";
                 int contador = 0;
@@ -147,8 +165,12 @@ public class Inventarios extends Bordes {
                 while (consumo.length() < 10) {
                     consumo += " ";
                 }
+                
+                while(precioDeVenta.length() < 12){
+                    precioDeVenta += " ";
+                }
 
-                String linea = (i +1) + ". " + nombreComponente + tipo + peso + consumo;
+                String linea = (i +1) + ". " + nombreComponente + tipo + peso + consumo + precioDeVenta;
 
                 imprimirLineaDeTexto(linea);
             }
@@ -169,16 +191,16 @@ public class Inventarios extends Bordes {
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Inventario de objetos");
         imprimirBordeDeMenu();
-        imprimirLineaDeTexto("Nombre               ");
+        imprimirLineaDeTexto("Nombre               Precio Venta");
 
         for (int i = 0; i < cantidadObjetos; i++) {
 
             if (inventarioObjetos.getInventarioDeObjetos()[i] != null) {
 
                 vacio = false;
-
+                int precioVenta = inventarioObjetos.getInventarioDeObjetos()[i].getPrecioDeVenta();
                 String nombre = inventarioObjetos.getInventarioDeObjetos()[i].getNombreDeObjeto();
-
+                String precioDeVenta = String.valueOf(precioVenta);
                 String nombreObjeto = "";
                 int contador = 0;
 
@@ -190,8 +212,12 @@ public class Inventarios extends Bordes {
                 while (nombreObjeto.length() < 22) {
                     nombreObjeto += " ";
                 }
+                
+                while(precioDeVenta.length() < 12){
+                    precioDeVenta += " ";
+                }
 
-                String linea = (i+1) + ". " + nombreObjeto;
+                String linea = (i+1) + ". " + nombreObjeto + precioDeVenta;
 
                 imprimirLineaDeTexto(linea);
             }

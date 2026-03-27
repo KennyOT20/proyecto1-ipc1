@@ -41,7 +41,7 @@ public class MenuArmas extends MenuCompraVenta{
         imprimirBordeDeMenu();
         imprimirLineaDeTexto(cr);
         imprimirBordeDeMenu();
-        mostrarOpcionesDeCompra();
+        mostrarOpciones();
         System.out.print("Ingrese una opcion: ");
         validarOpcion();
         
@@ -103,7 +103,7 @@ public class MenuArmas extends MenuCompraVenta{
     }
 
     @Override
-   public void mostrarOpcionesDeCompra() {
+   public void mostrarOpciones() {
         
         int cantidadArmas = arregloArmas.getArregloDeComponentes().length;
 
