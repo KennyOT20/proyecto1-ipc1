@@ -4,9 +4,9 @@
  */
 package com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeVenta;
 
+import com.mycompany.ParteLogica.Naves.Nave;
 import com.mycompany.ParteLogica.Partida.Partida;
 import com.mycompany.ParteVisual.Inventarios.Inventarios;
-import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenuCompraVenta.MenuCompraVenta;
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCompra.MenuOpcionesCompra;
 
 /**
@@ -30,12 +30,16 @@ public class VentaNave extends MenuModelo{
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Venta de naves");
         imprimirBordeDeMenu();
-        imprimirLineaDeTexto("Que nave deseas vender.");
-        imprimirBordeDeMenu();
         imprimirLineaDeTexto(crJugador);
         imprimirBordeDeMenu();
+        imprimirLineaDeTexto("Que nave deseas vender.");
+        imprimirBordeDeMenu();
         mostrarInformacion();
+        imprimirLineaDeTexto("0. Volver al menu anterior");
+        imprimirBordeDeMenu();
+        System.out.print("Ingrese una opcion: ");
         validarOpcion();
+        
         
     }
 
@@ -46,6 +50,35 @@ public class VentaNave extends MenuModelo{
 
     @Override
     public void ejecutarOpcion(int opcion) {
+        
+       int tamañoInventario = getPartida().getJugador().getInventarioNaves().contarNaves();
+        
+        if(opcion == 0){
+            limpiarPantalla();
+            getMenuOpciones().mostrarInformacion();
+            return;
+        }
+        if(opcion > 0 && opcion <= tamañoInventario){
+            mostrarDatosDeVenta(opcion);
+        } else {
+            limpiarPantalla();
+            imprimirBordeDeMenu();
+            imprimirLineaDeTexto("Opcion no valida, intente de nuevo");
+            mostrarOpciones();
+        }
+    }
+    
+    private void mostrarDatosDeVenta(int opcion){
+         Nave naveVendida;
+            limpiarPantalla();
+            naveVendida = getVender().venderNaves(opcion);
+            String nombreNave = naveVendida.getNombreDeNave();
+            String precio = String.valueOf(naveVendida.getPrecioDeVenta());
+            String linea = "Has vendido la nave " + nombreNave + " por " + precio + " CR";
+            imprimirBordeDeMenu();
+            imprimirLineaDeTexto( linea);
+            imprimirBordeDeMenu();
+            mostrarOpciones();
     }
     
 }

@@ -4,6 +4,7 @@
  */
 package com.mycompany.ParteLogica.BaseEspacial;
 
+import com.mycompany.ParteLogica.Naves.Nave;
 import com.mycompany.ParteLogica.Partida.Partida;
 
 /**
@@ -26,8 +27,11 @@ public class TiendaVenta {
         
     }
     
-    public void venderNaves(){
-        
+    public Nave venderNaves(int opcion){
+        Nave naveVendida = partida.getJugador().getInventarioNaves().eliminarNave(opcion);
+        int precioObtenido = naveVendida.getPrecioDeVenta();
+        partida.getJugador().setCreditosGalacticos(partida.getJugador().getCreditosGalacticos() + precioObtenido);
+        return naveVendida;
     }
     
     public void venderPilotos(){

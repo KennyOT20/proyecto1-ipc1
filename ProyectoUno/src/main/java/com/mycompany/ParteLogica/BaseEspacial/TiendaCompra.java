@@ -16,18 +16,16 @@ import com.mycompany.ParteLogica.Partida.Partida;
 public class TiendaCompra {
     
     private final Partida partida;
-    private int crJugador;
     
     public TiendaCompra(Partida partida){
         this.partida = partida;
-        this.crJugador = partida.getJugador().getCreditosGalacticos();
     }
     
     public boolean validarCompraNave(Nave naveComprada){
-        int precioDeNave = naveComprada.getPrecioDeNave();
-        if(crJugador >= precioDeNave){
+       
+        if( partida.getJugador().getCreditosGalacticos() >= naveComprada.getPrecioDeNave()){
             partida.getJugador().getInventarioNaves().agregarNavesInventario(naveComprada);
-            partida.getJugador().setCreditosGalacticos(crJugador - precioDeNave);
+            partida.getJugador().setCreditosGalacticos( partida.getJugador().getCreditosGalacticos() - naveComprada.getPrecioDeNave());
             return true;
         }else {
         return false ;
@@ -35,10 +33,10 @@ public class TiendaCompra {
     }
     
     public boolean validarCompraComponentes(ComponenteDeNave componenteComprado){
-        int precioComponente = componenteComprado.getPrecioComponente();
-        if(crJugador >= precioComponente) {
+      
+        if( partida.getJugador().getCreditosGalacticos() >= componenteComprado.getPrecioComponente()) {
             partida.getJugador().getInventarioComponentes().agregarComponente(componenteComprado);
-            partida.getJugador().setCreditosGalacticos(crJugador - precioComponente);
+            partida.getJugador().setCreditosGalacticos(partida.getJugador().getCreditosGalacticos() - componenteComprado.getPrecioComponente());
             return true;
         } else {
         return false;
@@ -46,10 +44,9 @@ public class TiendaCompra {
     }
     
     public boolean validarObjetos(ObjetoPrincipal objeto){
-        int precioObjeto = objeto.getPrecioDeObjeto();
-        if(crJugador >= precioObjeto){
+        if( partida.getJugador().getCreditosGalacticos() >= objeto.getPrecioDeObjeto()){
             partida.getJugador().getInventarioObjetos().agregarObjeto(objeto);
-            partida.getJugador().setCreditosGalacticos(crJugador - precioObjeto);
+            partida.getJugador().setCreditosGalacticos(partida.getJugador().getCreditosGalacticos() - objeto.getPrecioDeObjeto());
             return true;
         } else {
             return false;

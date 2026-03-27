@@ -44,26 +44,7 @@ public class InventarioComponente {
         
     }
     
-    public void eliminarNave(int opcion){
-        
-        int indiceReal = opcion - 1;
-        
-        inventarioComponentes[indiceReal] = null;
-        
-        actualizarArreglo();
-        
-        
-    }  
     
-    private void actualizarArreglo(){
-        
-        
-        for (int i = 0; i < inventarioComponentes.length ; i++) {
-            if(inventarioComponentes[i] == null){
-                inventarioComponentes[i] = inventarioComponentes[i+1];
-            }
-        }
-    }
 
     public int getCantidadDeComponentes() {
         return cantidadDeComponentes;

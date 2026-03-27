@@ -40,6 +40,8 @@ public class MenuDeVentas extends MenuCompraVenta{
         imprimirLineaDeTexto("4. Volver al menu de tienda");
         imprimirBordeDeMenu();
         System.out.print("Ingrese una opcion: ");
+        validarOpcion();
+        
     }
 
     @Override
@@ -48,7 +50,7 @@ public class MenuDeVentas extends MenuCompraVenta{
             case 1:
                 VentaNave venderNave = new VentaNave(getMenuOpciones(), partida, inventarios);
                 limpiarPantalla();
-                venderNave.mostrarInformacion();
+                venderNave.mostrarOpciones();
                 break;
             case 2:
                 break;

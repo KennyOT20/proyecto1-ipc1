@@ -9,6 +9,7 @@ import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenuBaseInicial.MenuBase
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCompra.MenuOpcionesCompra;
 import com.mycompany.ParteLogica.Partida.Partida;
 import com.mycompany.ParteVisual.Inventarios.Inventarios;
+import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeVenta.MenuDeVentas;
 
 /**
  *
@@ -19,11 +20,13 @@ public class MenuTiendaGeneral extends MenuBase {
     private MenuBaseInicial menuBaseEspacial;
     private final Inventarios inventario;
     private final Partida partida;
+    private final MenuOpcionesCompra opciones;
     
     public MenuTiendaGeneral(MenuBaseInicial menuBaseEspacial, Partida partida, Inventarios inventario){
         this.menuBaseEspacial = menuBaseEspacial;
         this.partida = partida;
         this.inventario = inventario;
+        this.opciones = new MenuOpcionesCompra(partida, this);
     }
     
     @Override
@@ -49,6 +52,9 @@ public class MenuTiendaGeneral extends MenuBase {
                 comprar.mostrarInformacion();
                 break;
             case 2:
+                MenuDeVentas menuVender = new MenuDeVentas(opciones, partida, inventario);
+                limpiarPantalla();
+                menuVender.mostrarInformacion();
                 break;
             case 3:
                 limpiarPantalla();
