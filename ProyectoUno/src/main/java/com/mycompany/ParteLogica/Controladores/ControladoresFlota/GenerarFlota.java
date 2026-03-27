@@ -4,6 +4,7 @@
  */
 package com.mycompany.ParteLogica.Controladores.ControladoresFlota;
 
+import com.mycompany.ParteLogica.Componentes.ComponentesDeNaves.ComponenteDeNave;
 import com.mycompany.ParteLogica.Generadores.GeneradorDeNaves.GeneradorDeNaves;
 import com.mycompany.ParteLogica.Naves.Nave;
 import com.mycompany.ParteLogica.Personajes.Jugador;
@@ -27,8 +28,10 @@ public class GenerarFlota {
     public void asingarFlotaInicial(Jugador jugador){
         Nave fragata = generarNave.crearFragata();
         Piloto pilotoObtenido = ensambladorNave.obtenerPilotoRandom();
+        ComponenteDeNave componenteObtenido = ensambladorNave.obtenerComponenteAleatorio();
         fragata.agregarPiloto(pilotoObtenido);
-        ensambladorNave.agregarComponente(fragata);
+        
+        ensambladorNave.agregarComponente(fragata, componenteObtenido);
         jugador.agregarNave(fragata);
     }
     

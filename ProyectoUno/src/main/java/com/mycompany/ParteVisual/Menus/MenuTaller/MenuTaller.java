@@ -6,6 +6,7 @@ package com.mycompany.ParteVisual.Menus.MenuTaller;
 
 import com.mycompany.ParteLogica.Partida.Partida;
 import com.mycompany.ParteVisual.Inventarios.Inventarios;
+import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenuBaseInicial.MenuBaseInicial;
 import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 
 /**
@@ -16,33 +17,46 @@ public class MenuTaller extends MenuBase {
 
     private final Inventarios inventario;
     private final Partida partida;
+    private final MenuBaseInicial menuBase;
 
-    public MenuTaller(Inventarios inventario, Partida partida) {
+    public MenuTaller(Inventarios inventario, Partida partida,  MenuBaseInicial menuBase) {
         this.inventario = inventario;
         this.partida = partida;
+        this.menuBase = menuBase;
     }
      
-    
-    
-    
     @Override
     public void mostrarInformacion() {
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Taller");
         imprimirBordeDeMenu();
-        imprimirLineaDeTexto("Seleccione la nave a mejorar");
+        imprimirLineaDeTexto("1. Reparar nave");
+        imprimirLineaDeTexto("2. Equipar/desequipar componentes o  pilotos");
+        imprimirLineaDeTexto("3. MejorarComponete ");
+        imprimirLineaDeTexto("4. Regresar al menu anterior");
         imprimirBordeDeMenu();
-        inventario.mostraInventarioNaves();
-        imprimirBordeDeMenu();
-        System.out.print("Ingrese una opcion");
         validarOpcion();
     }
 
     @Override
     public void ejecutarOpcion(int opcion) {
-        int cantidadDeNaves = partida.getJugador().getInventarioNaves().contarNaves();
-        
-        if(){
+        switch(opcion){
+            case 1:
+                MenuReparacionNave reparar = new MenuReparacionNave(inventario, partida, this);
+                limpiarPantalla();
+                reparar.mostrarInformacion();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                limpiarPantalla();
+                menuBase.mostrarInformacion();
+                break;
+            default:
+                break;
+                
             
         }
     }

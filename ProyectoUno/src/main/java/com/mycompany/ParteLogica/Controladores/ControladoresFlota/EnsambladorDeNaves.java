@@ -89,7 +89,7 @@ public class EnsambladorDeNaves {
      * componentes
      * @return 
      */
-    private ComponenteDeNave obtenerComponenteAleatorio(){
+    public ComponenteDeNave obtenerComponenteAleatorio(){
         llenarArregloComponentes();
         int indice = random.calcularNumeroAleatorios(0, arregloComponentes.length);
         return arregloComponentes[indice];
@@ -121,13 +121,13 @@ public class EnsambladorDeNaves {
                   componenteValido = colocarComponentesCaza(naveElegida,componenteIngresado );
                   return componenteValido;
               case "Nave de apoyo" :
-                  componenteValido = colocarComponentesCaza(naveElegida,componenteIngresado );
+                  componenteValido = colocarComponentesNaveApoyo(naveElegida,componenteIngresado );
                   return componenteValido;
               case "Fragata" :;
-                  componenteValido = colocarComponentesCaza(naveElegida,componenteIngresado );
+                  componenteValido = colocarComponentesFragata(naveElegida,componenteIngresado );
                   return componenteValido;
               case "Acorazado":
-                 componenteValido = colocarComponentesCaza(naveElegida,componenteIngresado );
+                 componenteValido = colocarComponentesAcorazado(naveElegida,componenteIngresado );
                   return componenteValido;
           }
         
@@ -177,10 +177,10 @@ public class EnsambladorDeNaves {
         return pilotos.getArregloDePilotos()[indicePiloto];
     }
     
-    public void colocarPiloto(Nave nave, Piloto piloto){
+   /* public void colocarPiloto(Nave nave, Piloto piloto){
         boolean pilotoColocado;
         nave.
-    }
+    }*/
     
     /**
      * Metodo encargado de retornar una nave ya completa y ensamblada con todos sus componentes aleatorios

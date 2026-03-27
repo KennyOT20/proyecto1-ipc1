@@ -11,4 +11,6 @@ package com.mycompany.ParteLogica.BaseEspacial;
 public class Taller {
     
     
+
+    
 }

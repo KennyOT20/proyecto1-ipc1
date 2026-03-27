@@ -10,6 +10,7 @@ import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenuGenera
 import com.mycompany.ParteVisual.Menus.MenusDePartida.MenuPartidaInicial;
 import com.mycompany.ParteLogica.Partida.Partida;
 import com.mycompany.ParteVisual.Inventarios.Inventarios;
+import com.mycompany.ParteVisual.Menus.MenuTaller.MenuTaller;
 
 /**
  *
@@ -53,6 +54,9 @@ public class MenuBaseInicial extends MenuBase {
                 menuTienda.mostrarInformacion();
                 break;
             case 2:
+                MenuTaller menuTaller = new MenuTaller(inventario, partida, this);
+                limpiarPantalla();
+                menuTaller.mostrarInformacion();
                 break;
             case 3:
                 MenuBarraca barraca = new MenuBarraca(partida, this);
