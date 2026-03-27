@@ -34,11 +34,14 @@ public class VentaNave extends MenuModelo{
         imprimirBordeDeMenu();
         imprimirLineaDeTexto(crJugador);
         imprimirBordeDeMenu();
+        mostrarInformacion();
+        validarOpcion();
         
     }
 
     @Override
     public void mostrarInformacion() {
+        inventario.mostraInventarioNaves();
     }
 
     @Override

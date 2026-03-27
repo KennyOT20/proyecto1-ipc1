@@ -4,7 +4,6 @@
  */
 package com.mycompany.ParteLogica.BaseEspacial;
 
-import com.mycompany.ParteLogica.Objetos.ObjetoPrincipal;
 import com.mycompany.ParteLogica.Partida.Partida;
 
 /**
@@ -14,11 +13,14 @@ import com.mycompany.ParteLogica.Partida.Partida;
 public class TiendaVenta {
     
     private final Partida partida;
+    private final  int  crJugador;
     
     public TiendaVenta(Partida partida){
         this.partida = partida;
-        
+        this.crJugador = partida.getJugador().getCreditosGalacticos();
     }
+    
+    
     
     public void venderComponentes(){
         
@@ -33,7 +35,7 @@ public class TiendaVenta {
     
     }
     
-    public void venderObjetos(ObjetoPrincipal objeto){
+    public void venderObjetos(){
     }
     
 }

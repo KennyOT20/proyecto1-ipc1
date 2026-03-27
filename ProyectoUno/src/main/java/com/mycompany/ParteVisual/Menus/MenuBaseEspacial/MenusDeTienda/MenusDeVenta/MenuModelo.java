@@ -4,8 +4,8 @@
  */
 package com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeVenta;
 
+import com.mycompany.ParteLogica.BaseEspacial.TiendaVenta;
 import com.mycompany.ParteLogica.Partida.Partida;
-import com.mycompany.ParteVisual.Inventarios.Inventarios;
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenuCompraVenta.MenuCompraVenta;
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCompra.MenuOpcionesCompra;
 
@@ -15,9 +15,17 @@ import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCom
  */
 public abstract class MenuModelo extends MenuCompraVenta{
     
+    private final TiendaVenta vender;
     
     public MenuModelo(MenuOpcionesCompra menuOpciones, Partida partida) {
         super(menuOpciones, partida);
+        this.vender = new TiendaVenta(partida);
     }
+
+    public TiendaVenta getVender() {
+        return vender;
+    }
+    
+    
     
 }
