@@ -6,21 +6,28 @@ package com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeVe
 
 import com.mycompany.ParteLogica.BaseEspacial.TiendaVenta;
 import com.mycompany.ParteLogica.Partida.Partida;
-import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
+import com.mycompany.ParteVisual.Inventarios.Inventarios;
+import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenuCompraVenta.MenuCompraVenta;
+import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenusDeCompra.MenuOpcionesCompra;
 
 /**
  *
  * @author Kenny
  */
-public class MenuDeVentas extends MenuBase{
+public class MenuDeVentas extends MenuCompraVenta{
 
+    private final Inventarios inventarios;
     private final TiendaVenta tiendaVenta;
     private final Partida partida;
-    
-    public MenuDeVentas(Partida partida){
-        this.partida  = partida;
+
+    public MenuDeVentas(MenuOpcionesCompra menuOpciones, Partida partida, Inventarios inventarios) {
+        super(menuOpciones, partida);
+        this.partida = partida;
         this.tiendaVenta = new TiendaVenta(partida);
+        this.inventarios = inventarios;
     }
+    
+    
 
     @Override
     public void mostrarInformacion() {
@@ -39,6 +46,9 @@ public class MenuDeVentas extends MenuBase{
     public void ejecutarOpcion(int opcion) {
         switch(opcion){
             case 1:
+                VentaNave venderNave = new VentaNave(getMenuOpciones(), partida, inventarios);
+                limpiarPantalla();
+                venderNave.mostrarInformacion();
                 break;
             case 2:
                 break;
@@ -49,6 +59,11 @@ public class MenuDeVentas extends MenuBase{
             default:
                 break;
         }
+    }
+
+    @Override
+    public void mostrarOpciones() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

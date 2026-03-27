@@ -66,7 +66,6 @@ public class InventarioPilotos {
                     inventarioPiloto[j] = inventarioPiloto[j + 1];
                     j++;
                 }
-
                 inventarioPiloto[inventarioPiloto.length - 1] = null;
             }
         }
@@ -75,7 +74,5 @@ public class InventarioPilotos {
     public Piloto[] getInventarioPiloto() {
         return inventarioPiloto;
     }
-    
-    
-    
+     
 }

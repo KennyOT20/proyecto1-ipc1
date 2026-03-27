@@ -9,6 +9,7 @@ import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenuGeneral.MenuTiendaGeneral;
 import com.mycompany.ParteVisual.Menus.MenusDePartida.MenuPartidaInicial;
 import com.mycompany.ParteLogica.Partida.Partida;
+import com.mycompany.ParteVisual.Inventarios.Inventarios;
 
 /**
  *
@@ -17,10 +18,13 @@ import com.mycompany.ParteLogica.Partida.Partida;
 public class MenuBaseInicial extends MenuBase {
 
     private final Partida partida;
+    private final Inventarios inventario;
     private final MenuPartidaInicial menuPartida;
 
     public MenuBaseInicial(Partida partida) {
         this.partida = partida;
+        this.inventario = new Inventarios(partida.getJugador().getInventarioComponentes(), partida.getJugador().getInventarioNaves()
+        , partida.getJugador().getInventarioObjetos(), partida.getJugador().getInventarioPilotos());
         this.menuPartida = new MenuPartidaInicial(partida);
     }
             
@@ -33,7 +37,8 @@ public class MenuBaseInicial extends MenuBase {
         imprimirLineaDeTexto("1. Tienda");
         imprimirLineaDeTexto("2. Taller");
         imprimirLineaDeTexto("3. Barraca");
-        imprimirLineaDeTexto("4. Volver al mapa");
+        imprimirLineaDeTexto("4. Ver inventario");
+        imprimirLineaDeTexto("5. Volver al mapa");
         imprimirBordeDeMenu();
         System.out.print("Ingrese una opcion: ");
         validarOpcion();
@@ -43,7 +48,7 @@ public class MenuBaseInicial extends MenuBase {
     public void ejecutarOpcion(int opcion) {
         switch(opcion){
             case 1:
-                MenuTiendaGeneral menuTienda = new MenuTiendaGeneral(this, partida);
+                MenuTiendaGeneral menuTienda = new MenuTiendaGeneral(this, partida, inventario);
                 limpiarPantalla();
                 menuTienda.mostrarInformacion();
                 break;
@@ -54,7 +59,11 @@ public class MenuBaseInicial extends MenuBase {
                 limpiarPantalla();
                 barraca.mostrarInformacion();
                 break;
-            case 4:
+            case 4: 
+                limpiarPantalla();
+                inventario();
+                break;
+            case 5:
                 limpiarPantalla();
                 menuPartida.mostrarSimbologia();
                 partida.getMapaGalactico().imprimirMapa();
@@ -67,6 +76,14 @@ public class MenuBaseInicial extends MenuBase {
                 mostrarInformacion();
                 break;
         }
+    }
+    
+    private void inventario(){
+        inventario.mostraInventarioNaves();
+        inventario.mostrarComponentes();
+        inventario.mostrarObjetos();
+        inventario.mostrarPilotos();
+        System.out.print("Presione enter para continuar: ");
     }
     
 }
