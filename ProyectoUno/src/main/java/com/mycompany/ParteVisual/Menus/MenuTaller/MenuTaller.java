@@ -31,8 +31,8 @@ public class MenuTaller extends MenuBase {
         imprimirLineaDeTexto("Taller");
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("1. Reparar nave");
-        imprimirLineaDeTexto("2. Equipar/desequipar componentes o  pilotos");
-        imprimirLineaDeTexto("3. MejorarComponete ");
+        imprimirLineaDeTexto("2. Equipar componentes o  pilotos");
+        imprimirLineaDeTexto("3. Mejorar componete ");
         imprimirLineaDeTexto("4. Regresar al menu anterior");
         imprimirBordeDeMenu();
         validarOpcion();
@@ -42,11 +42,12 @@ public class MenuTaller extends MenuBase {
     public void ejecutarOpcion(int opcion) {
         switch(opcion){
             case 1:
-                MenuReparacionNave reparar = new MenuReparacionNave(inventario, partida, this);
-                limpiarPantalla();
-                reparar.mostrarInformacion();
+              
                 break;
             case 2:
+                MenuElegiNave elegirNave = new MenuElegiNave(inventario, partida, this);
+                limpiarPantalla();
+                elegirNave.mostrarInformacion();
                 break;
             case 3:
                 break;

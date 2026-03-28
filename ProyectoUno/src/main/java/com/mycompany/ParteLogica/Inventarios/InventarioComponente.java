@@ -45,29 +45,32 @@ public class InventarioComponente {
     }
     
     public ComponenteDeNave eliminarComponente(int opcion){
-        int indiceReal = opcion  - 1 ;
-        
-         if(indiceReal < 0 || indiceReal >= inventarioComponentes.length  || inventarioComponentes[indiceReal] == null){
 
-             throw new IllegalArgumentException("Opcion invalida ");
-         }
-            
-         ComponenteDeNave componenteEliminado = inventarioComponentes[indiceReal];
-         
-         for (int i = indiceReal; i < inventarioComponentes.length - 1; i++) {
+        int indiceReal = opcion - 1;
+
+        if(indiceReal < 0 || indiceReal >= cantidadDeComponentes){
+            throw new IllegalArgumentException("Opcion invalida");
+        }
+
+        ComponenteDeNave eliminado = inventarioComponentes[indiceReal];
+
+        for (int i = indiceReal; i < cantidadDeComponentes - 1; i++) {
             inventarioComponentes[i] = inventarioComponentes[i + 1];
         }
-         
-         inventarioComponentes[inventarioComponentes.length -1 ] = null;
-         
-         return componenteEliminado;
+
+        inventarioComponentes[cantidadDeComponentes - 1] = null;
+
+        cantidadDeComponentes--;
+
+        return eliminado;
     }
+    
     
     public int contarComponentes(){
         int contadorComponentes = 0;
         
         for (int i = 0; i < inventarioComponentes.length; i++) {
-            if(inventarioComponentes != null){
+            if(inventarioComponentes[i] != null){
                 contadorComponentes ++;
             }
         }
