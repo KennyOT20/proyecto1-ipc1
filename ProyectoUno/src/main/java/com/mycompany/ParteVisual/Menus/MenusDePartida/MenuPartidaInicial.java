@@ -6,6 +6,8 @@ package com.mycompany.ParteVisual.Menus.MenusDePartida;
 
 import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 import com.mycompany.ParteLogica.Partida.Partida;
+import com.mycompany.ParteLogica.Personajes.Flota;
+import com.mycompany.ParteVisual.Inventarios.MostrarFlota;
 
 /**
  *
@@ -29,28 +31,8 @@ public class MenuPartidaInicial extends MenuBase {
     }
     
     private void mostrarInformacionNavesJugador(){
-        imprimirLineaDeTexto("Naves en turno");
-        imprimirBordeDeMenu();
-        
-        imprimirLineaDeTexto("Nave:                     Piloto abordo:   ");
-        for (int i = 0; i < partida.getJugador().getFlota().length; i++) {
-           if(partida.getJugador().getFlota()[i] != null){
-            String nombreDeNave = partida.getJugador().getFlota()[i].getNombreDeNave();
-            String pilotoAbordo = partida.getJugador().getFlota()[i].getPiloto()[0].getNombrePiloto();
-            
-            while(nombreDeNave.length() < 25){
-                nombreDeNave += " ";
-            }
-
-            while(pilotoAbordo.length() < 20){
-                pilotoAbordo += " ";
-            }
-
-            String lineaDeTexto = (i + 1) + ". " + nombreDeNave + pilotoAbordo;
-
-            imprimirLineaDeTexto(lineaDeTexto);
-                   }
-         }
+        MostrarFlota verFlota = new MostrarFlota (partida.getJugador().getFlota());
+        verFlota.mostrarFlota();
     }
     
     public void mostrarSimbologia(){

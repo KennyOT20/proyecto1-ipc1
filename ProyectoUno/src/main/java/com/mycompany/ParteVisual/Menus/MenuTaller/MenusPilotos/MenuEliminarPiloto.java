@@ -53,27 +53,28 @@ public class MenuEliminarPiloto extends MenuBase {
     @Override
     public void ejecutarOpcion(int opcion) {
 
-        if(opcion == 1){
-            limpiarPantalla();
-            
-            Piloto pilotoEliminado = nave.eliminarPiloto();
-            
-            if(pilotoEliminado != null){
-                partida.getJugador().getInventarioPilotos().agregarPiloto(pilotoEliminado);
-                mostrarDatos(pilotoEliminado, true);
-            } else {
-                mostrarDatos(null, false);
-            }
-            
-        } else if(opcion == 2){
-            limpiarPantalla();
-            menuTaller.mostrarInformacion();
-        } else {
-            limpiarPantalla();
-            imprimirBordeDeMenu();
-            imprimirLineaDeTexto("Opcion no valida, intente de nuevo");
-            imprimirBordeDeMenu();
-            mostrarInformacion();
+        switch (opcion) {
+            case 1:
+                limpiarPantalla();
+                Piloto pilotoEliminado = nave.eliminarPiloto();
+                if(pilotoEliminado != null){
+                    partida.getJugador().getInventarioPilotos().agregarPiloto(pilotoEliminado);
+                    mostrarDatos(pilotoEliminado, true);
+                } else {
+                    mostrarDatos(null, false);
+                }   break;
+            case 2:
+                limpiarPantalla();
+                partida.getJugador().getInventarioNaves().agregarNavesInventario(nave);
+                menuTaller.mostrarInformacion();
+                break;
+            default:
+                limpiarPantalla();
+                imprimirBordeDeMenu();
+                imprimirLineaDeTexto("Opcion no valida, intente de nuevo");
+                imprimirBordeDeMenu();
+                mostrarInformacion();
+                break;
         }
     }
     
@@ -87,6 +88,8 @@ public class MenuEliminarPiloto extends MenuBase {
         } else {
             imprimirLineaDeTexto("La nave no posee piloto.");
         }
+        
+
         
         imprimirBordeDeMenu();
         mostrarInformacion();

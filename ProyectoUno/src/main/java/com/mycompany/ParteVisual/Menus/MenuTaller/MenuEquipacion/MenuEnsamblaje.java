@@ -75,9 +75,7 @@ public class MenuEnsamblaje extends MenuBase{
         
         try {
 
-            ComponenteDeNave componente = partida.getJugador()
-                .getInventarioComponentes()
-                .eliminarComponente(opcion);
+            ComponenteDeNave componente = partida.getJugador().getInventarioComponentes().eliminarComponente(opcion);
 
             for (int i = 0; i < nave.getComponentesDeNave().length; i++) {
 
@@ -135,7 +133,6 @@ public class MenuEnsamblaje extends MenuBase{
             imprimirLineaDeTexto(linea);
         } else {
             imprimirLineaDeTexto("El componente no es compatible");
-            partida.getJugador().getInventarioComponentes().agregarComponente(componente);
         }
         
         imprimirBordeDeMenu();

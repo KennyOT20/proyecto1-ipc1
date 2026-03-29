@@ -58,6 +58,7 @@ public class MenuAgregarPiloto extends MenuBase {
         
         if(opcion == 0){
             limpiarPantalla();
+            partida.getJugador().getInventarioNaves().agregarNavesInventario(nave);
             menuTaller.mostrarInformacion();
         } 
         
@@ -65,7 +66,7 @@ public class MenuAgregarPiloto extends MenuBase {
             limpiarPantalla();
             Piloto pilotoObtenido = partida.getJugador().getInventarioPilotos().eliminarObjeto(opcion);
             boolean pilotoColocado = nave.agregarPiloto(pilotoObtenido);
-            mostrarDatos(pilotoObtenido, nave, pilotoColocado);
+            mostrarDatos(pilotoObtenido, pilotoColocado);
         } else {
             limpiarPantalla();
             imprimirBordeDeMenu();
@@ -75,14 +76,13 @@ public class MenuAgregarPiloto extends MenuBase {
         }
     }
     
-    private void mostrarDatos(Piloto pilotoObtenido, Nave naveObtenida, boolean pilotoColacado){
+    private void mostrarDatos(Piloto pilotoObtenido,  boolean pilotoColacado){
         
         imprimirBordeDeMenu();
         
         if(pilotoColacado){
             String linea = "Has equipado al piloto " + pilotoObtenido.getNombrePiloto() + " a tu nave " + nave.getNombreDeNave();
             imprimirLineaDeTexto(linea);
-            partida.getJugador().getInventarioNaves().agregarNavesInventario(naveObtenida);
         } else {
             partida.getJugador().getInventarioPilotos().agregarPiloto(pilotoObtenido);
             imprimirLineaDeTexto("La nave ya posee un piloto.");

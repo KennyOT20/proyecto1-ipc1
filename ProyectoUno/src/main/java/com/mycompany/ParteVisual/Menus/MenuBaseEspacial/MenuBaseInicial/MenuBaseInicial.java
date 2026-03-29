@@ -39,7 +39,8 @@ public class MenuBaseInicial extends MenuBase {
         imprimirLineaDeTexto("2. Taller");
         imprimirLineaDeTexto("3. Barraca");
         imprimirLineaDeTexto("4. Ver inventario");
-        imprimirLineaDeTexto("5. Volver al mapa");
+        imprimirLineaDeTexto("5. Editar flota");
+        imprimirLineaDeTexto("6. Volver al mapa");
         imprimirBordeDeMenu();
         System.out.print("Ingrese una opcion: ");
         validarOpcion();
@@ -68,6 +69,8 @@ public class MenuBaseInicial extends MenuBase {
                 inventario();
                 break;
             case 5:
+                break;
+            case 6:
                 limpiarPantalla();
                 menuPartida.mostrarSimbologia();
                 partida.getMapaGalactico().imprimirMapa();

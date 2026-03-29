@@ -14,24 +14,15 @@ import com.mycompany.ParteLogica.Naves.Nave;
  */
 public abstract class Personaje {
     
-    private final Nave[] flota;
+    private final Flota flota;
     private final String nombrePersonaje;
     private final InventarioObjetos inventarioObjetos;
     private int cantidadDeFlota;
     
     public Personaje(String nombrePersonaje, int cantidadDeFlota) {
         this.nombrePersonaje = nombrePersonaje;
-        this.flota = new Nave[cantidadDeFlota];
+        this.flota = new Flota(cantidadDeFlota);
         this.inventarioObjetos = new InventarioObjetos();
-    }
-    
-    public void agregarNave(Nave nave){
-        for (int i = 0; i < flota.length; i++) {
-            if(flota[i] == null){
-                flota[i] = nave; 
-                return;
-            }
-        }
     }
     
     public abstract void ejecutarOpcion(); 
@@ -45,10 +36,12 @@ public abstract class Personaje {
         return nombrePersonaje;
     }
 
-    public Nave[] getFlota() {
+    public Flota getFlota() {
         return flota;
     }
 
+    
+    
     public InventarioObjetos getInventarioObjetos() {
         return inventarioObjetos;
     }

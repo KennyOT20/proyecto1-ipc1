@@ -12,6 +12,7 @@ import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenuBaseInicial.MenuBase
 import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 import com.mycompany.ParteVisual.Menus.MenuTaller.MenusPilotos.MenuOpcionesPiloto;
 import com.mycompany.ParteVisual.Menus.MenuTaller.MenusPilotos.MenuEliminarPiloto;
+import com.mycompany.ParteVisual.Menus.MenuTaller.MenusPilotos.MenuEliminarPilotoOpciones;
 
 /**
  *
@@ -70,7 +71,7 @@ public class MenuTaller extends MenuBase {
                 agregarPiloto.mostrarInformacion();
                 break;
             case 5:
-                MenuEliminarPiloto eliminarPiloto = new MenuEliminarPiloto(partida, inventario, this);
+                MenuEliminarPilotoOpciones eliminarPiloto = new MenuEliminarPilotoOpciones(partida, inventario, this);
                 limpiarPantalla();
                 eliminarPiloto.mostrarInformacion();
                 break;

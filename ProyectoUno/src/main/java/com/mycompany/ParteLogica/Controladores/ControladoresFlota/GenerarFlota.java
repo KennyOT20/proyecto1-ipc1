@@ -32,7 +32,7 @@ public class GenerarFlota {
         fragata.agregarPiloto(pilotoObtenido);
         
         ensambladorNave.agregarComponente(fragata, componenteObtenido);
-        jugador.agregarNave(fragata);
+        jugador.getFlota().agregarNave(fragata);
     }
     
     
@@ -40,9 +40,9 @@ public class GenerarFlota {
     public void obtenerFlotaRandom(Maquina personajeMaquina){
         int contadorArreglo = -1;
         
-        while(contadorArreglo <= personajeMaquina.getFlota().length){
+        while(contadorArreglo <= personajeMaquina.getFlota().getNaves().length){
             Nave naveObtenida = ensambladorNave.naveEnsamblada();
-           personajeMaquina.agregarNave(naveObtenida);
+           personajeMaquina.getFlota().agregarNave(naveObtenida);
            contadorArreglo ++;
         }
     }
