@@ -37,7 +37,7 @@ public class Inventarios extends Bordes {
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Naves en inventario");
         imprimirBordeDeMenu();
-        imprimirLineaDeTexto("Nombre               HP              Precio Venta");
+        imprimirLineaDeTexto("Nombre               HP              Precio Venta   Precio Reparación");
         imprimirBordeDeMenu();
 
         for (int i = 0; i < cantidadDeNaves; i++) {
@@ -49,6 +49,7 @@ public class Inventarios extends Bordes {
                 String nombreDeNave = inventarioNave.getInventarioNave()[i].getNombreDeNave();
                 String hpNave = String.valueOf(inventarioNave.getInventarioNave()[i].getPuntosDeVida());
                 String precioDeVenta = String.valueOf(inventarioNave.getInventarioNave()[i].getPrecioDeVenta());
+                String precioReparacion = String.valueOf(inventarioNave.getInventarioNave()[i].calcularPrecioReparacion());
 
                 String nombreFormateado = "";
                 int contador = 0;
@@ -69,8 +70,12 @@ public class Inventarios extends Bordes {
                 while(precioDeVenta.length() < 12){
                     precioDeVenta += " ";
                 }
+                
+                 while (precioReparacion.length() < 18) {
+                precioReparacion += " ";
+               }
 
-                String linea = (i + 1) + ". " + nombreFormateado + hpNave + precioDeVenta;
+                String linea = (i + 1) + ". " + nombreFormateado + hpNave + precioDeVenta + precioReparacion;
 
                 imprimirLineaDeTexto(linea);
             }

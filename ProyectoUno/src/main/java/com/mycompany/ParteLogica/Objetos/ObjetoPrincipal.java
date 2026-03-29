@@ -22,6 +22,7 @@ public abstract class ObjetoPrincipal {
         this.nombreDeObjeto = nombreDeObjeto;
         this.precioDeObjeto = precioDeObjeto;
         this.random = new ControladorRandom();
+        calcularPrecioDeVenta();
     }
 
     public abstract void efectoEspecialObjeto(Nave naveElegida);

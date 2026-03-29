@@ -34,4 +34,22 @@ public class MostrarNave extends Bordes{
         
         imprimirBordeDeMenu();
     }
+    
+   public void mostrarPiloto(Nave naveElegida){
+
+        imprimirBordeDeMenu();
+
+        String linea = "Piloto en nave  " + naveElegida.getNombreDeNave() + " : ";
+
+        if (naveElegida.getPiloto()[0] == null) {
+            linea += "Sin piloto";
+        } else {
+            String nombre = naveElegida.getPiloto()[0].getNombrePiloto();
+            linea += nombre;
+        }
+
+        imprimirLineaDeTexto(linea);
+
+        imprimirBordeDeMenu();
+    }
 }

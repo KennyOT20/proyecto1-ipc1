@@ -26,7 +26,6 @@ public class InventarioPilotos {
         }
         
         inventarioPiloto[cantidadDePilotos] = pilotoObtenido;
-        pilotoObtenido.calcularPrecioVenta();
         cantidadDePilotos ++;
         
     }

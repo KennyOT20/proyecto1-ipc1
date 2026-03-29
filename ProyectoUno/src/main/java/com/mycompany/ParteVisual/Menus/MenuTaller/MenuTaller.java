@@ -10,6 +10,8 @@ import com.mycompany.ParteLogica.Partida.Partida;
 import com.mycompany.ParteVisual.Inventarios.Inventarios;
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenuBaseInicial.MenuBaseInicial;
 import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
+import com.mycompany.ParteVisual.Menus.MenuTaller.MenusPilotos.MenuOpcionesPiloto;
+import com.mycompany.ParteVisual.Menus.MenuTaller.MenusPilotos.MenuEliminarPiloto;
 
 /**
  *
@@ -48,7 +50,9 @@ public class MenuTaller extends MenuBase {
     public void ejecutarOpcion(int opcion) {
         switch(opcion){
             case 1:
-              
+                MenuReparacion menuReparar = new MenuReparacion(this, partida, inventario);
+                limpiarPantalla();
+                menuReparar.mostrarInformacion();
                 break;
             case 2:
                 MenuEleccionNaveE elegirNave = new MenuEleccionNaveE(inventario, partida, this);
@@ -61,10 +65,14 @@ public class MenuTaller extends MenuBase {
                 eleccion.mostrarInformacion();
                 break;
             case 4:
+                MenuOpcionesPiloto agregarPiloto = new MenuOpcionesPiloto(partida, inventario, this);
                 limpiarPantalla();
-                menuBase.mostrarInformacion();
+                agregarPiloto.mostrarInformacion();
                 break;
             case 5:
+                MenuEliminarPiloto eliminarPiloto = new MenuEliminarPiloto(partida, inventario, this);
+                limpiarPantalla();
+                eliminarPiloto.mostrarInformacion();
                 break;
             case 6:
                 break;

@@ -23,31 +23,36 @@ public abstract class Nave {
     private int puntosDeVida;
     private int vidaMax;
     private int velocidad;
-    private int puntosDeEscudo;
+    private int escudo;
+    private int puntosEnergia;
+    private int puntosDeEscudoMax;
     private int combustiblePremium;
-    private int puntosDeEnergia;
+    private int puntosDeEnergiaMax;
     private int precioDeNave;
     private int precioDeVenta;
     private double evasionBase;
     private int componentesInventario;
 
     public Nave(String nombreDeNave, int cantidadDeComponentes, String tipoDeNave,
-            int puntosDeVida,int vidaMax, int velocidad, int puntosDeEscudo, int combustiblePremium, int puntosDeEnergia, int precioDeNave) {
+            int puntosDeVida,int vidaMax, int velocidad, int puntosDeEscudoMax, int combustiblePremium, int puntosDeEnergiaMax, int precioDeNave) {
         this.random = new ControladorRandom();
         this.piloto = new Piloto[1];
         this.nombreDeNave = nombreDeNave;
         this.cantidadDeComponentes = cantidadDeComponentes;
         this.componentesDeNave = new ComponenteDeNave[cantidadDeComponentes];
         this.tipoDeNave = tipoDeNave;
-        this.puntosDeVida = puntosDeVida;
+        this.puntosDeVida = vidaMax;
+        this.vidaMax = vidaMax;
+        this.escudo = puntosDeEscudoMax;
+        this.puntosEnergia = puntosDeEnergiaMax;
         this.velocidad = velocidad;
-        this.puntosDeEscudo = puntosDeEscudo;
+        this.puntosDeEscudoMax = puntosDeEscudoMax;
         this.combustiblePremium = combustiblePremium;
-        this.puntosDeEnergia = puntosDeEnergia;
+        this.puntosDeEnergiaMax = puntosDeEnergiaMax;
         this.precioDeNave = precioDeNave;
         this.evasionBase = 0.20;
         this.componentesInventario = 0;
-
+        calcularPrecioVenta();
     }
     
     
@@ -87,45 +92,44 @@ public abstract class Nave {
         return componenteEliminado;
     }
     
-    public boolean agregarPiloto(Piloto pilotoAsignado){
-      
-        for (int i = 0; i < piloto.length; i++) {
-            if(piloto[i] == null){
-                piloto[i] = pilotoAsignado;
-                return true;
-            }
-        }
-        
-        return false;
-    }
-    
-    public void mostrarPiloto(){
-        for (int i = 0; i < piloto.length; i++) {
-            if(piloto[i] != null){
-                System.out.println("Piloto abordo: " + piloto[i].getNombrePiloto());
-            }
-        }
-    }
-    
-    public final void calcularPrecioVenta(){
+    public boolean agregarPiloto(Piloto pilotoAsignado) {
+
+       if (piloto[0] == null) {
+           piloto[0] = pilotoAsignado;
+           return true;
+       }
+
+       return false; 
+   }
+
+
+   public final void calcularPrecioVenta(){
        int puntosVida = random.calcularNumeroAleatorios(0, puntosDeVida);
-       int puntosEscudo = random.calcularNumeroAleatorios(0, puntosDeEscudo);
+       int puntosEscudo = random.calcularNumeroAleatorios(0, puntosDeEscudoMax);
        int puntosEp = random.calcularNumeroAleatorios(0, puntosEscudo);
        
        int precioTotal = puntosEp + puntosVida + puntosEscudo + random.calcularNumeroAleatorios(0, precioDeVenta);
        precioDeVenta = precioTotal;
     }
     
-    public void verificarSHP(){
+    public int calcularPrecioReparacion(){
+        int cantidadHp = vidaMax -puntosDeVida;
+        int cantidadEp = puntosDeEnergiaMax - puntosEnergia;
+        int cantidadShp = puntosDeEscudoMax - escudo;
         
+        return (cantidadHp + cantidadEp + cantidadShp) * 5;
     }
     
-    public void absorberAtaques(){
-        
-    }
-    
-    public void verificarVidaDeNave(){
-        
+
+   public Piloto eliminarPiloto() {
+
+        if (piloto[0] != null) {
+            Piloto pilotoEliminado = piloto[0];
+            piloto[0] = null;
+            return pilotoEliminado;
+        }
+
+        return null; 
     }
 
     public String getNombreDeNave() {
@@ -177,11 +181,11 @@ public abstract class Nave {
     }
 
     public int getPuntosDeEscudo() {
-        return puntosDeEscudo;
+        return puntosDeEscudoMax;
     }
 
     public void setPuntosDeEscudo(int puntosDeEscudo) {
-        this.puntosDeEscudo = puntosDeEscudo;
+        this.puntosDeEscudoMax = puntosDeEscudo;
     }
 
     public int getCombustiblePremium() {
@@ -193,11 +197,11 @@ public abstract class Nave {
     }
 
     public int getPuntosDeEnergia() {
-        return puntosDeEnergia;
+        return puntosDeEnergiaMax;
     }
 
     public void setPuntosDeEnergia(int puntosDeEnergia) {
-        this.puntosDeEnergia = puntosDeEnergia;
+        this.puntosDeEnergiaMax = puntosDeEnergia;
     }
 
     public double getEvasionBase() {
@@ -227,6 +231,28 @@ public abstract class Nave {
     public int getComponentesInventario() {
         return componentesInventario;
     }
+
+    public int getEscudo() {
+        return escudo;
+    }
+
+    public int getPuntosEnergia() {
+        return puntosEnergia;
+    }
+
+    public int getPuntosDeEscudoMax() {
+        return puntosDeEscudoMax;
+    }
+
+    public int getPuntosDeEnergiaMax() {
+        return puntosDeEnergiaMax;
+    }
+
+    public void setEscudo(int escudo) {
+        this.escudo = escudo;
+    }
+    
+    
     
     
    
