@@ -4,6 +4,8 @@
  */
 package com.mycompany.ParteVisual.Menus.MenuTaller;
 
+import com.mycompany.ParteVisual.Menus.MenuTaller.MenuEquipacion.MenuEleccionNaveE;
+import com.mycompany.ParteVisual.Menus.MenuTaller.MenuEquipacion.MenuEleccionNaveD;
 import com.mycompany.ParteLogica.Partida.Partida;
 import com.mycompany.ParteVisual.Inventarios.Inventarios;
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenuBaseInicial.MenuBaseInicial;
@@ -38,6 +40,7 @@ public class MenuTaller extends MenuBase {
         imprimirLineaDeTexto("6. Mejorar componete ");
         imprimirLineaDeTexto("7. Regresar al menu anterior");
         imprimirBordeDeMenu();
+        System.out.print("Ingrese una opcion: ");
         validarOpcion();
     }
 
@@ -66,8 +69,15 @@ public class MenuTaller extends MenuBase {
             case 6:
                 break;
             case 7:
+                limpiarPantalla();
+                menuBase.mostrarInformacion();
                 break;
             default:
+                limpiarPantalla();
+                imprimirBordeDeMenu();
+                imprimirLineaDeTexto("Opcion no valida, intente de nuevo.");
+                imprimirBordeDeMenu();
+                mostrarInformacion();
                 break;
                 
             

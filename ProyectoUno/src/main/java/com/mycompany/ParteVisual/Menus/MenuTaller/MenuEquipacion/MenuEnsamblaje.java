@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.ParteVisual.Menus.MenuTaller;
+package com.mycompany.ParteVisual.Menus.MenuTaller.MenuEquipacion;
 
 import com.mycompany.ParteLogica.Componentes.ComponentesDeNaves.ComponenteDeNave;
 import com.mycompany.ParteLogica.Controladores.ControladoresFlota.EnsambladorDeNaves;
@@ -11,6 +11,7 @@ import com.mycompany.ParteLogica.Partida.Partida;
 import com.mycompany.ParteVisual.Inventarios.Inventarios;
 import com.mycompany.ParteVisual.Inventarios.MostrarNave;
 import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
+import com.mycompany.ParteVisual.Menus.MenuTaller.MenuTaller;
 
 /**
  *
