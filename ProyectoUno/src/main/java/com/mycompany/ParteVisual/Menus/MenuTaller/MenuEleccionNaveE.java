@@ -13,13 +13,13 @@ import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
  *
  * @author Kenny
  */
-public class MenuElegiNave extends MenuBase{
+public class MenuEleccionNaveE extends MenuBase{
     
     private final MenuTaller menuTaller;
     private final Inventarios inventario;
     private final Partida partida;
     
-    public MenuElegiNave(Inventarios inventario, Partida partida, MenuTaller menuTaller) {
+    public MenuEleccionNaveE(Inventarios inventario, Partida partida, MenuTaller menuTaller) {
         this.inventario = inventario;
         this.partida = partida; 
         this.menuTaller = menuTaller;
@@ -44,7 +44,7 @@ public class MenuElegiNave extends MenuBase{
 
     @Override
     public void ejecutarOpcion(int opcion) {
-        int cantidadDeNaves = partida.getJugador().getInventarioNaves().contarNaves();
+        int cantidadDeNaves = partida.getJugador().getInventarioNaves().getCantidadArreglo();
         if(opcion == 0){
             limpiarPantalla();
             menuTaller.mostrarInformacion();

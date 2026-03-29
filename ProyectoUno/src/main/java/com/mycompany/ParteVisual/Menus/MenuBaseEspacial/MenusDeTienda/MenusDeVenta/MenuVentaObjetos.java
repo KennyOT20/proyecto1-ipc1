@@ -55,7 +55,7 @@ public class MenuVentaObjetos extends MenuBaseVenta{
     @Override
     public void ejecutarOpcion(int opcion) {
         
-          int tamañoInventario = getPartida().getJugador().getInventarioObjetos().contadorObjetos();
+          int tamañoInventario = getPartida().getJugador().getInventarioObjetos().getCantidadDeObjetos();
         
         if(opcion == 0){
             limpiarPantalla();

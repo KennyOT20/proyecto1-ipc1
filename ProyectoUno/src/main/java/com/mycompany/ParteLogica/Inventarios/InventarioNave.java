@@ -45,36 +45,32 @@ public class InventarioNave {
 
         int indiceReal = opcion - 1;
         
-        if(indiceReal < 0 || indiceReal >= inventarioNave.length  || inventarioNave[indiceReal] == null){
+        if(indiceReal < 0 ||indiceReal >= cantidadArreglo  ){
 
              throw new IllegalArgumentException("Opcion invalida ");
          }
         
         Nave naveEliminada = inventarioNave[indiceReal];
+       // inventarioNave[indiceReal] = null;
 
-        for (int i = indiceReal; i < inventarioNave.length - 1; i++) {
+        for (int i = indiceReal; i < cantidadArreglo - 1; i++) {
             inventarioNave[i] = inventarioNave[i + 1];
         }
 
-        inventarioNave[inventarioNave.length - 1] = null;
+        cantidadArreglo--;
+        inventarioNave[cantidadArreglo] = null;
         
         return naveEliminada;
-    }
-    
-    public int contarNaves(){
-
-        int contador = 0;
-
-        for (int i = 0; i < inventarioNave.length; i++) {
-            if(inventarioNave[i] != null){
-                contador++;
-            }
-        }
-        return contador;
     }
 
     public Nave[] getInventarioNave() {
         return inventarioNave;
     }
+
+    public int getCantidadArreglo() {
+        return cantidadArreglo;
+    }
+    
+    
     
 }

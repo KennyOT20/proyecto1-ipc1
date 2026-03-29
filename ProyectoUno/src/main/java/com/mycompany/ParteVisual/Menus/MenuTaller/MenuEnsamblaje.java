@@ -9,7 +9,7 @@ import com.mycompany.ParteLogica.Controladores.ControladoresFlota.EnsambladorDeN
 import com.mycompany.ParteLogica.Naves.Nave;
 import com.mycompany.ParteLogica.Partida.Partida;
 import com.mycompany.ParteVisual.Inventarios.Inventarios;
-import com.mycompany.ParteVisual.Inventarios.VisualizadorDeComponentes;
+import com.mycompany.ParteVisual.Inventarios.MostrarNave;
 import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 
 /**
@@ -20,7 +20,7 @@ public class MenuEnsamblaje extends MenuBase{
     
     private final Partida partida;
     private final Inventarios inventario;
-    private final VisualizadorDeComponentes verNave;
+    private final MostrarNave verNave;
     private Nave nave;
     private final MenuTaller menuTaller;
     private final EnsambladorDeNaves ensamblarNaves;
@@ -29,7 +29,7 @@ public class MenuEnsamblaje extends MenuBase{
     public MenuEnsamblaje (Partida partida, Inventarios inventario, MenuTaller menuTaller){
         this.partida = partida;
         this.inventario = inventario;
-        this.verNave = new VisualizadorDeComponentes();
+        this.verNave = new MostrarNave();
         this.nave = null;
         this.menuTaller = menuTaller;
         this.ensamblarNaves = new EnsambladorDeNaves();
@@ -52,7 +52,7 @@ public class MenuEnsamblaje extends MenuBase{
     @Override
     public void ejecutarOpcion(int opcion) {
         
-        int cantidadComponentes = partida.getJugador().getInventarioComponentes().contarComponentes();
+        int cantidadComponentes = partida.getJugador().getInventarioComponentes().getCantidadDeComponentes();
         
         if(opcion == 0){
             limpiarPantalla();
@@ -70,15 +70,6 @@ public class MenuEnsamblaje extends MenuBase{
         }
     }
     
-    private void mostrarDatos(int indiceReal){
-         imprimirBordeDeMenu();
-         indiceReal += 1;
-         String linea = "Componente numero " + indiceReal;
-         imprimirLineaDeTexto(linea );
-         imprimirBordeDeMenu();
-    }
-    
-    
     private void recorrerOpciones(int opcion){
         
         try {
@@ -94,15 +85,16 @@ public class MenuEnsamblaje extends MenuBase{
                     componenteValido = ensamblarNaves.agregarComponente(nave, componente);
 
                     limpiarPantalla();
-                    mostrarDatos(i);
                     mostrarDatosDeEnsamble(componente);
                     mostrarInformacion();
 
                 }
             }
-
+            limpiarPantalla();
             imprimirLineaDeTexto("No hay espacio en la nave");
             partida.getJugador().getInventarioComponentes().agregarComponente(componente);
+            mostrarInformacion();
+            
 
         } catch (IllegalArgumentException e) {
 

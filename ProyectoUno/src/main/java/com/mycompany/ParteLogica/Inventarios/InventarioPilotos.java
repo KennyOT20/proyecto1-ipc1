@@ -35,7 +35,7 @@ public class InventarioPilotos {
         
         Piloto[] nuevoArreglo = new Piloto[inventarioPiloto.length * 2 ];
         
-        for (int i = 0; i < inventarioPiloto.length; i++) {
+        for (int i = 0; i < cantidadDePilotos; i++) {
             nuevoArreglo[i] = inventarioPiloto[i];
         }
         
@@ -48,37 +48,32 @@ public class InventarioPilotos {
 
         int indiceReal = indiceObtenido - 1;
         
-        if(indiceReal < 0 || indiceReal >= inventarioPiloto.length  || inventarioPiloto[indiceReal] == null){
+        if(indiceReal < 0 || indiceReal >=cantidadDePilotos){
 
              throw new IllegalArgumentException("Opcion invalida ");
          }
         
         Piloto pilotoEliminado = inventarioPiloto[indiceReal];
 
-        for (int i = indiceReal; i < inventarioPiloto.length - 1; i++) {
+        for (int i = indiceReal; i < cantidadDePilotos - 1; i++) {
             inventarioPiloto[i] = inventarioPiloto[i + 1];
         }
 
-        inventarioPiloto[inventarioPiloto.length - 1] = null;
+        cantidadDePilotos --;
+        inventarioPiloto[cantidadDePilotos] = null;
         
         return pilotoEliminado;
     }
 
-    
-    
-    public int contarPilotos(){
-        int contadorPilotos = 0;
-        for (int i = 0; i < inventarioPiloto.length; i++) {
-            if(inventarioPiloto[i] != null){
-                contadorPilotos ++;
-            }
-        }
-        
-        return contadorPilotos;
-    }
 
     public Piloto[] getInventarioPiloto() {
         return inventarioPiloto;
     }
+
+    public int getCantidadDePilotos() {
+        return cantidadDePilotos;
+    }
+    
+    
      
 }

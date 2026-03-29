@@ -29,6 +29,7 @@ public abstract class Nave {
     private int precioDeNave;
     private int precioDeVenta;
     private double evasionBase;
+    private int componentesInventario;
 
     public Nave(String nombreDeNave, int cantidadDeComponentes, String tipoDeNave,
             int puntosDeVida,int vidaMax, int velocidad, int puntosDeEscudo, int combustiblePremium, int puntosDeEnergia, int precioDeNave) {
@@ -45,6 +46,7 @@ public abstract class Nave {
         this.puntosDeEnergia = puntosDeEnergia;
         this.precioDeNave = precioDeNave;
         this.evasionBase = 0.20;
+        this.componentesInventario = 0;
 
     }
     
@@ -58,11 +60,31 @@ public abstract class Nave {
         for (int i = 0; i < componentesDeNave.length; i++) {
             if(componentesDeNave[i] == null){
                 componentesDeNave[i] = componente;
+                componentesInventario ++;
                 return true;
             }
-        }  
-        
+        }
         return false;
+    }
+    
+   public ComponenteDeNave eliminarComponente(int opcion){
+
+        int indiceReal = opcion - 1;
+
+        if(indiceReal < 0 || indiceReal >= componentesInventario || componentesDeNave[indiceReal] == null ){
+            throw new IllegalArgumentException("Opcion invalida");
+        }
+
+        ComponenteDeNave componenteEliminado = componentesDeNave[indiceReal];
+
+        for (int i = indiceReal; i < componentesInventario - 1; i++) {
+            componentesDeNave[i] = componentesDeNave[i + 1];
+        }
+
+        componentesInventario--;
+        componentesDeNave[componentesInventario] = null;
+
+        return componenteEliminado;
     }
     
     public boolean agregarPiloto(Piloto pilotoAsignado){
@@ -200,6 +222,10 @@ public abstract class Nave {
 
     public int getPrecioDeVenta() {
         return precioDeVenta;
+    }
+
+    public int getComponentesInventario() {
+        return componentesInventario;
     }
     
     

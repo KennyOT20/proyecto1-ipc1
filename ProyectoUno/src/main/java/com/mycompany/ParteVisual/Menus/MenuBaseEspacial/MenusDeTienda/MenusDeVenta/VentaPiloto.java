@@ -38,7 +38,7 @@ public class VentaPiloto extends MenuBaseVenta{
     @Override
     public void ejecutarOpcion(int opcion) {
         
-        int tamañoInventario = getPartida().getJugador().getInventarioPilotos().contarPilotos();
+        int tamañoInventario = getPartida().getJugador().getInventarioPilotos().getCantidadDePilotos();
         
         if(opcion == 0){
             limpiarPantalla();

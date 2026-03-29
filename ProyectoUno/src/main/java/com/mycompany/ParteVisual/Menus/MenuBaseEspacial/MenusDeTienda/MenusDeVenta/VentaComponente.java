@@ -38,7 +38,7 @@ public class VentaComponente extends MenuBaseVenta{
     @Override
     public void ejecutarOpcion(int opcion) {
         
-        int tamañoInventario = getPartida().getJugador().getInventarioComponentes().contarComponentes();
+        int tamañoInventario = getPartida().getJugador().getInventarioComponentes().getCantidadDeComponentes();
         
         if(opcion == 0){
             limpiarPantalla();

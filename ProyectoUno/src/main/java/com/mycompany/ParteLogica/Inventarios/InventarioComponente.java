@@ -36,7 +36,7 @@ public class InventarioComponente {
         
         ComponenteDeNave[] arregloDuplicado = new ComponenteDeNave[inventarioComponentes.length * 2];
         
-        for (int i = 0; i < inventarioComponentes.length; i++) {
+        for (int i = 0; i < cantidadDeComponentes; i++) {
             arregloDuplicado[i] = inventarioComponentes[i];
         }
         
@@ -58,26 +58,12 @@ public class InventarioComponente {
             inventarioComponentes[i] = inventarioComponentes[i + 1];
         }
 
-        inventarioComponentes[cantidadDeComponentes - 1] = null;
-
         cantidadDeComponentes--;
+        inventarioComponentes[cantidadDeComponentes] = null;
 
         return eliminado;
     }
     
-    
-    public int contarComponentes(){
-        int contadorComponentes = 0;
-        
-        for (int i = 0; i < inventarioComponentes.length; i++) {
-            if(inventarioComponentes[i] != null){
-                contadorComponentes ++;
-            }
-        }
-        
-        return contadorComponentes;
-    }
-
 
     public int getCantidadDeComponentes() {
         return cantidadDeComponentes;

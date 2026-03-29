@@ -11,7 +11,7 @@ import com.mycompany.ParteVisual.Bordes.Bordes;
  *
  * @author Kenny
  */
-public class VisualizadorDeComponentes extends Bordes{
+public class MostrarNave extends Bordes{
     
     
     public void visualizarEspacionNave(Nave naveElegida){

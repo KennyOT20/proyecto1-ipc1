@@ -45,7 +45,7 @@ public class VentaNave extends MenuBaseVenta{
     @Override
     public void ejecutarOpcion(int opcion) {
         
-       int tamañoInventario = getPartida().getJugador().getInventarioNaves().contarNaves();
+       int tamañoInventario = getPartida().getJugador().getInventarioNaves().getCantidadArreglo();
         
         if(opcion == 0){
             limpiarPantalla();
