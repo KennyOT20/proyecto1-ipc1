@@ -20,10 +20,7 @@ import com.mycompany.ParteLogica.Personajes.Jugador;
 public abstract class MapaBase {
 
     private final CasillaModelo[][] tableroMapa;
-    private final CasillaModelo[] simbolo;
-    private final CasillaModelo[] simboloObtenido;
     private final Partida partida;
-    
     private final Jugador jugador;
     
     private final ControladorRandom random;
@@ -32,74 +29,86 @@ public abstract class MapaBase {
     
     private int cantidadFilas;
     private int cantidadColumnas;
-    private int cantidadDeCasillas;
-    
+    private boolean mapaPrincipal;
     
     public MapaBase(int cantidadFilas, int cantidadColumnas, Partida partida){
         this.cantidadFilas = cantidadFilas;
         this.cantidadColumnas = cantidadColumnas;
-        tableroMapa = new CasillaModelo[cantidadFilas][cantidadColumnas];
-        this.cantidadDeCasillas = 5;
-        this.simbolo = new CasillaModelo[cantidadDeCasillas];
-        this.simboloObtenido = new CasillaModelo[1];
+        this.tableroMapa = new CasillaModelo[cantidadFilas][cantidadColumnas];
         this.generadorCasillas = new GeneradorCasillasMapa(partida);
         this.jugador = new Jugador();
         this.random = new ControladorRandom();
         this.partida = partida;
     }
     
-    /**
-     * Metodo encargado de generar el mapa, instancia al metodo {@link #colocarCasillasEnArreglo()} lo cual 
-     * llena el arreglo con casillas dadas.
-     * Instancia al metodo encargado de calcular la posicion del jugador {@link #calcularPosicionJugador() }
-     * Por ultimo se encarga de generar y llenar al mapa con las casillas dadas
-     * @param cantidadSimbolos
-     * @param simboloCasilla
-     */
-    public void generarMapa(int cantidadSimbolos, String simboloCasilla){
-        colocarCasillasEnArreglo();
-        calcularPosicionJugador();
-        
-        int simbolosColocados = 0;
-        
+ 
+    public void generarMapa(int cantEstrellas, int cantidadWarp, int cantBases, int cantEstaciones, int cantCombates) {
+        calcularPosicionJugador(); 
+
         for (int i = 0; i < cantidadFilas; i++) {
             for (int j = 0; j < cantidadColumnas; j++) {
-                simboloObtenido[0] = obtenerCasilla();
-                
-                if(simboloObtenido[0].getSimboloCasilla().equalsIgnoreCase(simboloCasilla)){
-                    if(simbolosColocados < cantidadSimbolos ){
-                        tableroMapa[i][j] = simboloObtenido[0];
-                        simboloObtenido[0] = null;
-                        simbolosColocados ++;
-                    } else {
-                        tableroMapa[i][j] = simbolo[3];
-                    }
-                } else {
-                    tableroMapa[i][j] = simboloObtenido[0];
+                tableroMapa[i][j] = null;
+            }
+        }
+
+         esparcirCasillas(cantEstrellas, 4);
+         esparcirCasillas(cantidadWarp, 3);   
+         esparcirCasillas(cantEstaciones, 2);
+         esparcirCasillas(cantCombates, 1); 
+         esparcirCasillas(cantBases, 0);    
+
+        for (int i = 0; i < cantidadFilas; i++) {
+            for (int j = 0; j < cantidadColumnas; j++) {
+                if (tableroMapa[i][j] == null) {
+                    tableroMapa[i][j] = generadorCasillas.crearCasillaNormal();
                 }
             }
         }
     }
+
+    private void esparcirCasillas(int cantidadDeseada, int tipoCasilla) {
+        int casillasColocadas = 0;
+        int limiteIntentos = cantidadFilas * cantidadColumnas * 2; 
+
+        while (casillasColocadas < cantidadDeseada && limiteIntentos > 0) {
+            int x = random.calcularNumeroAleatorios(0, cantidadFilas);
+            int y = random.calcularNumeroAleatorios(0, cantidadColumnas);
+
+            boolean esEspacioVacio = (tableroMapa[x][y] == null);
+            boolean jugadorEnMapa = (x == jugador.getPosicionX() && y == jugador.getPosicionY());
+
+            if (esEspacioVacio && !jugadorEnMapa) {
+                switch (tipoCasilla) {
+                    case 0: 
+                        tableroMapa[x][y] = generadorCasillas.crearCasillaBase();
+                        break;
+                    case 1: 
+                        tableroMapa[x][y] = generadorCasillas.crearCasillaCombate();
+                    break;
+                    case 2: 
+                        tableroMapa[x][y] = generadorCasillas.crearCasillaEstacion(); 
+                        break;
+                    case 3:
+                        tableroMapa[x][y] = generadorCasillas.crearCasillaWarp(); 
+                        break;
+                    case 4: 
+                        tableroMapa[x][y] = generadorCasillas.crearCasillaEstrella();
+                }
+                casillasColocadas++;
+            }
+            limiteIntentos--;
+        }
+    }
     
-    /**
-     * Metodo encargado de recibir un numero random en las coordenadas x y y del arreglo
-     * para que el jugador empiece en un lugar random.
-     */
     private void calcularPosicionJugador(){
        int posicionX = random.calcularNumeroAleatorios(0, cantidadFilas);
        int posicionY = random.calcularNumeroAleatorios(0, cantidadColumnas);
        
        jugador.setPosicionX(posicionX);
        jugador.setPosicionY(posicionY);
-       
     }
     
-    /**
-     * Metodo encargado de imprimir el mapa de la mejor manera posibe.
-     * 
-     */
     public void imprimirMapa(){
-    
         String RESET = RESETEAR_COLOR;
         
         for (int i = 0; i < cantidadFilas; i++) {
@@ -121,67 +130,16 @@ public abstract class MapaBase {
             System.out.println();
         }
     }
-    
-        public boolean calcularMovimientos(String movimiento){
-            
-            switch(movimiento){
-                case "W" :
-                     int coordenadaArriba = jugador.getPosicionX() - 1;
-                     if(coordenadaArriba >= 0){
-                     jugador.setPosicionX(coordenadaArriba);
-                     return true;
-                     } else {
-                         return false;
-                     }
-                case "S" :
-                    int coordenadaAbajo = jugador.getPosicionX()  + 1;
-                    if(coordenadaAbajo < cantidadFilas){
-                    jugador.setPosicionX(coordenadaAbajo);
-                    return true;
-                    } else{
-                         return false;
-                    }
-                case "D" :
-                     int coordenadaDerecha = jugador.getPosicionY() + 1;
-                     if(coordenadaDerecha < cantidadColumnas) {
-                     jugador.setPosicionY(coordenadaDerecha);
-                     return true;
-                     } else {
-                         return false;
-                     }
-                case "A" :
-                     int coordenadaIzquierda = jugador.getPosicionY() - 1;
-                     if(coordenadaIzquierda >= 0){
-                     jugador.setPosicionY(coordenadaIzquierda);
-                     return true;
-                     }
-                     else {
-                          return false;
-                     }
-                default: 
-                   return false;
-            }
-        }
-    
-     public void verificarCasilla(){
+  
+    public void verificarCasilla(){
+         
          int x = jugador.getPosicionX();
          int y = jugador.getPosicionY();
          
          CasillaModelo casillaActual = tableroMapa[x][y];
-         
          casillaActual.efectoDeCasilla();
-     }    
-        
-     public abstract void colocarCasillasEnArreglo();
-     
-     private CasillaModelo obtenerCasilla(){
-        int casillasRandom = random.calcularNumeroAleatorios(0, simbolo.length);
-        return simbolo[casillasRandom];
-    }
+    }    
 
-    public CasillaModelo[] getSimbolo() {
-        return simbolo;
-    }
 
     public GeneradorCasillasMapa getGeneradorCasillas() {
         return generadorCasillas;
@@ -194,8 +152,16 @@ public abstract class MapaBase {
     public int getCantidadColumnas() {
         return cantidadColumnas;
     }
-    
-    
 
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    public boolean isMapaPrincipal() {
+        return mapaPrincipal;
+    }
+
+    public ControladorRandom getRandom() {
+        return random;
+    }
 }
-

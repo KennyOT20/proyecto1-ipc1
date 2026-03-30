@@ -4,6 +4,7 @@
  */
 package com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenuBaseInicial;
 
+import com.mycompany.ParteLogica.Mapas.Mapas.MapaBase;
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenuBarraca.MenuBarraca;
 import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenuGeneral.MenuTiendaGeneral;

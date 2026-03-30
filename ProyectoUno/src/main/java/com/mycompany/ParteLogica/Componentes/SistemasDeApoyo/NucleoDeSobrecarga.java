@@ -11,38 +11,28 @@ import com.mycompany.ParteLogica.Naves.Nave;
  *
  * @author Kenny
  */
-public class DronDeReparacion extends SistemaDeApoyo {
+public class NucleoDeSobrecarga extends SistemaDeApoyo {
 
-    private int mejoraCuracion;
-
-    public DronDeReparacion(int consumoDeEnergia, String pesoComponente, String nombreComponente, int enfriamiento, int precioComponente) {
+    public NucleoDeSobrecarga(int consumoDeEnergia, String pesoComponente, String nombreComponente, int enfriamiento, int precioComponente) {
         super(consumoDeEnergia, pesoComponente, nombreComponente, enfriamiento, precioComponente);
-        this.mejoraCuracion = 0;
     }
 
     @Override
     public void aplicarEfectoComponente(Nave naveElegida) {
         if (getTurnosRestantesEnfriamiento() > 0) {
-            System.out.println("Dron de Reparacion en enfriamiento. Faltan " + getTurnosRestantesEnfriamiento() + " turnos.");
+            System.out.println("Nucleo de Sobrecarga en enfriamiento. Faltan " + getTurnosRestantesEnfriamiento() + " turnos.");
             return;
         }
 
         if (naveElegida.getPuntosEnergia() >= getConsumoDeEnergia()) {
             naveElegida.setPuntosEnergia(naveElegida.getPuntosEnergia() - getConsumoDeEnergia());
             
-            int curacionBase = (int)(Math.random() * 31) + 50; 
-            int curacionTotal = curacionBase + mejoraCuracion;
-            
-            int nuevaSalud = naveElegida.getPuntosDeVida()+ curacionTotal;
-            if (nuevaSalud > naveElegida.getVidaMax()) {
-                nuevaSalud = naveElegida.getVidaMax();
-            }
-            naveElegida.setPuntosDeVida(nuevaSalud);
+            naveElegida.setSobrecargaActiva(true);
             
             setTurnosRestantesEnfriamiento(getEnfriamiento());
-            System.out.println("Dron de Reparacion activado. Se han curado " + curacionTotal + " HP. Salud actual: " + nuevaSalud);
+            System.out.println("Nucleo de Sobrecarga activado. El proximo ataque hara el doble de daño, con un 50% de daño de retroceso.");
         } else {
-            System.out.println("Energia insuficiente para activar el Dron de Reparacion.");
+            System.out.println("Energia insuficiente para activar el Nucleo de Sobrecarga.");
         }
     }
 
@@ -50,8 +40,7 @@ public class DronDeReparacion extends SistemaDeApoyo {
     public void mejorarComponente(ComponenteDeNave componente) {
         if (getVezMejorada() < getVECES_MAX_MEJORA()) {
             setVezMejorada(getVezMejorada() + 1);
-            this.mejoraCuracion += 15; 
-            System.out.println("Dron de Reparacion mejorado al nivel " + getVezMejorada() + ". (+15 HP de curacion extra).");
+            System.out.println("Nucleo de Sobrecarga mejorado al nivel " + getVezMejorada() + ".");
         } else {
             System.out.println("Nivel maximo de mejoras alcanzado.");
         }

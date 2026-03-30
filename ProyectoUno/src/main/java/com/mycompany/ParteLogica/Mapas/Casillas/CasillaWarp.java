@@ -5,6 +5,7 @@
 package com.mycompany.ParteLogica.Mapas.Casillas;
 
 import com.mycompany.ParteLogica.Partida.Partida;
+import com.mycompany.ParteVisual.Menus.MenusDePartida.MenuPartidaInicial;
 
 /**
  *
@@ -12,13 +13,19 @@ import com.mycompany.ParteLogica.Partida.Partida;
  */
 public class CasillaWarp extends CasillaModelo {
 
+    private final MenuPartidaInicial menuInicial;
+    
+    
     public CasillaWarp(String simboloCasilla, String colorCasilla, Partida partida) {
         super(simboloCasilla, colorCasilla, partida);
+        this.menuInicial = new MenuPartidaInicial(partida);
     }
 
     @Override
     public void efectoDeCasilla() {
+        menuInicial.mostrarSimbologia();
         getPartida().getMapaGalactico().imprimirMapa();
+        menuInicial.mostrarInformacion();
     }
     
 }

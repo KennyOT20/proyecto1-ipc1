@@ -16,13 +16,14 @@ public class MapaDeEstrella extends MapaBase {
         super(cantidadFilas, cantidadColumnas, partida);
     }
 
-    @Override
-    public void colocarCasillasEnArreglo() {
-        getSimbolo()[0] = getGeneradorCasillas().crearCasillaBase();
-        getSimbolo()[1] = getGeneradorCasillas().crearCasillaCombate();
-        getSimbolo()[2] = getGeneradorCasillas().crearCasillaEstacion();
-        getSimbolo()[3] = getGeneradorCasillas().crearCasillaNormal();
-        getSimbolo()[4] = getGeneradorCasillas().crearCasillaWarp();
-    }
+    public void generarMapa() {
+        int cantEstrellas = 0; 
+        int cantWarps = 1;   
+        int cantBases = 1;  
+        
+        int cantEstaciones = getRandom().calcularNumeroAleatorios(5, 10); 
+        int cantCombates = getRandom().calcularNumeroAleatorios(2, 9);   
 
+       generarMapa(cantEstrellas, cantWarps, cantBases, cantEstaciones, cantCombates);
+    }
 }

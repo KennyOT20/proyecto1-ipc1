@@ -12,40 +12,54 @@ import com.mycompany.ParteLogica.Naves.Nave;
  */
 public class Estratega extends Piloto {
 
-    private final int turnoPerdido; 
     private final int turnoEnfriamiento;
+    private int enfriamientoActual; 
     
     public Estratega(String nombrePiloto, int nivel, int puntosDeExperiencia, int puntosDeEstrategia, 
             int puntosDePilotaje, int puntosDeIngenieria, int puntosDeLiderazgo, int puntosDeResistencia, int precioPiloto) {
         super(nombrePiloto, nivel, puntosDeExperiencia, puntosDeEstrategia, puntosDePilotaje, 
                 puntosDeIngenieria, puntosDeLiderazgo, puntosDeResistencia, precioPiloto);
-        this.turnoPerdido = 1;
         this.turnoEnfriamiento = 1;
+        this.enfriamientoActual = 0;
     }
 
     @Override
     public void bonificacion() {
-        int puntosEstrategia =  3;
-        int puntosLiderazgo = 1;
+        setPuntosDeEstrategia(getPuntosDeEstrategia() + 3);
+        setPuntosDeLiderazgo(getPuntosDeLiderazgo() + 1);
         
-        setPuntosDeEstrategia(puntosEstrategia);
-        setPuntosDeLiderazgo(puntosLiderazgo);        
+        System.out.println("El Estratega ha subido de nivel. Recibe +3 en Estrategia y +1 en Liderazgo.");
     }
 
     @Override
     public void aplicarHabilidadPiloto(Nave naveEnemiga) {
+        if (enfriamientoActual == 0) {
+            naveEnemiga.setPierdeTurno(true);
+            enfriamientoActual = turnoEnfriamiento;
+            
+            System.out.println("Habilidad Retardo aplicada. La nave enemiga perdera su proximo turno.");
+        } else {
+            System.out.println("La habilidad Retardo no esta disponible. Faltan " + enfriamientoActual + " turnos de enfriamiento.");
+        }
     }
     
-    
-
-    public int getTurnoPerdido() {
-        return turnoPerdido;
+    public void reducirEnfriamiento() {
+        if (enfriamientoActual > 0) {
+            enfriamientoActual--;
+            if (enfriamientoActual == 0) {
+                System.out.println("La habilidad Retardo del Estratega esta lista.");
+            }
+        }
     }
 
     public int getTurnoEnfriamiento() {
         return turnoEnfriamiento;
     }
     
-    
-    
+    public int getEnfriamientoActual() {
+        return enfriamientoActual;
+    }
 }
+    
+    
+

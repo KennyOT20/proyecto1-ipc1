@@ -111,8 +111,8 @@ public class MenuCompraDeNaves extends MenuCompraVenta{
 
             String estadisticasDeNave = 
                     "HP:" + arregloDeNaves.getArregloDeNaves()[i].getVelocidad() + " " + 
-                    "SHP:" + arregloDeNaves.getArregloDeNaves()[i].getPuntosDeEscudo() +  " " + 
-                    "EP:" + arregloDeNaves.getArregloDeNaves()[i].getPuntosDeEnergia() + " " + 
+                    "SHP:" + arregloDeNaves.getArregloDeNaves()[i].getEscudo()+  " " + 
+                    "EP:" + arregloDeNaves.getArregloDeNaves()[i].getPuntosEnergia() + " " + 
                     "SP:" + arregloDeNaves.getArregloDeNaves()[i].getVelocidad(); 
 
             String lineaCompletaDeTexto = (i+1) +". " + nombreDeNave +   precioDeNave +   tipoDeNave +  estadisticasDeNave;

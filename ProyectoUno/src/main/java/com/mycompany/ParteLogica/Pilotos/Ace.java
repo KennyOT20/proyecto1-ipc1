@@ -17,23 +17,30 @@ public class Ace extends Piloto {
         super(nombrePiloto, nivel, puntosDeExperiencia, puntosDeEstrategia, puntosDePilotaje, puntosDeIngenieria,
                 puntosDeLiderazgo, puntosDeResistencia, precioPiloto);
     }
-
-    @Override
-    public void bonificacion() {
-        int puntosPilotaje =+ 3;
-        setPuntosDePilotaje(puntosPilotaje); 
-    }
     
-    private void bonificacionNave(Nave navePiloteada){
-        int puntosSP = 2;
-        navePiloteada.setVelocidad(navePiloteada.getVelocidad() +  puntosSP);
-    }
     
-
     @Override
-    public void aplicarHabilidadPiloto(Nave navePiloteada) {
-      double probabilidadExtra = 0.60;
-      navePiloteada.setEvasionBase(probabilidadExtra);
-    }
+        public void bonificacion() {
+            int puntosActuales = getPuntosDePilotaje();
+            setPuntosDePilotaje(puntosActuales + 3);
+
+            System.out.println("Subida de nivel" + getNombrePiloto()+ " (Ace) gana +3 PIL.");
+        }
+
+        public void bonificacionNave(Nave navePiloteada){
+            int velocidadActual = navePiloteada.getVelocidad();
+            navePiloteada.setVelocidad(velocidadActual + 2);
+
+            System.out.println("Subida de nivel la nave: " + navePiloteada.getNombreDeNave() + " gana +2 sp por el piloto Ace");
+        }
+
+        @Override
+        public void aplicarHabilidadPiloto(Nave navePiloteada) {
+          
+            navePiloteada.setEvasionTemporal(0.80);
+
+            System.out.println( getNombrePiloto()+ ": Habilidad MANIOBRA activada");
+            System.out.println("Evasión para el próximo ataque establecida en 80%.");
+        }
     
 }

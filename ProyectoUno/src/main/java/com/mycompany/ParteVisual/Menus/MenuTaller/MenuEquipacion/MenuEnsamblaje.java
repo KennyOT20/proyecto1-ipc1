@@ -113,8 +113,8 @@ public class MenuEnsamblaje extends MenuBase{
     
     public void mostrarDatosNave(){
         String linea =nave.getNombreDeNave() + " Tipo: " + nave.getTipoDeNave()  +
-                " Hp: "+ String.valueOf(nave.getPuntosDeVida() + " Ep: " + String.valueOf(nave.getPuntosDeEnergia())) +
-                " SHP: " + String.valueOf(nave.getPuntosDeEscudo());
+                " Hp: "+ String.valueOf(nave.getPuntosDeVida() + " Ep: " + String.valueOf(nave.getPuntosEnergia())) +
+                " SHP: " + String.valueOf(nave.getPuntosEnergia());
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Nave en taller: ");
         imprimirLineaDeTexto(linea);

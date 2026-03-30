@@ -16,16 +16,15 @@ public class MapaGalactico extends MapaBase {
         super(cantidadFilas, cantidadColumnas, partida);
     }
 
-    @Override
-    public void colocarCasillasEnArreglo() {
-        getSimbolo()[0] = getGeneradorCasillas().crearCasillaBase();
-        getSimbolo()[1] = getGeneradorCasillas().crearCasillaCombate();
-        getSimbolo()[2] = getGeneradorCasillas().crearCasillaEstacion();
-        getSimbolo()[3] = getGeneradorCasillas().crearCasillaNormal();
-        getSimbolo()[4] = getGeneradorCasillas().crearCasillaEstrella();
+  public void generarMapa() {
+      
+        int cantEstrellas = getRandom().calcularNumeroAleatorios(2, 5);
+        int cantBases = getRandom().calcularNumeroAleatorios(4, 7); 
+        int cantWarps = 0;                                     
+     
+        int cantEstaciones = getRandom().calcularNumeroAleatorios(20, 30); 
+        int cantCombates = getRandom().calcularNumeroAleatorios(30, 45);   
+
+       generarMapa(cantEstrellas, cantWarps, cantBases, cantEstaciones, cantCombates);
     }
-    
-
-
-    
 }

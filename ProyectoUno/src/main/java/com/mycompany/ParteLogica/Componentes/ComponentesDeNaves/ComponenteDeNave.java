@@ -35,7 +35,7 @@ public abstract class ComponenteDeNave {
         
     }
 
-    public abstract void aplicarEfectoComponente(Nave naveElegida);
+   public abstract void aplicarEfectoComponente(Nave naveElegida);
     public abstract void mejorarComponente(ComponenteDeNave componente);
     
     public void calcularPrecioDeVenta(){
@@ -73,6 +73,10 @@ public abstract class ComponenteDeNave {
 
     public int getPrecioDeVenta() {
         return precioDeVenta;
+    }
+
+    public void setVezMejorada(int vezMejorada) {
+        this.vezMejorada = vezMejorada;
     }
 
     

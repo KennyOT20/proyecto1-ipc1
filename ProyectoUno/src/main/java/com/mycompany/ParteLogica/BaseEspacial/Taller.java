@@ -19,10 +19,10 @@ public class Taller {
         int precioReparacion = nave.calcularPrecioReparacion();
         
         if(jugador.getCreditosGalacticos() >= precioReparacion ) {
-            if(nave.getPuntosDeVida() < nave.getVidaMax() ||  nave.getPuntosDeEnergia() < nave.getPuntosDeEnergiaMax()
+            if(nave.getPuntosDeVida() < nave.getVidaMax() ||  nave.getPuntosEnergia()< nave.getPuntosDeEnergiaMax()
                     || nave.getEscudo() < nave.getPuntosDeEscudoMax()){
                 nave.setPuntosDeVida(nave.getVidaMax());
-                nave.setPuntosDeEnergia(nave.getPuntosDeEnergiaMax());
+                nave.setPuntosEnergia(nave.getPuntosDeEnergiaMax());
                 nave.setEscudo(nave.getPuntosDeEscudoMax());
                 jugador.setCreditosGalacticos(jugador.getCreditosGalacticos() - precioReparacion);
             

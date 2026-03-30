@@ -4,11 +4,11 @@
  */
 package com.mycompany.ParteLogica.Generadores.GeneradorDeComponentesNave;
 
-import com.mycompany.ParteLogica.Componentes.SistemasDeApoyo.CampoDeDistorcion;
+import com.mycompany.ParteLogica.Componentes.SistemasDeApoyo.CampoDeDistorsion;
 import com.mycompany.ParteLogica.Componentes.SistemasDeApoyo.CamuflajeTactico;
 import com.mycompany.ParteLogica.Componentes.SistemasDeApoyo.DronDeReparacion;
-import com.mycompany.ParteLogica.Componentes.SistemasDeApoyo.GeneradorEscudoDeEmergencia;
-import com.mycompany.ParteLogica.Componentes.SistemasDeApoyo.NucleoDeSobreCarga;
+import com.mycompany.ParteLogica.Componentes.SistemasDeApoyo.GeneradorDeEscudoDeEmergencia;
+import com.mycompany.ParteLogica.Componentes.SistemasDeApoyo.NucleoDeSobrecarga;
 import com.mycompany.ParteLogica.Componentes.SistemasDeApoyo.SistemaDeApoyo;
 
 /**
@@ -23,7 +23,7 @@ public class GeneradorDeSistemas {
      * @return 
      */
     public SistemaDeApoyo crearCampoDistorcion(){
-        return new CampoDeDistorcion(35, "Normal", "Campo de distorcion", 4, 0);
+        return new CampoDeDistorsion(35, "Normal", "Campo de distorcion", 4, 0);
     }
     
     public SistemaDeApoyo crearCamuflajeTactico(){
@@ -35,10 +35,10 @@ public class GeneradorDeSistemas {
     }
     
     public SistemaDeApoyo crearGeneradorDeEscudo(){
-        return new GeneradorEscudoDeEmergencia(0, "Normal", "Escudo de emergencia", 0, 0);
+        return new GeneradorDeEscudoDeEmergencia(0, "Normal", "Escudo de emergencia", 0, 0);
     }
     
     public SistemaDeApoyo crearNucleoDeSobreCarga(){
-        return new NucleoDeSobreCarga(50, "Pesado", "Nucleo de sobrecarga", 6, 0);
+        return new NucleoDeSobrecarga(50, "Pesado", "Nucleo de sobrecarga", 6, 0);
     }
 }

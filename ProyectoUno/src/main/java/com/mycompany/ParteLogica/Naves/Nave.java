@@ -32,6 +32,22 @@ public abstract class Nave {
     private int precioDeVenta;
     private double evasionBase;
     private int componentesInventario;
+    private double evasionTemporal;
+    private boolean turnoExtra;
+    private boolean pierdeTurno;
+    private boolean tieneCampoDeMinas;
+    private boolean cañonIonesActivo;
+    private boolean torpedosActivos;
+    private boolean laserCriticoActivo;
+    private boolean misilIgnoraEscudos;
+    private boolean rayoParticulasActivo;
+    private boolean campoDefleccionActivo;
+    private boolean nucleoDeEnergiaActivo;
+    private boolean omitirTurnoEnemigoActivo;
+    private boolean evasionGarantizada;
+    private boolean campoDeDistorsion;
+    private int turnosCampoDistorcion;
+    private boolean sobrecargaActiva;
 
     public Nave(String nombreDeNave, int cantidadDeComponentes, String tipoDeNave,
             int puntosDeVida,int vidaMax, int velocidad, int puntosDeEscudoMax, int combustiblePremium, int puntosDeEnergiaMax, int precioDeNave) {
@@ -52,6 +68,21 @@ public abstract class Nave {
         this.precioDeNave = precioDeNave;
         this.evasionBase = 0.20;
         this.componentesInventario = 0;
+        this.turnoExtra = false;
+        this.pierdeTurno = false;
+        this.tieneCampoDeMinas = false;
+        this.cañonIonesActivo = false;
+        this.torpedosActivos = false;
+        this.laserCriticoActivo = false;
+        this.misilIgnoraEscudos = false;
+        this.rayoParticulasActivo = false;
+        this.campoDefleccionActivo = false;
+        this.nucleoDeEnergiaActivo = false;
+        this.omitirTurnoEnemigoActivo = false;
+        this.evasionGarantizada = false;
+        this.campoDeDistorsion = false;
+        this.turnosCampoDistorcion = 0;
+        this.sobrecargaActiva = false;
         calcularPrecioVenta();
     }
     
@@ -172,6 +203,14 @@ public abstract class Nave {
         this.puntosDeVida = puntosDeVida;
     }
 
+    public int getVidaMax() {
+        return vidaMax;
+    }
+
+    public void setVidaMax(int vidaMax) {
+        this.vidaMax = vidaMax;
+    }
+
     public int getVelocidad() {
         return velocidad;
     }
@@ -180,12 +219,28 @@ public abstract class Nave {
         this.velocidad = velocidad;
     }
 
-    public int getPuntosDeEscudo() {
+    public int getEscudo() {
+        return escudo;
+    }
+
+    public void setEscudo(int escudo) {
+        this.escudo = escudo;
+    }
+
+    public int getPuntosEnergia() {
+        return puntosEnergia;
+    }
+
+    public void setPuntosEnergia(int puntosEnergia) {
+        this.puntosEnergia = puntosEnergia;
+    }
+
+    public int getPuntosDeEscudoMax() {
         return puntosDeEscudoMax;
     }
 
-    public void setPuntosDeEscudo(int puntosDeEscudo) {
-        this.puntosDeEscudoMax = puntosDeEscudo;
+    public void setPuntosDeEscudoMax(int puntosDeEscudoMax) {
+        this.puntosDeEscudoMax = puntosDeEscudoMax;
     }
 
     public int getCombustiblePremium() {
@@ -196,12 +251,28 @@ public abstract class Nave {
         this.combustiblePremium = combustiblePremium;
     }
 
-    public int getPuntosDeEnergia() {
+    public int getPuntosDeEnergiaMax() {
         return puntosDeEnergiaMax;
     }
 
-    public void setPuntosDeEnergia(int puntosDeEnergia) {
-        this.puntosDeEnergiaMax = puntosDeEnergia;
+    public void setPuntosDeEnergiaMax(int puntosDeEnergiaMax) {
+        this.puntosDeEnergiaMax = puntosDeEnergiaMax;
+    }
+
+    public int getPrecioDeNave() {
+        return precioDeNave;
+    }
+
+    public void setPrecioDeNave(int precioDeNave) {
+        this.precioDeNave = precioDeNave;
+    }
+
+    public int getPrecioDeVenta() {
+        return precioDeVenta;
+    }
+
+    public void setPrecioDeVenta(int precioDeVenta) {
+        this.precioDeVenta = precioDeVenta;
     }
 
     public double getEvasionBase() {
@@ -212,48 +283,150 @@ public abstract class Nave {
         this.evasionBase = evasionBase;
     }
 
-    public int getVidaMax() {
-        return vidaMax;
+    public int getComponentesInventario() {
+        return componentesInventario;
     }
 
-    public int getPrecioDeNave() {
-        return precioDeNave;
+    public void setComponentesInventario(int componentesInventario) {
+        this.componentesInventario = componentesInventario;
+    }
+
+    public double getEvasionTemporal() {
+        return evasionTemporal;
+    }
+
+    public void setEvasionTemporal(double evasionTemporal) {
+        this.evasionTemporal = evasionTemporal;
+    }
+
+    public boolean isTurnoExtra() {
+        return turnoExtra;
+    }
+
+    public void setTurnoExtra(boolean turnoExtra) {
+        this.turnoExtra = turnoExtra;
+    }
+
+    public boolean isPierdeTurno() {
+        return pierdeTurno;
+    }
+
+    public void setPierdeTurno(boolean pierdeTurno) {
+        this.pierdeTurno = pierdeTurno;
+    }
+
+    public boolean isTieneCampoDeMinas() {
+        return tieneCampoDeMinas;
+    }
+
+    public void setTieneCampoDeMinas(boolean tieneCampoDeMinas) {
+        this.tieneCampoDeMinas = tieneCampoDeMinas;
+    }
+
+    public boolean isCañonIonesActivo() {
+        return cañonIonesActivo;
+    }
+
+    public void setCañonIonesActivo(boolean cañonIonesActivo) {
+        this.cañonIonesActivo = cañonIonesActivo;
+    }
+
+    public boolean isTorpedosActivos() {
+        return torpedosActivos;
+    }
+
+    public void setTorpedosActivos(boolean torpedosActivos) {
+        this.torpedosActivos = torpedosActivos;
+    }
+
+    public boolean isLaserCriticoActivo() {
+        return laserCriticoActivo;
+    }
+
+    public void setLaserCriticoActivo(boolean laserCriticoActivo) {
+        this.laserCriticoActivo = laserCriticoActivo;
+    }
+
+    public boolean isMisilIgnoraEscudos() {
+        return misilIgnoraEscudos;
+    }
+
+    public void setMisilIgnoraEscudos(boolean misilIgnoraEscudos) {
+        this.misilIgnoraEscudos = misilIgnoraEscudos;
+    }
+
+    public boolean isRayoParticulasActivo() {
+        return rayoParticulasActivo;
+    }
+
+    public void setRayoParticulasActivo(boolean rayoParticulasActivo) {
+        this.rayoParticulasActivo = rayoParticulasActivo;
+    }
+
+    public boolean isCampoDefleccionActivo() {
+        return campoDefleccionActivo;
+    }
+
+    public void setCampoDefleccionActivo(boolean campoDefleccionActivo) {
+        this.campoDefleccionActivo = campoDefleccionActivo;
+    }
+
+    public boolean isNucleoDeEnergiaActivo() {
+        return nucleoDeEnergiaActivo;
+    }
+
+    public void setNucleoDeEnergiaActivo(boolean nucleoDeEnergiaActivo) {
+        this.nucleoDeEnergiaActivo = nucleoDeEnergiaActivo;
     }
 
     public Piloto[] getPiloto() {
         return piloto;
     }
 
-    public int getPrecioDeVenta() {
-        return precioDeVenta;
+    public boolean isOmitirTurnoEnemigoActivo() {
+        return omitirTurnoEnemigoActivo;
     }
 
-    public int getComponentesInventario() {
-        return componentesInventario;
+    public void setOmitirTurnoEnemigoActivo(boolean omitirTurnoEnemigoActivo) {
+        this.omitirTurnoEnemigoActivo = omitirTurnoEnemigoActivo;
     }
 
-    public int getEscudo() {
-        return escudo;
+    public boolean isEvasionGarantizada() {
+        return evasionGarantizada;
     }
 
-    public int getPuntosEnergia() {
-        return puntosEnergia;
+    public void setEvasionGarantizada(boolean evasionGarantizada) {
+        this.evasionGarantizada = evasionGarantizada;
     }
 
-    public int getPuntosDeEscudoMax() {
-        return puntosDeEscudoMax;
+    public boolean isCampoDeDistorsion() {
+        return campoDeDistorsion;
     }
 
-    public int getPuntosDeEnergiaMax() {
-        return puntosDeEnergiaMax;
+    public int getTurnosCampoDistorcion() {
+        return turnosCampoDistorcion;
     }
 
-    public void setEscudo(int escudo) {
-        this.escudo = escudo;
+    public void setTurnosCampoDistorcion(int turnosCampoDistorcion) {
+        this.turnosCampoDistorcion = turnosCampoDistorcion;
     }
+
+    public void setCampoDeDistorsion(boolean campoDeDistorsion) {
+        this.campoDeDistorsion = campoDeDistorsion;
+    }
+
+    public boolean isSobrecargaActiva() {
+        return sobrecargaActiva;
+    }
+
+    public void setSobrecargaActiva(boolean sobrecargaActiva) {
+        this.sobrecargaActiva = sobrecargaActiva;
+    }
+
     
     
+
     
     
-   
+
 }

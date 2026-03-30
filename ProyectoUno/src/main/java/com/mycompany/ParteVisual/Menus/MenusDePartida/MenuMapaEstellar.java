@@ -5,28 +5,32 @@
 package com.mycompany.ParteVisual.Menus.MenusDePartida;
 
 import com.mycompany.ParteLogica.Mapas.Mapas.GestionarMovimientos;
-import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
+import com.mycompany.ParteLogica.Mapas.Mapas.MapaDeEstrella;
 import com.mycompany.ParteLogica.Partida.Partida;
 import com.mycompany.ParteVisual.Inventarios.MostrarFlota;
+import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 
 /**
- *
+ *c
  * @author Kenny
  */
-public class MenuPartidaInicial extends MenuBase {
+public class MenuMapaEstellar extends MenuBase{
 
     private final Partida partida;
     private final GestionarMovimientos verificarMovimiento;
+    private final MapaDeEstrella mapaEstelar;
+  
     
-    public MenuPartidaInicial(Partida partida){
+    public MenuMapaEstellar(Partida partida, MapaDeEstrella mapaEstelar){
         this.partida = partida;
-        this.verificarMovimiento = new GestionarMovimientos(partida.getMapaGalactico());
+        this.mapaEstelar = mapaEstelar;
+        this.verificarMovimiento = new GestionarMovimientos(mapaEstelar);
     }
     
-    @Override
+   @Override
     public void mostrarInformacion() {
         imprimirBordeDeMenu();
-        imprimirLineaDeTexto("W : Arriba,  D: Derecha, S : Abajo, A: Izquierda G : Guardar partida,  X : Salir ");
+        imprimirLineaDeTexto("W : Arriba,  D: Derecha, S : Abajo, A: Izquierda  X : Salir ");
         imprimirBordeDeMenu(); 
         System.out.print("Ingrese un movimiento: ");
         validarOpcionUsuario();
@@ -44,13 +48,13 @@ public class MenuPartidaInicial extends MenuBase {
         String ESTACION = "\u001B[35m⚙" + RESET;
         String NORMAL = "\u001B[34m✦" + RESET;
         String BASE = "\u001B[33m☣" + RESET;
-        String ESTRELLA = "\u001B[37m★" + RESET;
+        String WARP = "\u001B[36m↩" + RESET;  
         String JUGADOR ="\u001B[42m▲" + RESET;
 
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Nombre de Partida: " + partida.getNombrePartida());
         imprimirLineaDeTexto(
-            "Estrella: " + ESTRELLA +
+            "Warp: " + WARP + 
             "  Combate: " + COMBATE +
             "  Estación: " + ESTACION +
             "  Normal: " + NORMAL +
@@ -70,17 +74,8 @@ public class MenuPartidaInicial extends MenuBase {
         
         switch(opcion){
             case "W" :
-                limpiarPantalla();
-                verificarMovimiento(opcion);
-                break;
             case "A":
-                limpiarPantalla();
-                verificarMovimiento(opcion);
-                break;
             case "S" :
-                limpiarPantalla();
-                verificarMovimiento(opcion);
-                break;
             case "D":
                 limpiarPantalla();
                 verificarMovimiento(opcion);
@@ -91,7 +86,7 @@ public class MenuPartidaInicial extends MenuBase {
                 imprimirLineaDeTexto("Opcion no valida, intente de nuevo");
                 imprimirBordeDeMenu();
                 mostrarSimbologia();
-                partida.getMapaGalactico().imprimirMapa();
+                mapaEstelar.imprimirMapa(); 
                 mostrarInformacion();
                 break;
         } 
@@ -99,26 +94,23 @@ public class MenuPartidaInicial extends MenuBase {
     
     private void verificarMovimiento(String opcion){
     
-         boolean opcionValida =   verificarMovimiento.calcularMovimientos(opcion);
+        boolean opcionValida = verificarMovimiento.calcularMovimientos(opcion);
          
         if(!opcionValida){
-         imprimirBordeDeMenu();
-         imprimirLineaDeTexto("Movimiento no valido");
-         imprimirBordeDeMenu();
+            imprimirBordeDeMenu();
+            imprimirLineaDeTexto("Movimiento no valido");
+            imprimirBordeDeMenu();
         } else {
-            partida.getMapaGalactico().verificarCasilla();
+            mapaEstelar.verificarCasilla();
         }
         
-         mostrarSimbologia();
-         partida.getMapaGalactico().imprimirMapa();
-         mostrarInformacion();
-        
+        mostrarSimbologia();
+        mapaEstelar.imprimirMapa(); 
+        mostrarInformacion();
     }
 
     @Override
     public void ejecutarOpcion(int opcion) {
     }
-    
-    
-    
+
 }
