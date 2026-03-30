@@ -10,6 +10,7 @@ import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusDeTienda.MenuGenera
 import com.mycompany.ParteVisual.Menus.MenusDePartida.MenuPartidaInicial;
 import com.mycompany.ParteLogica.Partida.Partida;
 import com.mycompany.ParteVisual.Inventarios.Inventarios;
+import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusFlota.MenuFlota;
 import com.mycompany.ParteVisual.Menus.MenuTaller.MenuTaller;
 
 /**
@@ -67,8 +68,13 @@ public class MenuBaseInicial extends MenuBase {
             case 4: 
                 limpiarPantalla();
                 inventario();
+                getScanner().nextLine();
+                mostrarInformacion();
                 break;
             case 5:
+                MenuFlota menuFlota = new MenuFlota(partida, this);
+                limpiarPantalla();
+                menuFlota.mostrarInformacion();
                 break;
             case 6:
                 limpiarPantalla();

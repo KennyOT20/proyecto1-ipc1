@@ -6,7 +6,6 @@ package com.mycompany.ParteVisual.Menus.MenusDePartida;
 
 import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 import com.mycompany.ParteLogica.Partida.Partida;
-import com.mycompany.ParteLogica.Personajes.Flota;
 import com.mycompany.ParteVisual.Inventarios.MostrarFlota;
 
 /**

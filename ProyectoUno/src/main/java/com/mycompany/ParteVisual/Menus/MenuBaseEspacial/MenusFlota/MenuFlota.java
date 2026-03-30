@@ -5,6 +5,8 @@
 package com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenusFlota;
 
 import com.mycompany.ParteLogica.Partida.Partida;
+import com.mycompany.ParteVisual.Inventarios.Inventarios;
+import com.mycompany.ParteVisual.Menus.MenuBaseEspacial.MenuBaseInicial.MenuBaseInicial;
 import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 
 /**
@@ -14,9 +16,13 @@ import com.mycompany.ParteVisual.Menus.MenuModelo.MenuBase;
 public class MenuFlota extends MenuBase {
 
     private final Partida partida;
+    private final MenuBaseInicial menuInicial;
+    private final Inventarios inventario; 
     
-    public MenuFlota(Partida partida){
+    public MenuFlota(Partida partida, MenuBaseInicial menuInicial, Inventarios inventario){
         this.partida = partida;
+        this.menuInicial = menuInicial;
+        this.inventario = inventario;
     }
     
     
@@ -38,6 +44,9 @@ public class MenuFlota extends MenuBase {
         
         switch(opcion){
             case 1:
+                MenuAgregarNave agregarNave = new MenuAgregarNave(partida, this, inventario );
+                limpiarPantalla();
+                agregarNave.mostrarInformacion();
                 break;
             case 2:
                 MenuEliminarNave eliminarNave = new MenuEliminarNave(partida, this);
@@ -45,6 +54,8 @@ public class MenuFlota extends MenuBase {
                 eliminarNave.mostrarInformacion();
                 break;
             case 3:
+                limpiarPantalla();
+                menuInicial.mostrarInformacion();
                 break;
             default:
                 limpiarPantalla();

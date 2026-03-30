@@ -17,7 +17,6 @@ public class Flota {
     
     public Flota(int cantidadNave){
         this.naves = new Nave[cantidadNave];
-        this.cantidadDeNaves = 0;
     }
     
     public void agregarNave(Nave nave){
@@ -31,12 +30,7 @@ public class Flota {
     
     public Nave eliminarNave(int opcion){
 
-
-        for (int i = 0; i < naves.length; i++) {
-            if(naves[i] != null){
-                cantidadDeNaves++;
-            }
-        }
+        int cantidadDeNaves = contarNaves(); 
 
         if(cantidadDeNaves <= 1){
             return null;
@@ -59,18 +53,27 @@ public class Flota {
         return naveEliminada;
     }
 
-    public Nave[] getNaves() {
+    public int contarNaves(){
+        
+        int cantidad = 0;
+
+            for (int i = 0; i < naves.length; i++) {
+                if(naves[i] != null){
+                    cantidad++;
+                }
+            }
+
+            return cantidad;
+    }
+    
+     public Nave[] getNaves() {
         return naves;
     }
-
+        
     public int getCantidadDeNaves() {
         return cantidadDeNaves;
     }
-
-
-
-   
-    
-    
     
 }
+
+

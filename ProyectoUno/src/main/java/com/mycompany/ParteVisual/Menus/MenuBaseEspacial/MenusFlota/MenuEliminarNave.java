@@ -36,27 +36,44 @@ public class MenuEliminarNave extends MenuBase {
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("0. Guardar y regresar al menu anterior");
         imprimirBordeDeMenu();
-        System.out.println("Ingrese una opcion: ");
+        System.out.print("Ingrese una opcion: ");
+        validarOpcion();
     }
 
     @Override
     public void ejecutarOpcion(int opcion) {
         
-        int cantidadDeNaves = partida.getJugador().getFlota().getCantidadDeNaves();
+        int cantidadDeNaves = partida.getJugador().getFlota().contarNaves();
         
-        if(opcion == 0){
-            limpiarPantalla();
+       if(opcion == 0){
+        limpiarPantalla();
+
+        if(nave != null){
             partida.getJugador().getInventarioNaves().agregarNavesInventario(nave);
+                nave = null; 
+            }
+
             menuFlota.mostrarInformacion();
-        }
-        
-        if(opcion > 0 && opcion <= cantidadDeNaves){
-            limpiarPantalla();
-            nave = partida.getJugador().getFlota().eliminarNave(opcion);
-            partida.getJugador().getInventarioNaves().agregarNavesInventario(nave);
-            mostrarDatos();
-            mostrarInformacion();
-        }
+            
+        } else if(opcion > 0 && opcion <= cantidadDeNaves){
+             limpiarPantalla();
+
+             nave = partida.getJugador().getFlota().eliminarNave(opcion);
+
+             if(nave != null){
+                 partida.getJugador().getInventarioNaves().agregarNavesInventario(nave);
+             }
+
+             mostrarDatos();
+             mostrarInformacion();
+
+         } else {
+             limpiarPantalla();
+             imprimirBordeDeMenu();
+             imprimirLineaDeTexto("Opcion no valida, intente de nuevo");
+             imprimirBordeDeMenu();
+             mostrarInformacion();
+         }
     }
     
     private void mostrarDatos(){
