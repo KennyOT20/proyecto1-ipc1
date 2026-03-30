@@ -72,7 +72,7 @@ public class MenuBaseInicial extends MenuBase {
                 mostrarInformacion();
                 break;
             case 5:
-                MenuFlota menuFlota = new MenuFlota(partida, this);
+                MenuFlota menuFlota = new MenuFlota(partida, this, inventario);
                 limpiarPantalla();
                 menuFlota.mostrarInformacion();
                 break;

@@ -48,11 +48,6 @@ public class MenuEliminarNave extends MenuBase {
        if(opcion == 0){
         limpiarPantalla();
 
-        if(nave != null){
-            partida.getJugador().getInventarioNaves().agregarNavesInventario(nave);
-                nave = null; 
-            }
-
             menuFlota.mostrarInformacion();
             
         } else if(opcion > 0 && opcion <= cantidadDeNaves){
@@ -62,6 +57,7 @@ public class MenuEliminarNave extends MenuBase {
 
              if(nave != null){
                  partida.getJugador().getInventarioNaves().agregarNavesInventario(nave);
+                 nave = null;
              }
 
              mostrarDatos();

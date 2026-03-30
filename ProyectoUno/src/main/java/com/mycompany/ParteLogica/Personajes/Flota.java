@@ -19,18 +19,34 @@ public class Flota {
         this.naves = new Nave[cantidadNave];
     }
     
-    public void agregarNave(Nave nave){
-        for (int i = 0; i < naves.length; i++) {
-            if(naves[i] == null){
-                naves[i] = nave; 
-                return;
-            }
-        }
-    }
+    public boolean agregarNave(Nave nave){
+
+          if(nave == null){
+              return false;
+          }
+
+          if(nave.getPiloto()[0] == null){
+              return false;
+          }
+
+          if(nave.getComponentesDeNave()[0] == null){
+              return false;
+          }
+
+          for (int i = 0; i < naves.length; i++) {
+              if(naves[i] == null){
+                  naves[i] = nave; 
+                  return true;
+              }
+          }
+
+          return false;
+      }
+    
     
     public Nave eliminarNave(int opcion){
 
-        int cantidadDeNaves = contarNaves(); 
+        cantidadDeNaves = contarNaves(); 
 
         if(cantidadDeNaves <= 1){
             return null;

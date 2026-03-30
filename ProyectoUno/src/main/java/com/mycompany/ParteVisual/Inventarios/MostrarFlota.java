@@ -20,10 +20,13 @@ public class MostrarFlota extends Bordes {
     }
     
     public void mostrarFlota(){
+        int cantidadDeNaves = flota.contarNaves();
         int cantidadFlota = flota.getNaves().length;
+        String linea = cantidadDeNaves + " / "  + cantidadFlota;
         
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Naves en flota");
+        imprimirLineaDeTexto(linea);
         imprimirBordeDeMenu();
         imprimirLineaDeTexto("Nave:                     Piloto abordo:   ");
          

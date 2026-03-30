@@ -28,10 +28,15 @@ public class GenerarFlota {
     public void asingarFlotaInicial(Jugador jugador){
         Nave fragata = generarNave.crearFragata();
         Piloto pilotoObtenido = ensambladorNave.obtenerPilotoRandom();
-        ComponenteDeNave componenteObtenido = ensambladorNave.obtenerComponenteAleatorio();
         fragata.agregarPiloto(pilotoObtenido);
         
-        ensambladorNave.agregarComponente(fragata, componenteObtenido);
+        for (int i = 0; i < fragata.getComponentesDeNave().length; i++) {
+        
+            if(fragata.getComponentesDeNave()[i] == null){
+                ComponenteDeNave componenteObtenido = ensambladorNave.obtenerComponenteAleatorio();
+                ensambladorNave.agregarComponente(fragata, componenteObtenido);
+            }
+        }
         jugador.getFlota().agregarNave(fragata);
     }
     
